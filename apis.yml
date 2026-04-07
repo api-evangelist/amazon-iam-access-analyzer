@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Security
-  - IAM
   - Access Control
-  - Compliance
   - AWS
+  - Compliance
+  - IAM
+  - Security
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/iam/features/analyze-access/
     baseURL: https://access-analyzer.amazonaws.com
     tags:
-      - Security
-      - IAM
       - Access Control
+      - IAM
+      - Security
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
