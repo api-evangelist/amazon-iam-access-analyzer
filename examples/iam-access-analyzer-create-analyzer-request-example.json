@@ -1,0 +1,7 @@
+{
+  "analyzerName": "example-resource-name",
+  "type": "CUSTOM",
+  "archiveRules": "example-value",
+  "tags": "example-value",
+  "clientToken": "example-value"
+}

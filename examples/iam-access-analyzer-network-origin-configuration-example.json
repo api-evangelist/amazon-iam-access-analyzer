@@ -1,0 +1,6 @@
+{
+  "vpcConfiguration": {
+    "vpcId": "id-abc123"
+  },
+  "internetConfiguration": "example-value"
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-access-preview-summary-schema.json",
+  "title": "AccessPreviewSummary",
+  "description": "Contains a summary of information about an access preview.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccessPreviewId"
+        },
+        {
+          "description": "The unique ID for the access preview."
+        }
+      ]
+    },
+    "analyzerArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnalyzerArn"
+        },
+        {
+          "description": "The ARN of the analyzer used to generate the access preview."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time at which the access preview was created."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccessPreviewStatus"
+        },
+        {
+          "description": "<p>The status of the access preview.</p> <ul> <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li> <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li> <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li> </ul>"
+        }
+      ]
+    },
+    "statusReason": {
+      "type": "object",
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AccessPreviewStatusReasonCode"
+            },
+            {
+              "description": "The reason code for the current status of the access preview."
+            }
+          ]
+        }
+      },
+      "description": "Provides more details about the current status of the access preview. For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid proposed resource configuration."
+    }
+  },
+  "required": [
+    "id",
+    "analyzerArn",
+    "createdAt",
+    "status"
+  ]
+}

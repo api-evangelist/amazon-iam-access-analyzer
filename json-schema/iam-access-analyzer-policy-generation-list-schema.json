@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-policy-generation-list-schema.json",
+  "title": "PolicyGenerationList",
+  "description": "PolicyGenerationList schema from AWS IAM Access Analyzer API",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "jobId",
+      "principalArn",
+      "status",
+      "startedOn"
+    ],
+    "properties": {
+      "jobId": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/JobId"
+          },
+          {
+            "description": "The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request."
+          }
+        ]
+      },
+      "principalArn": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PrincipalArn"
+          },
+          {
+            "description": "The ARN of the IAM entity (user or role) for which you are generating a policy."
+          }
+        ]
+      },
+      "status": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          {
+            "description": "The status of the policy generation request."
+          }
+        ]
+      },
+      "startedOn": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          {
+            "description": "A timestamp of when the policy generation started."
+          }
+        ]
+      },
+      "completedOn": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          {
+            "description": "A timestamp of when the policy generation was completed."
+          }
+        ]
+      }
+    },
+    "description": "Contains details about the policy generation status and properties."
+  }
+}

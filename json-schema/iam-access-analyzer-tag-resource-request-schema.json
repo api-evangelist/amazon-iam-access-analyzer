@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-tag-resource-request-schema.json",
+  "title": "TagResourceRequest",
+  "description": "Adds a tag to the specified resource.",
+  "type": "object",
+  "properties": {
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagsMap"
+        },
+        {
+          "description": "The tags to add to the resource."
+        }
+      ]
+    }
+  },
+  "required": [
+    "tags"
+  ]
+}

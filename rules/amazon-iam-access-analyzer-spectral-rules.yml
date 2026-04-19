@@ -1,0 +1,206 @@
+rules:
+
+  # INFO / METADATA
+  info-title-required:
+    description: Info title must be present and non-empty.
+    severity: error
+    given: "$.info"
+    then:
+      field: title
+      function: truthy
+
+  info-description-required:
+    description: Info description must be present and have at least 20 characters.
+    severity: warn
+    given: "$.info"
+    then:
+      field: description
+      function: minLength
+      functionOptions:
+        min: 20
+
+  info-version-required:
+    description: API version must be specified in info.version.
+    severity: error
+    given: "$.info"
+    then:
+      field: version
+      function: truthy
+
+  # OPENAPI VERSION
+  openapi-version-3:
+    description: Must use OpenAPI 3.x specification.
+    severity: error
+    given: "$"
+    then:
+      field: openapi
+      function: pattern
+      functionOptions:
+        match: "^3\\."
+
+  # SERVERS
+  servers-defined:
+    description: At least one server must be defined.
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: truthy
+
+  servers-https-only:
+    description: All server URLs must use HTTPS.
+    severity: error
+    given: "$.servers[*]"
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  # OPERATIONS
+  operation-summary-required:
+    description: Every operation must have a non-empty summary.
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch,head,options]"
+    then:
+      field: summary
+      function: truthy
+
+  operation-summary-prefix:
+    description: Every operation summary must start with 'Amazon IAM Access Analyzer'.
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch,head,options]"
+    then:
+      field: summary
+      function: pattern
+      functionOptions:
+        match: "^Amazon IAM Access Analyzer"
+
+  operation-description-required:
+    description: Every operation must have a description.
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch,head,options]"
+    then:
+      field: description
+      function: truthy
+
+  operation-id-required:
+    description: Every operation must have an operationId.
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch,head,options]"
+    then:
+      field: operationId
+      function: truthy
+
+  operation-id-camel-case:
+    description: operationId should use PascalCase (e.g. ListAnalyzers, CreateAnalyzer).
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch,head,options]"
+    then:
+      field: operationId
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9]*$"
+
+  operation-tags-required:
+    description: Every operation must have at least one tag.
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch,head,options]"
+    then:
+      field: tags
+      function: truthy
+
+  # PARAMETERS
+  parameter-description-required:
+    description: Every parameter must have a description.
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch,head,options].parameters[*]"
+    then:
+      field: description
+      function: truthy
+
+  parameter-schema-required:
+    description: Every parameter must define a schema.
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch,head,options].parameters[*]"
+    then:
+      field: schema
+      function: truthy
+
+  # RESPONSES
+  response-success-required:
+    description: Every operation must define at least one 2xx success response.
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch,head,options].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          minProperties: 1
+
+  response-description-required:
+    description: Every response must have a description.
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch,head,options].responses[*]"
+    then:
+      field: description
+      function: truthy
+
+  # SCHEMAS
+  schema-description-required:
+    description: Top-level component schemas should have a description.
+    severity: info
+    given: "$.components.schemas[*]"
+    then:
+      field: description
+      function: truthy
+
+  schema-type-defined:
+    description: Schemas should define an explicit type.
+    severity: info
+    given: "$.components.schemas[*]"
+    then:
+      field: type
+      function: truthy
+
+  # SECURITY
+  security-schemes-defined:
+    description: Security schemes must be defined in components if security is used.
+    severity: warn
+    given: "$.components"
+    then:
+      field: securitySchemes
+      function: truthy
+
+  # HTTP METHOD CONVENTIONS
+  get-no-request-body:
+    description: GET operations must not have a request body.
+    severity: error
+    given: "$.paths[*].get"
+    then:
+      field: requestBody
+      function: falsy
+
+  delete-no-request-body:
+    description: DELETE operations should not have a request body.
+    severity: warn
+    given: "$.paths[*].delete"
+    then:
+      field: requestBody
+      function: falsy
+
+  # GENERAL QUALITY
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: "$..description"
+    then:
+      function: truthy
+
+  examples-encouraged:
+    description: Schema properties should include example values.
+    severity: info
+    given: "$.components.schemas[*].properties[*]"
+    then:
+      field: example
+      function: truthy

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-access-preview-status-reason-structure.json",
+  "name": "AccessPreviewStatusReason",
+  "description": "Provides more details about the current status of the access preview. For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid proposed resource configuration.",
+  "type": "object",
+  "properties": {
+    "code": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccessPreviewStatusReasonCode"
+        },
+        {
+          "description": "The reason code for the current status of the access preview."
+        }
+      ]
+    }
+  },
+  "required": [
+    "code"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-analyzed-resources-list-schema.json",
+  "title": "AnalyzedResourcesList",
+  "description": "AnalyzedResourcesList schema from AWS IAM Access Analyzer API",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "resourceArn",
+      "resourceOwnerAccount",
+      "resourceType"
+    ],
+    "properties": {
+      "resourceArn": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResourceArn"
+          },
+          {
+            "description": "The ARN of the analyzed resource."
+          }
+        ]
+      },
+      "resourceOwnerAccount": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/String"
+          },
+          {
+            "description": "The Amazon Web Services account ID that owns the resource."
+          }
+        ]
+      },
+      "resourceType": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResourceType"
+          },
+          {
+            "description": "The type of resource that was analyzed."
+          }
+        ]
+      }
+    },
+    "description": "Contains the ARN of the analyzed resource."
+  }
+}

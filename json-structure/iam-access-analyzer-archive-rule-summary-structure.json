@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-archive-rule-summary-structure.json",
+  "name": "ArchiveRuleSummary",
+  "description": "Contains information about an archive rule.",
+  "type": "object",
+  "properties": {
+    "ruleName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Name"
+        },
+        {
+          "description": "The name of the archive rule."
+        }
+      ]
+    },
+    "filter": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterCriteriaMap"
+        },
+        {
+          "description": "A filter used to define the archive rule."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time at which the archive rule was created."
+        }
+      ]
+    },
+    "updatedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time at which the archive rule was last updated."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ruleName",
+    "filter",
+    "createdAt",
+    "updatedAt"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-get-analyzer-request-structure.json",
+  "name": "GetAnalyzerRequest",
+  "description": "Retrieves an analyzer.",
+  "type": "object",
+  "properties": {}
+}

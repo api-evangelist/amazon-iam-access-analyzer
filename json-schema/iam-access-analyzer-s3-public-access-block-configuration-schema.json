@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-s3-public-access-block-configuration-schema.json",
+  "title": "S3PublicAccessBlockConfiguration",
+  "description": "The <code>PublicAccessBlock</code> configuration to apply to this Amazon S3 bucket. If the proposed configuration is for an existing Amazon S3 bucket and the configuration is not specified, the access preview uses the existing setting. If the proposed configuration is for a new bucket and the configuration is not specified, the access preview uses <code>false</code>. If the proposed configuration is for a new access point or multi-region access point and the access point BPA configuration is not specified, the access preview uses <code>true</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html\">PublicAccessBlockConfiguration</a>. ",
+  "type": "object",
+  "properties": {
+    "ignorePublicAcls": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": " Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. "
+        }
+      ]
+    },
+    "restrictPublicBuckets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": " Specifies whether Amazon S3 should restrict public bucket policies for this bucket. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "ignorePublicAcls",
+    "restrictPublicBuckets"
+  ]
+}

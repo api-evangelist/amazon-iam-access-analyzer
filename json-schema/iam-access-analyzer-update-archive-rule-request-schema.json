@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-update-archive-rule-request-schema.json",
+  "title": "UpdateArchiveRuleRequest",
+  "description": "Updates the specified archive rule.",
+  "type": "object",
+  "properties": {
+    "filter": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterCriteriaMap"
+        },
+        {
+          "description": "A filter to match for the rules to update. Only rules that match the filter are updated."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "A client token."
+        }
+      ]
+    }
+  },
+  "required": [
+    "filter"
+  ]
+}

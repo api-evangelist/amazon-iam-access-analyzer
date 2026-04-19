@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-vpc-configuration-schema.json",
+  "title": "VpcConfiguration",
+  "description": "The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC configuration does not apply to multi-region access points. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html\">VpcConfiguration</a>. ",
+  "type": "object",
+  "properties": {
+    "vpcId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VpcId"
+        },
+        {
+          "description": " If this field is specified, this access point will only allow connections from the specified VPC ID. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "vpcId"
+  ]
+}

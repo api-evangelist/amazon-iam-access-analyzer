@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-finding-source-schema.json",
+  "title": "FindingSource",
+  "description": "The source of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingSourceType"
+        },
+        {
+          "description": "Indicates the type of access that generated the finding."
+        }
+      ]
+    },
+    "detail": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingSourceDetail"
+        },
+        {
+          "description": "Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings."
+        }
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

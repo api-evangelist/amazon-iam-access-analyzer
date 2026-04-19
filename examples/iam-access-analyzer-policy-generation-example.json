@@ -1,0 +1,7 @@
+{
+  "jobId": "id-def456",
+  "principalArn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "status": "ACTIVE",
+  "startedOn": "example-value",
+  "completedOn": "example-value"
+}

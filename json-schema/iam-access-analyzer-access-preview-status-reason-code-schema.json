@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-access-preview-status-reason-code-schema.json",
+  "title": "AccessPreviewStatusReasonCode",
+  "description": "AccessPreviewStatusReasonCode schema from AWS IAM Access Analyzer API",
+  "type": "string",
+  "enum": [
+    "INTERNAL_ERROR",
+    "INVALID_CONFIGURATION"
+  ]
+}

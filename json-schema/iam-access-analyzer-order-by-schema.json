@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-order-by-schema.json",
+  "title": "OrderBy",
+  "description": "OrderBy schema from AWS IAM Access Analyzer API",
+  "type": "string",
+  "enum": [
+    "ASC",
+    "DESC"
+  ]
+}

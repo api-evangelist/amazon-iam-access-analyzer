@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-kms-grant-constraints-structure.json",
+  "name": "KmsGrantConstraints",
+  "description": "Use this structure to propose allowing <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations\">cryptographic operations</a> in the grant only when the operation request includes the specified <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context\">encryption context</a>. You can specify only one type of encryption context. An empty map is treated as not specified. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_GrantConstraints.html\">GrantConstraints</a>.",
+  "type": "object",
+  "properties": {
+    "encryptionContextEquals": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KmsConstraintsMap"
+        },
+        {
+          "description": "A list of key-value pairs that must match the encryption context in the <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations\">cryptographic operation</a> request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint."
+        }
+      ]
+    },
+    "encryptionContextSubset": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KmsConstraintsMap"
+        },
+        {
+          "description": "A list of key-value pairs that must be included in the encryption context of the <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations\">cryptographic operation</a> request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs."
+        }
+      ]
+    }
+  }
+}

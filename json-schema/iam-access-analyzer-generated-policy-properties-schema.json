@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-generated-policy-properties-schema.json",
+  "title": "GeneratedPolicyProperties",
+  "description": "Contains the generated policy details.",
+  "type": "object",
+  "properties": {
+    "isComplete": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "This value is set to <code>true</code> if the generated policy contains all possible actions for a service that IAM Access Analyzer identified from the CloudTrail trail that you specified, and <code>false</code> otherwise."
+        }
+      ]
+    },
+    "principalArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrincipalArn"
+        },
+        {
+          "description": "The ARN of the IAM entity (user or role) for which you are generating a policy."
+        }
+      ]
+    },
+    "cloudTrailProperties": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudTrailProperties"
+        },
+        {
+          "description": "Lists details about the <code>Trail</code> used to generated policy."
+        }
+      ]
+    }
+  },
+  "required": [
+    "principalArn"
+  ]
+}

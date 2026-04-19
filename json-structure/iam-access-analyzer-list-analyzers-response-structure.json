@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-list-analyzers-response-structure.json",
+  "name": "ListAnalyzersResponse",
+  "description": "The response to the request.",
+  "type": "object",
+  "properties": {
+    "analyzers": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnalyzersList"
+        },
+        {
+          "description": "The analyzers retrieved."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Token"
+        },
+        {
+          "description": "A token used for pagination of results returned."
+        }
+      ]
+    }
+  },
+  "required": [
+    "analyzers"
+  ]
+}

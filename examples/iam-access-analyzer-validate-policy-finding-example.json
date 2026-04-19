@@ -1,0 +1,7 @@
+{
+  "findingDetails": "example-value",
+  "findingType": "CUSTOM",
+  "issueCode": "example-value",
+  "learnMoreLink": "arn:aws:iam::123456789012:role/ExampleRole",
+  "locations": "example-value"
+}

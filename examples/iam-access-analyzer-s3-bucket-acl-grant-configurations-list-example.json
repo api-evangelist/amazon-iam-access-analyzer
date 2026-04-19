@@ -1,0 +1,10 @@
+[
+  {
+    "permission": "example-value",
+    "grantee": "example-value"
+  },
+  {
+    "permission": "example-value",
+    "grantee": "example-value"
+  }
+]

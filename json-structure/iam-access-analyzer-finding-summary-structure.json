@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-finding-summary-structure.json",
+  "name": "FindingSummary",
+  "description": "Contains information about a finding.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingId"
+        },
+        {
+          "description": "The ID of the finding."
+        }
+      ]
+    },
+    "principal": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrincipalMap"
+        },
+        {
+          "description": "The external principal that has access to a resource within the zone of trust."
+        }
+      ]
+    },
+    "action": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ActionList"
+        },
+        {
+          "description": "The action in the analyzed policy statement that an external principal has permission to use."
+        }
+      ]
+    },
+    "resource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The resource that the external principal has access to."
+        }
+      ]
+    },
+    "isPublic": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Indicates whether the finding reports a resource that has a policy that allows public access."
+        }
+      ]
+    },
+    "resourceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceType"
+        },
+        {
+          "description": "The type of the resource that the external principal has access to."
+        }
+      ]
+    },
+    "condition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConditionKeyMap"
+        },
+        {
+          "description": "The condition in the analyzed policy statement that resulted in a finding."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time at which the finding was created."
+        }
+      ]
+    },
+    "analyzedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time at which the resource-based policy that generated the finding was analyzed."
+        }
+      ]
+    },
+    "updatedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time at which the finding was most recently updated."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingStatus"
+        },
+        {
+          "description": "The status of the finding."
+        }
+      ]
+    },
+    "resourceOwnerAccount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The Amazon Web Services account ID that owns the resource."
+        }
+      ]
+    },
+    "error": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The error that resulted in an Error finding."
+        }
+      ]
+    },
+    "sources": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingSourceList"
+        },
+        {
+          "description": "The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings."
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "resourceType",
+    "condition",
+    "createdAt",
+    "analyzedAt",
+    "updatedAt",
+    "status",
+    "resourceOwnerAccount"
+  ]
+}

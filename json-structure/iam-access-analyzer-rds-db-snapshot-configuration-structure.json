@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-rds-db-snapshot-configuration-structure.json",
+  "name": "RdsDbSnapshotConfiguration",
+  "description": "The proposed access control configuration for an Amazon RDS DB snapshot. You can propose a configuration for a new Amazon RDS DB snapshot or an Amazon RDS DB snapshot that you own by specifying the <code>RdsDbSnapshotAttributeValue</code> and optional KMS encryption key. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSnapshotAttribute.html\">ModifyDBSnapshotAttribute</a>.",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RdsDbSnapshotAttributesMap"
+        },
+        {
+          "description": "The names and values of manual DB snapshot attributes. Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual DB snapshot. The only valid value for <code>attributeName</code> for the attribute map is restore."
+        }
+      ]
+    },
+    "kmsKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RdsDbSnapshotKmsKeyId"
+        },
+        {
+          "description": "<p>The KMS key identifier for an encrypted Amazon RDS DB snapshot. The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <ul> <li> <p>If the configuration is for an existing Amazon RDS DB snapshot and you do not specify the <code>kmsKeyId</code>, or you specify an empty string, then the access preview uses the existing <code>kmsKeyId</code> of the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the specify the <code>kmsKeyId</code>, then the access preview considers the snapshot as unencrypted.</p> </li> </ul>"
+        }
+      ]
+    }
+  }
+}

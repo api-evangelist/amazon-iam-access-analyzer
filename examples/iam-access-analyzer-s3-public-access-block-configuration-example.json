@@ -1,0 +1,4 @@
+{
+  "ignorePublicAcls": "example-value",
+  "restrictPublicBuckets": "example-value"
+}

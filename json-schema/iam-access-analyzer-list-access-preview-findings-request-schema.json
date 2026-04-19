@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-list-access-preview-findings-request-schema.json",
+  "title": "ListAccessPreviewFindingsRequest",
+  "description": "ListAccessPreviewFindingsRequest schema from AWS IAM Access Analyzer API",
+  "type": "object",
+  "properties": {
+    "analyzerArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnalyzerArn"
+        },
+        {
+          "description": "The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access."
+        }
+      ]
+    },
+    "filter": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterCriteriaMap"
+        },
+        {
+          "description": "Criteria to filter the returned findings."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Token"
+        },
+        {
+          "description": "A token used for pagination of results returned."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The maximum number of results to return in the response."
+        }
+      ]
+    }
+  },
+  "required": [
+    "analyzerArn"
+  ]
+}

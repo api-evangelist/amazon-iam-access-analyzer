@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-s3-bucket-acl-grant-configuration-schema.json",
+  "title": "S3BucketAclGrantConfiguration",
+  "description": "A proposed access control list grant configuration for an Amazon S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#setting-acls\">How to Specify an ACL</a>.",
+  "type": "object",
+  "properties": {
+    "permission": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AclPermission"
+        },
+        {
+          "description": "The permissions being granted."
+        }
+      ]
+    },
+    "grantee": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AclGrantee"
+        },
+        {
+          "description": "The grantee to whom you\u2019re assigning access rights."
+        }
+      ]
+    }
+  },
+  "required": [
+    "permission",
+    "grantee"
+  ]
+}

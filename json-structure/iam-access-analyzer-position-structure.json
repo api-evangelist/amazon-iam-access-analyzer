@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-position-structure.json",
+  "name": "Position",
+  "description": "A position in a policy.",
+  "type": "object",
+  "properties": {
+    "line": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The line of the position, starting from 1."
+        }
+      ]
+    },
+    "column": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The column of the position, starting from 0."
+        }
+      ]
+    },
+    "offset": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The offset within the policy that corresponds to the position, starting from 0."
+        }
+      ]
+    }
+  },
+  "required": [
+    "line",
+    "column",
+    "offset"
+  ]
+}

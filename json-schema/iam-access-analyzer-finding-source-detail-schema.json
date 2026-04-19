@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-finding-source-detail-schema.json",
+  "title": "FindingSourceDetail",
+  "description": "Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.",
+  "type": "object",
+  "properties": {
+    "accessPointArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The ARN of the access point that generated the finding. The ARN format depends on whether the ARN represents an access point or a multi-region access point."
+        }
+      ]
+    },
+    "accessPointAccount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The account of the cross-account access point that generated the finding."
+        }
+      ]
+    }
+  }
+}

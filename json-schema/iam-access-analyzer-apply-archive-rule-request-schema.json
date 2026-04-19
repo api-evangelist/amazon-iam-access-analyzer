@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-apply-archive-rule-request-schema.json",
+  "title": "ApplyArchiveRuleRequest",
+  "description": "Retroactively applies an archive rule.",
+  "type": "object",
+  "properties": {
+    "analyzerArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnalyzerArn"
+        },
+        {
+          "description": "The Amazon resource name (ARN) of the analyzer."
+        }
+      ]
+    },
+    "ruleName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Name"
+        },
+        {
+          "description": "The name of the rule to apply."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "A client token."
+        }
+      ]
+    }
+  },
+  "required": [
+    "analyzerArn",
+    "ruleName"
+  ]
+}

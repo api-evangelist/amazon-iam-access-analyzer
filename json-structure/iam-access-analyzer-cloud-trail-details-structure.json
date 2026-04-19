@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-cloud-trail-details-structure.json",
+  "name": "CloudTrailDetails",
+  "description": "Contains information about CloudTrail access.",
+  "type": "object",
+  "properties": {
+    "trails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TrailList"
+        },
+        {
+          "description": "A <code>Trail</code> object that contains settings for a trail."
+        }
+      ]
+    },
+    "accessRole": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The ARN of the service role that IAM Access Analyzer uses to access your CloudTrail trail and service last accessed information."
+        }
+      ]
+    },
+    "startTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with a timestamp before this time are not considered to generate a policy."
+        }
+      ]
+    },
+    "endTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with a timestamp after this time are not considered to generate a policy. If this is not included in the request, the default value is the current time."
+        }
+      ]
+    }
+  },
+  "required": [
+    "trails",
+    "accessRole",
+    "startTime"
+  ]
+}

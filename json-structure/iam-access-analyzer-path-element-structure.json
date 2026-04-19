@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-path-element-structure.json",
+  "name": "PathElement",
+  "description": "A single element in a path through the JSON representation of a policy.",
+  "type": "object",
+  "properties": {
+    "index": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "Refers to an index in a JSON array."
+        }
+      ]
+    },
+    "key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "Refers to a key in a JSON object."
+        }
+      ]
+    },
+    "substring": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Substring"
+        },
+        {
+          "description": "Refers to a substring of a literal string in a JSON object."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "Refers to the value associated with a given key in a JSON object."
+        }
+      ]
+    }
+  }
+}

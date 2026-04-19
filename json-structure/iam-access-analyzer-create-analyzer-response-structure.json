@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-create-analyzer-response-structure.json",
+  "name": "CreateAnalyzerResponse",
+  "description": "The response to the request to create an analyzer.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnalyzerArn"
+        },
+        {
+          "description": "The ARN of the analyzer that was created by the request."
+        }
+      ]
+    }
+  }
+}

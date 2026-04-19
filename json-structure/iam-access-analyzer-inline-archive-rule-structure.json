@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-inline-archive-rule-structure.json",
+  "name": "InlineArchiveRule",
+  "description": "An criterion statement in an archive rule. Each archive rule may have multiple criteria.",
+  "type": "object",
+  "properties": {
+    "ruleName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Name"
+        },
+        {
+          "description": "The name of the rule."
+        }
+      ]
+    },
+    "filter": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterCriteriaMap"
+        },
+        {
+          "description": "The condition and values for a criterion."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ruleName",
+    "filter"
+  ]
+}

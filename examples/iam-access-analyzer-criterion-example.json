@@ -1,0 +1,6 @@
+{
+  "eq": "example-value",
+  "neq": "example-value",
+  "contains": "example-value",
+  "exists": "example-value"
+}

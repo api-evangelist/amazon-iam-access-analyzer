@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-validate-policy-finding-structure.json",
+  "name": "ValidatePolicyFinding",
+  "description": "A finding in a policy. Each finding is an actionable recommendation that can be used to improve the policy.",
+  "type": "object",
+  "properties": {
+    "findingDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "A localized message that explains the finding and provides guidance on how to address it."
+        }
+      ]
+    },
+    "findingType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ValidatePolicyFindingType"
+        },
+        {
+          "description": "<p>The impact of the finding.</p> <p>Security warnings report when the policy allows access that we consider overly permissive.</p> <p>Errors report when a part of the policy is not functional.</p> <p>Warnings report non-security issues when a policy does not conform to policy writing best practices.</p> <p>Suggestions recommend stylistic improvements in the policy that do not impact access.</p>"
+        }
+      ]
+    },
+    "issueCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IssueCode"
+        },
+        {
+          "description": "The issue code provides an identifier of the issue associated with this finding."
+        }
+      ]
+    },
+    "learnMoreLink": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LearnMoreLink"
+        },
+        {
+          "description": "A link to additional documentation about the type of finding."
+        }
+      ]
+    },
+    "locations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LocationList"
+        },
+        {
+          "description": "The list of locations in the policy document that are related to the finding. The issue code provides a summary of an issue identified by the finding."
+        }
+      ]
+    }
+  },
+  "required": [
+    "findingDetails",
+    "findingType",
+    "issueCode",
+    "learnMoreLink",
+    "locations"
+  ]
+}

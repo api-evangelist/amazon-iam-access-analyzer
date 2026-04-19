@@ -1,0 +1,168 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Amazon IAM Access Analyzer
+  description: Vocabulary and taxonomy for AWS IAM Access Analyzer API covering analyzers, findings, policies, and access management operations.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: iam-access-analyzer
+      version: "2019-11-01"
+      baseUrl: https://access-analyzer.amazonaws.com
+      status: active
+
+  resources:
+    - name: analyzers
+      api: iam-access-analyzer
+      actions: [list, create, delete, get]
+    - name: findings
+      api: iam-access-analyzer
+      actions: [list, get, update]
+    - name: archive-rules
+      api: iam-access-analyzer
+      actions: [list, create, delete, get, update]
+    - name: policies
+      api: iam-access-analyzer
+      actions: [validate, generate, list]
+    - name: access-previews
+      api: iam-access-analyzer
+      actions: [create, get, list]
+    - name: analyzed-resources
+      api: iam-access-analyzer
+      actions: [list, get]
+    - name: tags
+      api: iam-access-analyzer
+      actions: [list, add, remove]
+
+  actions:
+    - name: list
+      methods: [GET, POST]
+      pattern: read
+    - name: get
+      methods: [GET]
+      pattern: read
+    - name: create
+      methods: [PUT]
+      pattern: write
+    - name: delete
+      methods: [DELETE]
+      pattern: destructive
+    - name: update
+      methods: [PUT]
+      pattern: write
+    - name: validate
+      methods: [POST]
+      pattern: read
+    - name: generate
+      methods: [PUT]
+      pattern: write
+    - name: apply
+      methods: [PUT]
+      pattern: write
+    - name: start
+      methods: [PUT, POST]
+      pattern: write
+    - name: cancel
+      methods: [PUT]
+      pattern: write
+
+  schemas:
+    core:
+      - Analyzer
+      - Finding
+      - ArchiveRule
+      - AccessPreview
+      - AnalyzedResource
+      - PolicyGeneration
+    policy:
+      - ValidatePolicy
+      - PolicyGenerationDetails
+      - InlineArchiveRule
+      - Criterion
+      - Configuration
+
+  authentication:
+    schemes:
+      - type: AWS Signature Version 4
+        placement: header
+        apis: [iam-access-analyzer]
+
+  enums:
+    analyzer-status:
+      - ACTIVE
+      - CREATING
+      - DISABLED
+      - FAILED
+    finding-status:
+      - ACTIVE
+      - ARCHIVED
+      - RESOLVED
+    resource-type:
+      - AWS::S3::Bucket
+      - AWS::IAM::Role
+      - AWS::KMS::Key
+      - AWS::Lambda::Function
+      - AWS::SQS::Queue
+      - AWS::SNS::Topic
+    policy-type:
+      - IDENTITY_POLICY
+      - RESOURCE_POLICY
+      - SERVICE_CONTROL_POLICY
+
+capability:
+  workflows:
+    - name: Access Security Management
+      file: capabilities/access-security-management.yaml
+      description: Manage analyzers, findings, validate policies, and generate least-privilege policies
+      apis: [iam-access-analyzer]
+      toolCount: 9
+      personas: [Security Engineer, Cloud Security Engineer, IAM Administrator]
+
+  personas:
+    - id: security-engineer
+      name: Security Engineer
+      description: Reviews access findings and remediates unintended access
+      workflows: [Access Security Management]
+    - id: iam-administrator
+      name: IAM Administrator
+      description: Manages IAM policies, roles, and access controls
+      workflows: [Access Security Management]
+
+  domains:
+    - name: Access Control
+      description: Managing who can access what resources
+    - name: Policy Management
+      description: Creating, validating, and optimizing IAM policies
+    - name: Compliance
+      description: Ensuring access controls meet security standards
+
+  namespaces:
+    - name: iam-access-analyzer
+      type: consumed
+      baseUri: https://access-analyzer.amazonaws.com
+    - name: access-security-api
+      type: rest
+      port: 8080
+    - name: access-security-mcp
+      type: mcp
+      port: 9090
+
+  binds:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+
+crossReference:
+  - resource: analyzers
+    operations: [listanalyzers, createanalyzer, deleteanalyzer, getanalyzer]
+    workflows: [Access Security Management]
+    personas: [Security Engineer, IAM Administrator]
+  - resource: findings
+    operations: [listfindings, getfinding, updatefindings]
+    workflows: [Access Security Management]
+    personas: [Security Engineer]
+  - resource: policies
+    operations: [validatepolicy, startpolicygeneration, getgeneratedpolicy]
+    workflows: [Access Security Management]
+    personas: [Security Engineer, IAM Administrator]

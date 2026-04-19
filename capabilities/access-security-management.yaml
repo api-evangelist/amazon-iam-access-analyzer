@@ -1,0 +1,168 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: Amazon IAM Access Analyzer - Access Security Management
+  description: Unified capability for security teams to manage access analyzers, review findings, validate policies, and enforce least-privilege access controls across AWS accounts.
+  tags:
+    - AWS
+    - IAM
+    - Security
+    - Access Control
+    - Compliance
+    - Policy Management
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+
+capability:
+  consumes:
+    - import: iam-access-analyzer
+      location: ./shared/iam-access-analyzer.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: access-security-api
+      description: Unified REST API for access security management.
+      resources:
+        - path: /v1/analyzers
+          name: analyzers
+          description: Manage access analyzers
+          operations:
+            - method: GET
+              name: list-analyzers
+              description: List all access analyzers in the account
+              call: "iam-access-analyzer.listanalyzers"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-analyzer
+              description: Create a new access analyzer
+              call: "iam-access-analyzer.createanalyzer"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/findings
+          name: findings
+          description: Review access analyzer findings
+          operations:
+            - method: GET
+              name: list-findings
+              description: List findings from an analyzer
+              call: "iam-access-analyzer.listfindings"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/policies/validate
+          name: policy-validation
+          description: Validate IAM policies
+          operations:
+            - method: POST
+              name: validate-policy
+              description: Validate an IAM policy for best practices
+              call: "iam-access-analyzer.validatepolicy"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/policies/generate
+          name: policy-generation
+          description: Generate IAM policies from activity logs
+          operations:
+            - method: POST
+              name: start-policy-generation
+              description: Start generating a policy based on CloudTrail activity
+              call: "iam-access-analyzer.startpolicygeneration"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: access-security-mcp
+      transport: http
+      description: MCP server for AI-assisted access security management.
+      tools:
+        - name: list-analyzers
+          description: List all IAM Access Analyzers configured in the account
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iam-access-analyzer.listanalyzers"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-analyzer
+          description: Create a new IAM Access Analyzer for an account or organization
+          hints:
+            readOnly: false
+          call: "iam-access-analyzer.createanalyzer"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-findings
+          description: List security findings from an access analyzer
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iam-access-analyzer.listfindings"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-finding
+          description: Get details of a specific access finding
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iam-access-analyzer.getfinding"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: validate-policy
+          description: Validate an IAM policy document for best practices and security issues
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "iam-access-analyzer.validatepolicy"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: start-policy-generation
+          description: Generate an IAM policy based on CloudTrail access activity logs
+          hints:
+            readOnly: false
+          call: "iam-access-analyzer.startpolicygeneration"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-generated-policy
+          description: Retrieve a policy generated from CloudTrail activity
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "iam-access-analyzer.getgeneratedpolicy"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-access-preview
+          description: Preview access changes before deploying permission changes
+          hints:
+            readOnly: false
+          call: "iam-access-analyzer.createaccesspreview"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-archive-rules
+          description: List archive rules for an analyzer
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iam-access-analyzer.listarchiveruless"
+          outputParameters:
+            - type: object
+              mapping: "$."

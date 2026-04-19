@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-cloud-trail-properties-schema.json",
+  "title": "CloudTrailProperties",
+  "description": "Contains information about CloudTrail access.",
+  "type": "object",
+  "properties": {
+    "trailProperties": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TrailPropertiesList"
+        },
+        {
+          "description": "A <code>TrailProperties</code> object that contains settings for trail properties."
+        }
+      ]
+    },
+    "startTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with a timestamp before this time are not considered to generate a policy."
+        }
+      ]
+    },
+    "endTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with a timestamp after this time are not considered to generate a policy. If this is not included in the request, the default value is the current time."
+        }
+      ]
+    }
+  },
+  "required": [
+    "trailProperties",
+    "startTime",
+    "endTime"
+  ]
+}

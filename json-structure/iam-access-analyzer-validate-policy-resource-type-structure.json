@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-validate-policy-resource-type-structure.json",
+  "name": "ValidatePolicyResourceType",
+  "description": "ValidatePolicyResourceType schema from AWS IAM Access Analyzer API",
+  "type": "string",
+  "enum": [
+    "AWS::S3::Bucket",
+    "AWS::S3::AccessPoint",
+    "AWS::S3::MultiRegionAccessPoint",
+    "AWS::S3ObjectLambda::AccessPoint",
+    "AWS::IAM::AssumeRolePolicyDocument"
+  ]
+}

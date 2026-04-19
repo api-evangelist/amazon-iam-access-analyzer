@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-validate-policy-response-schema.json",
+  "title": "ValidatePolicyResponse",
+  "description": "ValidatePolicyResponse schema from AWS IAM Access Analyzer API",
+  "type": "object",
+  "properties": {
+    "findings": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ValidatePolicyFindingList"
+        },
+        {
+          "description": "The list of findings in a policy returned by IAM Access Analyzer based on its suite of policy checks."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Token"
+        },
+        {
+          "description": "A token used for pagination of results returned."
+        }
+      ]
+    }
+  },
+  "required": [
+    "findings"
+  ]
+}

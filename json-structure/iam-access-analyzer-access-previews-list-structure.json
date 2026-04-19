@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-access-previews-list-structure.json",
+  "name": "AccessPreviewsList",
+  "description": "AccessPreviewsList schema from AWS IAM Access Analyzer API",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "analyzerArn",
+      "createdAt",
+      "status"
+    ],
+    "properties": {
+      "id": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AccessPreviewId"
+          },
+          {
+            "description": "The unique ID for the access preview."
+          }
+        ]
+      },
+      "analyzerArn": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AnalyzerArn"
+          },
+          {
+            "description": "The ARN of the analyzer used to generate the access preview."
+          }
+        ]
+      },
+      "createdAt": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          {
+            "description": "The time at which the access preview was created."
+          }
+        ]
+      },
+      "status": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AccessPreviewStatus"
+          },
+          {
+            "description": "<p>The status of the access preview.</p> <ul> <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li> <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li> <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li> </ul>"
+          }
+        ]
+      },
+      "statusReason": {
+        "$ref": "#/components/schemas/AccessPreviewStatusReason"
+      }
+    },
+    "description": "Contains a summary of information about an access preview."
+  }
+}

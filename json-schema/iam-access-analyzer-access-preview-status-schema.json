@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-access-preview-status-schema.json",
+  "title": "AccessPreviewStatus",
+  "description": "AccessPreviewStatus schema from AWS IAM Access Analyzer API",
+  "type": "string",
+  "enum": [
+    "COMPLETED",
+    "CREATING",
+    "FAILED"
+  ]
+}

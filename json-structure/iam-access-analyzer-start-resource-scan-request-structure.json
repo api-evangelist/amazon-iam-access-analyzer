@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-start-resource-scan-request-structure.json",
+  "name": "StartResourceScanRequest",
+  "description": "Starts a scan of the policies applied to the specified resource.",
+  "type": "object",
+  "properties": {
+    "analyzerArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnalyzerArn"
+        },
+        {
+          "description": "The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to use to scan the policies applied to the specified resource."
+        }
+      ]
+    },
+    "resourceArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceArn"
+        },
+        {
+          "description": "The ARN of the resource to scan."
+        }
+      ]
+    },
+    "resourceOwnerAccount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning account is the account in which the resource was created."
+        }
+      ]
+    }
+  },
+  "required": [
+    "analyzerArn",
+    "resourceArn"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "resourceArn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "resourceType": "CUSTOM",
+  "createdAt": "example-value",
+  "analyzedAt": "example-value",
+  "updatedAt": "example-value",
+  "isPublic": "example-value",
+  "actions": "example-value",
+  "sharedVia": "example-value",
+  "status": "ACTIVE",
+  "resourceOwnerAccount": "123456789012",
+  "error": "example-value"
+}

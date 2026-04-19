@@ -1,0 +1,6 @@
+{
+  "bucketPolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[]}",
+  "bucketAclGrants": "example-value",
+  "bucketPublicAccessBlock": "example-value",
+  "accessPoints": "example-value"
+}

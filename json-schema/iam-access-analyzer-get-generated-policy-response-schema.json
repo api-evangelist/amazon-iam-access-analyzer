@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-get-generated-policy-response-schema.json",
+  "title": "GetGeneratedPolicyResponse",
+  "description": "GetGeneratedPolicyResponse schema from AWS IAM Access Analyzer API",
+  "type": "object",
+  "properties": {
+    "jobDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobDetails"
+        },
+        {
+          "description": "A <code>GeneratedPolicyDetails</code> object that contains details about the generated policy."
+        }
+      ]
+    },
+    "generatedPolicyResult": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GeneratedPolicyResult"
+        },
+        {
+          "description": "A <code>GeneratedPolicyResult</code> object that contains the generated policies and associated details."
+        }
+      ]
+    }
+  },
+  "required": [
+    "jobDetails",
+    "generatedPolicyResult"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "id-def456",
+  "principal": "example-value",
+  "action": "example-value",
+  "resource": "example-value",
+  "isPublic": "example-value",
+  "resourceType": "CUSTOM",
+  "condition": "example-value",
+  "createdAt": "example-value",
+  "analyzedAt": "example-value",
+  "updatedAt": "example-value",
+  "status": "ACTIVE",
+  "resourceOwnerAccount": "123456789012",
+  "error": "example-value",
+  "sources": "example-value"
+}

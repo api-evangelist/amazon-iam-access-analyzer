@@ -1,0 +1,13 @@
+{
+  "ebsSnapshot": "example-value",
+  "ecrRepository": "example-value",
+  "iamRole": "example-value",
+  "efsFileSystem": "example-value",
+  "kmsKey": "example-value",
+  "rdsDbClusterSnapshot": "example-value",
+  "rdsDbSnapshot": "example-value",
+  "secretsManagerSecret": "example-value",
+  "s3Bucket": "example-value",
+  "snsTopic": "example-value",
+  "sqsQueue": "example-value"
+}

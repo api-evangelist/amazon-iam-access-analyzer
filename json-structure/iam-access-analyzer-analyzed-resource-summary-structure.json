@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-analyzed-resource-summary-structure.json",
+  "name": "AnalyzedResourceSummary",
+  "description": "Contains the ARN of the analyzed resource.",
+  "type": "object",
+  "properties": {
+    "resourceArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceArn"
+        },
+        {
+          "description": "The ARN of the analyzed resource."
+        }
+      ]
+    },
+    "resourceOwnerAccount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The Amazon Web Services account ID that owns the resource."
+        }
+      ]
+    },
+    "resourceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceType"
+        },
+        {
+          "description": "The type of resource that was analyzed."
+        }
+      ]
+    }
+  },
+  "required": [
+    "resourceArn",
+    "resourceOwnerAccount",
+    "resourceType"
+  ]
+}

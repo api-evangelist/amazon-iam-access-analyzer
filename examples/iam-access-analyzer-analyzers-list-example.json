@@ -1,0 +1,24 @@
+[
+  {
+    "arn": "arn:aws:iam::123456789012:role/ExampleRole",
+    "name": "example-resource-name",
+    "type": "CUSTOM",
+    "createdAt": "example-value",
+    "lastResourceAnalyzed": "example-value",
+    "lastResourceAnalyzedAt": "example-value",
+    "tags": "example-value",
+    "status": "ACTIVE",
+    "statusReason": "ACTIVE"
+  },
+  {
+    "arn": "arn:aws:iam::123456789012:role/ExampleRole",
+    "name": "example-resource-name",
+    "type": "CUSTOM",
+    "createdAt": "example-value",
+    "lastResourceAnalyzed": "example-value",
+    "lastResourceAnalyzedAt": "example-value",
+    "tags": "example-value",
+    "status": "ACTIVE",
+    "statusReason": "ACTIVE"
+  }
+]

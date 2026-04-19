@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-rds-db-snapshot-account-ids-list-schema.json",
+  "title": "RdsDbSnapshotAccountIdsList",
+  "description": "RdsDbSnapshotAccountIdsList schema from AWS IAM Access Analyzer API",
+  "type": "array",
+  "items": {
+    "type": "string"
+  }
+}

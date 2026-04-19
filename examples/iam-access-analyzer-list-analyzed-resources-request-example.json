@@ -1,0 +1,6 @@
+{
+  "analyzerArn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "resourceType": "CUSTOM",
+  "nextToken": "example-value",
+  "maxResults": "example-value"
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-create-access-preview-request-structure.json",
+  "name": "CreateAccessPreviewRequest",
+  "description": "CreateAccessPreviewRequest schema from AWS IAM Access Analyzer API",
+  "type": "object",
+  "properties": {
+    "analyzerArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnalyzerArn"
+        },
+        {
+          "description": "The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the account analyzer</a> used to generate the access preview. You can only create an access preview for analyzers with an <code>Account</code> type and <code>Active</code> status."
+        }
+      ]
+    },
+    "configurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationsMap"
+        },
+        {
+          "description": "Access control configuration for your resource that is used to generate the access preview. The access preview includes findings for external access allowed to the resource with the proposed access control configuration. The configuration must contain exactly one element."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "A client token."
+        }
+      ]
+    }
+  },
+  "required": [
+    "analyzerArn",
+    "configurations"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "isComplete": "example-value",
+  "principalArn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "cloudTrailProperties": "example-value"
+}

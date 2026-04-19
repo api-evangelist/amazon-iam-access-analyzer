@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-resource-type-schema.json",
+  "title": "ResourceType",
+  "description": "ResourceType schema from AWS IAM Access Analyzer API",
+  "type": "string",
+  "enum": [
+    "AWS::S3::Bucket",
+    "AWS::IAM::Role",
+    "AWS::SQS::Queue",
+    "AWS::Lambda::Function",
+    "AWS::Lambda::LayerVersion",
+    "AWS::KMS::Key",
+    "AWS::SecretsManager::Secret",
+    "AWS::EFS::FileSystem",
+    "AWS::EC2::Snapshot",
+    "AWS::ECR::Repository",
+    "AWS::RDS::DBSnapshot",
+    "AWS::RDS::DBClusterSnapshot",
+    "AWS::SNS::Topic"
+  ]
+}

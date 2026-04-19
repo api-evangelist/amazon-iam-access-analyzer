@@ -1,0 +1,7 @@
+{
+  "operations": "example-value",
+  "granteePrincipal": "example-value",
+  "retiringPrincipal": "example-value",
+  "constraints": "example-value",
+  "issuingAccount": "123456789012"
+}

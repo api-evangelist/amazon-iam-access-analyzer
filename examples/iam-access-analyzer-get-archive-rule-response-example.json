@@ -1,0 +1,8 @@
+{
+  "archiveRule": {
+    "ruleName": "example-resource-name",
+    "filter": "example-value",
+    "createdAt": "example-value",
+    "updatedAt": "example-value"
+  }
+}

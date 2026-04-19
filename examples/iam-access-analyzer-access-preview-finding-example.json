@@ -1,0 +1,17 @@
+{
+  "id": "id-ghi789",
+  "existingFindingId": "id-ghi789",
+  "existingFindingStatus": "ACTIVE",
+  "principal": "example-value",
+  "action": "example-value",
+  "condition": "example-value",
+  "resource": "example-value",
+  "isPublic": "example-value",
+  "resourceType": "CUSTOM",
+  "createdAt": "example-value",
+  "changeType": "CUSTOM",
+  "status": "ACTIVE",
+  "resourceOwnerAccount": "123456789012",
+  "error": "example-value",
+  "sources": "example-value"
+}

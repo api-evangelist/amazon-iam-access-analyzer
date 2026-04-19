@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-get-finding-response-structure.json",
+  "name": "GetFindingResponse",
+  "description": "The response to the request.",
+  "type": "object",
+  "properties": {
+    "finding": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Finding"
+        },
+        {
+          "description": "A <code>finding</code> object that contains finding details."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-create-analyzer-request-schema.json",
+  "title": "CreateAnalyzerRequest",
+  "description": "Creates an analyzer.",
+  "type": "object",
+  "properties": {
+    "analyzerName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Name"
+        },
+        {
+          "description": "The name of the analyzer to create."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Type"
+        },
+        {
+          "description": "The type of analyzer to create. Only ACCOUNT and ORGANIZATION analyzers are supported. You can create only one analyzer per account per Region. You can create up to 5 analyzers per organization per Region."
+        }
+      ]
+    },
+    "archiveRules": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InlineArchiveRulesList"
+        },
+        {
+          "description": "Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagsMap"
+        },
+        {
+          "description": "The tags to apply to the analyzer."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "A client token."
+        }
+      ]
+    }
+  },
+  "required": [
+    "analyzerName",
+    "type"
+  ]
+}

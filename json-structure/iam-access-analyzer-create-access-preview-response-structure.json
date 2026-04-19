@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-create-access-preview-response-structure.json",
+  "name": "CreateAccessPreviewResponse",
+  "description": "CreateAccessPreviewResponse schema from AWS IAM Access Analyzer API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccessPreviewId"
+        },
+        {
+          "description": "The unique ID for the access preview."
+        }
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

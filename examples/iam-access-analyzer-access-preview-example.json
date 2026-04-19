@@ -1,0 +1,8 @@
+{
+  "id": "id-abc123",
+  "analyzerArn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "configurations": "example-value",
+  "createdAt": "example-value",
+  "status": "ACTIVE",
+  "statusReason": "ACTIVE"
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-trail-properties-list-structure.json",
+  "name": "TrailPropertiesList",
+  "description": "TrailPropertiesList schema from AWS IAM Access Analyzer API",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "cloudTrailArn"
+    ],
+    "properties": {
+      "cloudTrailArn": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CloudTrailArn"
+          },
+          {
+            "description": "Specifies the ARN of the trail. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>."
+          }
+        ]
+      },
+      "regions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RegionList"
+          },
+          {
+            "description": "A list of regions to get CloudTrail data from and analyze to generate a policy."
+          }
+        ]
+      },
+      "allRegions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          {
+            "description": "Possible values are <code>true</code> or <code>false</code>. If set to <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and generate a policy."
+          }
+        ]
+      }
+    },
+    "description": "Contains details about the CloudTrail trail being analyzed to generate a policy."
+  }
+}

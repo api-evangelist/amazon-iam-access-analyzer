@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-sqs-queue-configuration-schema.json",
+  "title": "SqsQueueConfiguration",
+  "description": "The proposed access control configuration for an Amazon SQS queue. You can propose a configuration for a new Amazon SQS queue or an existing Amazon SQS queue that you own by specifying the Amazon SQS policy. If the configuration is for an existing Amazon SQS queue and you do not specify the Amazon SQS policy, the access preview uses the existing Amazon SQS policy for the queue. If the access preview is for a new resource and you do not specify the policy, the access preview assumes an Amazon SQS queue without a policy. To propose deletion of an existing Amazon SQS queue policy, you can specify an empty string for the Amazon SQS policy. For more information about Amazon SQS policy limits, see <a href=\"https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-policies.html\">Quotas related to policies</a>.",
+  "type": "object",
+  "properties": {
+    "queuePolicy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SqsQueuePolicy"
+        },
+        {
+          "description": " The proposed resource policy for the Amazon SQS queue. "
+        }
+      ]
+    }
+  }
+}

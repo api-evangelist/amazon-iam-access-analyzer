@@ -1,0 +1,5 @@
+{
+  "cloudTrailArn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "regions": "us-east-1",
+  "allRegions": "us-east-1"
+}

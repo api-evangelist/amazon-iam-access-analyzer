@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-acl-grantee-structure.json",
+  "name": "AclGrantee",
+  "description": "You specify each grantee as a type-value pair using one of these types. You can specify only one type of grantee. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAcl.html\">PutBucketAcl</a>.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AclCanonicalId"
+        },
+        {
+          "description": "The value specified is the canonical user ID of an Amazon Web Services account."
+        }
+      ]
+    },
+    "uri": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AclUri"
+        },
+        {
+          "description": "Used for granting permissions to a predefined group."
+        }
+      ]
+    }
+  }
+}

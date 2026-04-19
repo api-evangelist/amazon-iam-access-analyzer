@@ -1,0 +1,7 @@
+{
+  "jobId": "id-abc123",
+  "status": "ACTIVE",
+  "startedOn": "example-value",
+  "completedOn": "example-value",
+  "jobError": "example-value"
+}

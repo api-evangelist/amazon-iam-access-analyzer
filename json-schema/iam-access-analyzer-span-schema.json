@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-span-schema.json",
+  "title": "Span",
+  "description": "A span in a policy. The span consists of a start position (inclusive) and end position (exclusive).",
+  "type": "object",
+  "properties": {
+    "start": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Position"
+        },
+        {
+          "description": "The start position of the span (inclusive)."
+        }
+      ]
+    },
+    "end": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Position"
+        },
+        {
+          "description": "The end position of the span (exclusive)."
+        }
+      ]
+    }
+  },
+  "required": [
+    "start",
+    "end"
+  ]
+}

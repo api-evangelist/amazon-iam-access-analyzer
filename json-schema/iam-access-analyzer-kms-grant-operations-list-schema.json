@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-kms-grant-operations-list-schema.json",
+  "title": "KmsGrantOperationsList",
+  "description": "KmsGrantOperationsList schema from AWS IAM Access Analyzer API",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "enum": [
+      "CreateGrant",
+      "Decrypt",
+      "DescribeKey",
+      "Encrypt",
+      "GenerateDataKey",
+      "GenerateDataKeyPair",
+      "GenerateDataKeyPairWithoutPlaintext",
+      "GenerateDataKeyWithoutPlaintext",
+      "GetPublicKey",
+      "ReEncryptFrom",
+      "ReEncryptTo",
+      "RetireGrant",
+      "Sign",
+      "Verify"
+    ]
+  }
+}

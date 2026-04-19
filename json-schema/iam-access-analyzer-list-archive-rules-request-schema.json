@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-list-archive-rules-request-schema.json",
+  "title": "ListArchiveRulesRequest",
+  "description": "Retrieves a list of archive rules created for the specified analyzer.",
+  "type": "object",
+  "properties": {}
+}

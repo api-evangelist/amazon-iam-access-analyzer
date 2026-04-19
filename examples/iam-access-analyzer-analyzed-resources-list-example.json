@@ -1,0 +1,12 @@
+[
+  {
+    "resourceArn": "arn:aws:iam::123456789012:role/ExampleRole",
+    "resourceOwnerAccount": "123456789012",
+    "resourceType": "CUSTOM"
+  },
+  {
+    "resourceArn": "arn:aws:iam::123456789012:role/ExampleRole",
+    "resourceOwnerAccount": "123456789012",
+    "resourceType": "CUSTOM"
+  }
+]

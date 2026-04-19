@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-list-analyzers-request-schema.json",
+  "title": "ListAnalyzersRequest",
+  "description": "Retrieves a list of analyzers.",
+  "type": "object",
+  "properties": {}
+}

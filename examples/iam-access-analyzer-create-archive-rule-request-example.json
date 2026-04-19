@@ -1,0 +1,5 @@
+{
+  "ruleName": "example-resource-name",
+  "filter": "example-value",
+  "clientToken": "example-value"
+}

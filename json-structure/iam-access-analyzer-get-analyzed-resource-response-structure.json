@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-get-analyzed-resource-response-structure.json",
+  "name": "GetAnalyzedResourceResponse",
+  "description": "The response to the request.",
+  "type": "object",
+  "properties": {
+    "resource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnalyzedResource"
+        },
+        {
+          "description": "An <code>AnalyzedResource</code> object that contains information that IAM Access Analyzer found when it analyzed the resource."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-analyzed-resource-structure.json",
+  "name": "AnalyzedResource",
+  "description": "Contains details about the analyzed resource.",
+  "type": "object",
+  "properties": {
+    "resourceArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceArn"
+        },
+        {
+          "description": "The ARN of the resource that was analyzed."
+        }
+      ]
+    },
+    "resourceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceType"
+        },
+        {
+          "description": "The type of the resource that was analyzed."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time at which the finding was created."
+        }
+      ]
+    },
+    "analyzedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time at which the resource was analyzed."
+        }
+      ]
+    },
+    "updatedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time at which the finding was updated."
+        }
+      ]
+    },
+    "isPublic": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Indicates whether the policy that generated the finding grants public access to the resource."
+        }
+      ]
+    },
+    "actions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ActionList"
+        },
+        {
+          "description": "The actions that an external principal is granted permission to use by the policy that generated the finding."
+        }
+      ]
+    },
+    "sharedVia": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SharedViaList"
+        },
+        {
+          "description": "Indicates how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingStatus"
+        },
+        {
+          "description": "The current status of the finding generated from the analyzed resource."
+        }
+      ]
+    },
+    "resourceOwnerAccount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The Amazon Web Services account ID that owns the resource."
+        }
+      ]
+    },
+    "error": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "An error message."
+        }
+      ]
+    }
+  },
+  "required": [
+    "resourceArn",
+    "resourceType",
+    "createdAt",
+    "analyzedAt",
+    "updatedAt",
+    "isPublic",
+    "resourceOwnerAccount"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-job-error-schema.json",
+  "title": "JobError",
+  "description": "Contains the details about the policy generation error.",
+  "type": "object",
+  "properties": {
+    "code": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobErrorCode"
+        },
+        {
+          "description": "The job error code."
+        }
+      ]
+    },
+    "message": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "Specific information about the error. For example, which service quota was exceeded or which resource was not found."
+        }
+      ]
+    }
+  },
+  "required": [
+    "code",
+    "message"
+  ]
+}

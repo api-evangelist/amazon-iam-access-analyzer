@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-job-error-structure.json",
+  "name": "JobError",
+  "description": "Contains the details about the policy generation error.",
+  "type": "object",
+  "properties": {
+    "code": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobErrorCode"
+        },
+        {
+          "description": "The job error code."
+        }
+      ]
+    },
+    "message": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "Specific information about the error. For example, which service quota was exceeded or which resource was not found."
+        }
+      ]
+    }
+  },
+  "required": [
+    "code",
+    "message"
+  ]
+}

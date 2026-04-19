@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-filter-criteria-map-structure.json",
+  "name": "FilterCriteriaMap",
+  "description": "FilterCriteriaMap schema from AWS IAM Access Analyzer API",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "eq": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ValueList"
+          },
+          {
+            "description": "An \"equals\" operator to match for the filter used to create the rule."
+          }
+        ]
+      },
+      "neq": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ValueList"
+          },
+          {
+            "description": "A \"not equals\" operator to match for the filter used to create the rule."
+          }
+        ]
+      },
+      "contains": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ValueList"
+          },
+          {
+            "description": "A \"contains\" operator to match for the filter used to create the rule."
+          }
+        ]
+      },
+      "exists": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          {
+            "description": "An \"exists\" operator to match for the filter used to create the rule. "
+          }
+        ]
+      }
+    },
+    "description": "The criteria to use in the filter that defines the archive rule. For more information on available filter keys, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html\">IAM Access Analyzer filter keys</a>."
+  }
+}

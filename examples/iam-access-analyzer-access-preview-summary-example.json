@@ -1,0 +1,9 @@
+{
+  "id": "id-def456",
+  "analyzerArn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "createdAt": "example-value",
+  "status": "ACTIVE",
+  "statusReason": {
+    "code": "example-value"
+  }
+}

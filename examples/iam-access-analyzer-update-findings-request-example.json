@@ -1,0 +1,7 @@
+{
+  "analyzerArn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "status": "ACTIVE",
+  "ids": "example-value",
+  "resourceArn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "clientToken": "example-value"
+}

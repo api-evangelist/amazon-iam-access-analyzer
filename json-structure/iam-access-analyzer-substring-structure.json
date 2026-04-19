@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-substring-structure.json",
+  "name": "Substring",
+  "description": "A reference to a substring of a literal string in a JSON document.",
+  "type": "object",
+  "properties": {
+    "start": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The start index of the substring, starting from 0."
+        }
+      ]
+    },
+    "length": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "The length of the substring."
+        }
+      ]
+    }
+  },
+  "required": [
+    "start",
+    "length"
+  ]
+}

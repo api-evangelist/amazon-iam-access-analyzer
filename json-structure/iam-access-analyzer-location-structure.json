@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-location-structure.json",
+  "name": "Location",
+  "description": "A location in a policy that is represented as a path through the JSON representation and a corresponding span.",
+  "type": "object",
+  "properties": {
+    "path": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PathElementList"
+        },
+        {
+          "description": "A path in a policy, represented as a sequence of path elements."
+        }
+      ]
+    },
+    "span": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Span"
+        },
+        {
+          "description": "A span in a policy."
+        }
+      ]
+    }
+  },
+  "required": [
+    "path",
+    "span"
+  ]
+}

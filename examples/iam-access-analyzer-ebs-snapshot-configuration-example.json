@@ -1,0 +1,5 @@
+{
+  "userIds": "example-value",
+  "groups": "example-value",
+  "kmsKeyId": "id-abc123"
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-validate-policy-finding-type-schema.json",
+  "title": "ValidatePolicyFindingType",
+  "description": "ValidatePolicyFindingType schema from AWS IAM Access Analyzer API",
+  "type": "string",
+  "enum": [
+    "ERROR",
+    "SECURITY_WARNING",
+    "SUGGESTION",
+    "WARNING"
+  ]
+}

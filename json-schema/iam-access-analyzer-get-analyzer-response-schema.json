@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-get-analyzer-response-schema.json",
+  "title": "GetAnalyzerResponse",
+  "description": "The response to the request.",
+  "type": "object",
+  "properties": {
+    "analyzer": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnalyzerSummary"
+        },
+        {
+          "description": "An <code>AnalyzerSummary</code> object that contains information about the analyzer."
+        }
+      ]
+    }
+  },
+  "required": [
+    "analyzer"
+  ]
+}

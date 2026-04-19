@@ -1,0 +1,6 @@
+{
+  "locale": "example-value",
+  "policyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[]}",
+  "policyType": "CUSTOM",
+  "validatePolicyResourceType": "CUSTOM"
+}

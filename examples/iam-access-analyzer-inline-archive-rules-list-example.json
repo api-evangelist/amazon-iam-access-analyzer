@@ -1,0 +1,10 @@
+[
+  {
+    "ruleName": "example-resource-name",
+    "filter": "example-value"
+  },
+  {
+    "ruleName": "example-resource-name",
+    "filter": "example-value"
+  }
+]

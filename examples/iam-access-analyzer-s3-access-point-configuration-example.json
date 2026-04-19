@@ -1,0 +1,5 @@
+{
+  "accessPointPolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[]}",
+  "publicAccessBlock": "example-value",
+  "networkOrigin": "example-value"
+}

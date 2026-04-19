@@ -1,0 +1,5 @@
+{
+  "analyzerArn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "ruleName": "example-resource-name",
+  "clientToken": "example-value"
+}

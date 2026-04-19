@@ -1,0 +1,709 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amzn": "https://amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AccessPreview": "amzn:AccessPreview",
+    "AccessPreviewFinding": "amzn:AccessPreviewFinding",
+    "AccessPreviewStatusReason": "amzn:AccessPreviewStatusReason",
+    "AccessPreviewSummary": "amzn:AccessPreviewSummary",
+    "AclGrantee": "amzn:AclGrantee",
+    "AnalyzedResource": "amzn:AnalyzedResource",
+    "AnalyzedResourceSummary": "amzn:AnalyzedResourceSummary",
+    "AnalyzerSummary": "amzn:AnalyzerSummary",
+    "ApplyArchiveRuleRequest": "amzn:ApplyArchiveRuleRequest",
+    "ArchiveRuleSummary": "amzn:ArchiveRuleSummary",
+    "CancelPolicyGenerationRequest": "amzn:CancelPolicyGenerationRequest",
+    "CancelPolicyGenerationResponse": "amzn:CancelPolicyGenerationResponse",
+    "CloudTrailDetails": "amzn:CloudTrailDetails",
+    "CloudTrailProperties": "amzn:CloudTrailProperties",
+    "ConditionKeyMap": "amzn:ConditionKeyMap",
+    "Configuration": "amzn:Configuration",
+    "ConfigurationsMap": "amzn:ConfigurationsMap",
+    "CreateAccessPreviewRequest": "amzn:CreateAccessPreviewRequest",
+    "CreateAccessPreviewResponse": "amzn:CreateAccessPreviewResponse",
+    "CreateAnalyzerRequest": "amzn:CreateAnalyzerRequest",
+    "CreateAnalyzerResponse": "amzn:CreateAnalyzerResponse",
+    "CreateArchiveRuleRequest": "amzn:CreateArchiveRuleRequest",
+    "Criterion": "amzn:Criterion",
+    "DeleteAnalyzerRequest": "amzn:DeleteAnalyzerRequest",
+    "DeleteArchiveRuleRequest": "amzn:DeleteArchiveRuleRequest",
+    "EbsSnapshotConfiguration": "amzn:EbsSnapshotConfiguration",
+    "EcrRepositoryConfiguration": "amzn:EcrRepositoryConfiguration",
+    "EfsFileSystemConfiguration": "amzn:EfsFileSystemConfiguration",
+    "FilterCriteriaMap": "amzn:FilterCriteriaMap",
+    "Finding": "amzn:Finding",
+    "FindingSource": "amzn:FindingSource",
+    "FindingSourceDetail": "amzn:FindingSourceDetail",
+    "FindingSummary": "amzn:FindingSummary",
+    "GeneratedPolicy": "amzn:GeneratedPolicy",
+    "GeneratedPolicyProperties": "amzn:GeneratedPolicyProperties",
+    "GeneratedPolicyResult": "amzn:GeneratedPolicyResult",
+    "GetAccessPreviewRequest": "amzn:GetAccessPreviewRequest",
+    "GetAccessPreviewResponse": "amzn:GetAccessPreviewResponse",
+    "GetAnalyzedResourceRequest": "amzn:GetAnalyzedResourceRequest",
+    "GetAnalyzedResourceResponse": "amzn:GetAnalyzedResourceResponse",
+    "GetAnalyzerRequest": "amzn:GetAnalyzerRequest",
+    "GetAnalyzerResponse": "amzn:GetAnalyzerResponse",
+    "GetArchiveRuleRequest": "amzn:GetArchiveRuleRequest",
+    "GetArchiveRuleResponse": "amzn:GetArchiveRuleResponse",
+    "GetFindingRequest": "amzn:GetFindingRequest",
+    "GetFindingResponse": "amzn:GetFindingResponse",
+    "GetGeneratedPolicyRequest": "amzn:GetGeneratedPolicyRequest",
+    "GetGeneratedPolicyResponse": "amzn:GetGeneratedPolicyResponse",
+    "IamRoleConfiguration": "amzn:IamRoleConfiguration",
+    "InlineArchiveRule": "amzn:InlineArchiveRule",
+    "InternetConfiguration": "amzn:InternetConfiguration",
+    "JobDetails": "amzn:JobDetails",
+    "JobError": "amzn:JobError",
+    "KmsConstraintsMap": "amzn:KmsConstraintsMap",
+    "KmsGrantConfiguration": "amzn:KmsGrantConfiguration",
+    "KmsGrantConstraints": "amzn:KmsGrantConstraints",
+    "KmsKeyConfiguration": "amzn:KmsKeyConfiguration",
+    "KmsKeyPoliciesMap": "amzn:KmsKeyPoliciesMap",
+    "ListAccessPreviewFindingsRequest": "amzn:ListAccessPreviewFindingsRequest",
+    "ListAccessPreviewFindingsResponse": "amzn:ListAccessPreviewFindingsResponse",
+    "ListAccessPreviewsRequest": "amzn:ListAccessPreviewsRequest",
+    "ListAccessPreviewsResponse": "amzn:ListAccessPreviewsResponse",
+    "ListAnalyzedResourcesRequest": "amzn:ListAnalyzedResourcesRequest",
+    "ListAnalyzedResourcesResponse": "amzn:ListAnalyzedResourcesResponse",
+    "ListAnalyzersRequest": "amzn:ListAnalyzersRequest",
+    "ListAnalyzersResponse": "amzn:ListAnalyzersResponse",
+    "ListArchiveRulesRequest": "amzn:ListArchiveRulesRequest",
+    "ListArchiveRulesResponse": "amzn:ListArchiveRulesResponse",
+    "ListFindingsRequest": "amzn:ListFindingsRequest",
+    "ListFindingsResponse": "amzn:ListFindingsResponse",
+    "ListPolicyGenerationsRequest": "amzn:ListPolicyGenerationsRequest",
+    "ListPolicyGenerationsResponse": "amzn:ListPolicyGenerationsResponse",
+    "ListTagsForResourceRequest": "amzn:ListTagsForResourceRequest",
+    "ListTagsForResourceResponse": "amzn:ListTagsForResourceResponse",
+    "Location": "amzn:Location",
+    "NetworkOriginConfiguration": "amzn:NetworkOriginConfiguration",
+    "PathElement": "amzn:PathElement",
+    "PolicyGeneration": "amzn:PolicyGeneration",
+    "PolicyGenerationDetails": "amzn:PolicyGenerationDetails",
+    "Position": "amzn:Position",
+    "PrincipalMap": "amzn:PrincipalMap",
+    "RdsDbClusterSnapshotAttributeValue": "amzn:RdsDbClusterSnapshotAttributeValue",
+    "RdsDbClusterSnapshotAttributesMap": "amzn:RdsDbClusterSnapshotAttributesMap",
+    "RdsDbClusterSnapshotConfiguration": "amzn:RdsDbClusterSnapshotConfiguration",
+    "RdsDbSnapshotAttributeValue": "amzn:RdsDbSnapshotAttributeValue",
+    "RdsDbSnapshotAttributesMap": "amzn:RdsDbSnapshotAttributesMap",
+    "RdsDbSnapshotConfiguration": "amzn:RdsDbSnapshotConfiguration",
+    "S3AccessPointConfiguration": "amzn:S3AccessPointConfiguration",
+    "S3AccessPointConfigurationsMap": "amzn:S3AccessPointConfigurationsMap",
+    "S3BucketAclGrantConfiguration": "amzn:S3BucketAclGrantConfiguration",
+    "S3BucketConfiguration": "amzn:S3BucketConfiguration",
+    "S3PublicAccessBlockConfiguration": "amzn:S3PublicAccessBlockConfiguration",
+    "SecretsManagerSecretConfiguration": "amzn:SecretsManagerSecretConfiguration",
+    "SnsTopicConfiguration": "amzn:SnsTopicConfiguration",
+    "SortCriteria": "amzn:SortCriteria",
+    "Span": "amzn:Span",
+    "SqsQueueConfiguration": "amzn:SqsQueueConfiguration",
+    "StartPolicyGenerationRequest": "amzn:StartPolicyGenerationRequest",
+    "StartPolicyGenerationResponse": "amzn:StartPolicyGenerationResponse",
+    "StartResourceScanRequest": "amzn:StartResourceScanRequest",
+    "StatusReason": "amzn:StatusReason",
+    "Substring": "amzn:Substring",
+    "TagResourceRequest": "amzn:TagResourceRequest",
+    "TagResourceResponse": "amzn:TagResourceResponse",
+    "TagsMap": "amzn:TagsMap",
+    "Trail": "amzn:Trail",
+    "TrailProperties": "amzn:TrailProperties",
+    "UntagResourceRequest": "amzn:UntagResourceRequest",
+    "UntagResourceResponse": "amzn:UntagResourceResponse",
+    "UpdateArchiveRuleRequest": "amzn:UpdateArchiveRuleRequest",
+    "UpdateFindingsRequest": "amzn:UpdateFindingsRequest",
+    "ValidatePolicyFinding": "amzn:ValidatePolicyFinding",
+    "ValidatePolicyRequest": "amzn:ValidatePolicyRequest",
+    "ValidatePolicyResponse": "amzn:ValidatePolicyResponse",
+    "VpcConfiguration": "amzn:VpcConfiguration",
+    "accessPointAccount": {
+      "@id": "amzn:accessPointAccount",
+      "@type": "xsd:string"
+    },
+    "accessPointArn": {
+      "@id": "amzn:accessPointArn",
+      "@type": "xsd:string"
+    },
+    "accessPointPolicy": {
+      "@id": "amzn:accessPointPolicy",
+      "@type": "xsd:string"
+    },
+    "accessPoints": {
+      "@id": "amzn:accessPoints",
+      "@type": "xsd:string"
+    },
+    "accessPreview": {
+      "@id": "amzn:accessPreview",
+      "@type": "xsd:string"
+    },
+    "accessPreviews": {
+      "@id": "amzn:accessPreviews",
+      "@type": "xsd:string"
+    },
+    "accessRole": {
+      "@id": "amzn:accessRole",
+      "@type": "xsd:string"
+    },
+    "accountIds": {
+      "@id": "amzn:accountIds",
+      "@type": "xsd:string"
+    },
+    "action": {
+      "@id": "amzn:action",
+      "@type": "xsd:string"
+    },
+    "actions": {
+      "@id": "amzn:actions",
+      "@type": "xsd:string"
+    },
+    "allRegions": {
+      "@id": "amzn:allRegions",
+      "@type": "xsd:string"
+    },
+    "analyzedAt": {
+      "@id": "amzn:analyzedAt",
+      "@type": "xsd:string"
+    },
+    "analyzedResources": {
+      "@id": "amzn:analyzedResources",
+      "@type": "xsd:string"
+    },
+    "analyzer": {
+      "@id": "amzn:analyzer",
+      "@type": "xsd:string"
+    },
+    "analyzerArn": {
+      "@id": "amzn:analyzerArn",
+      "@type": "xsd:string"
+    },
+    "analyzerName": {
+      "@id": "amzn:analyzerName",
+      "@type": "xsd:string"
+    },
+    "analyzers": {
+      "@id": "amzn:analyzers",
+      "@type": "xsd:string"
+    },
+    "archiveRule": {
+      "@id": "amzn:archiveRule",
+      "@type": "@id"
+    },
+    "archiveRules": {
+      "@id": "amzn:archiveRules",
+      "@type": "xsd:string"
+    },
+    "arn": {
+      "@id": "amzn:arn",
+      "@type": "xsd:string"
+    },
+    "attributeName": {
+      "@id": "amzn:attributeName",
+      "@type": "xsd:string"
+    },
+    "attributes": {
+      "@id": "amzn:attributes",
+      "@type": "xsd:string"
+    },
+    "bucketAclGrants": {
+      "@id": "amzn:bucketAclGrants",
+      "@type": "xsd:string"
+    },
+    "bucketPolicy": {
+      "@id": "amzn:bucketPolicy",
+      "@type": "xsd:string"
+    },
+    "bucketPublicAccessBlock": {
+      "@id": "amzn:bucketPublicAccessBlock",
+      "@type": "xsd:string"
+    },
+    "changeType": {
+      "@id": "amzn:changeType",
+      "@type": "xsd:string"
+    },
+    "clientToken": {
+      "@id": "amzn:clientToken",
+      "@type": "xsd:string"
+    },
+    "cloudTrailArn": {
+      "@id": "amzn:cloudTrailArn",
+      "@type": "xsd:string"
+    },
+    "cloudTrailDetails": {
+      "@id": "amzn:cloudTrailDetails",
+      "@type": "xsd:string"
+    },
+    "cloudTrailProperties": {
+      "@id": "amzn:cloudTrailProperties",
+      "@type": "xsd:string"
+    },
+    "code": {
+      "@id": "amzn:code",
+      "@type": "xsd:string"
+    },
+    "column": {
+      "@id": "amzn:column",
+      "@type": "xsd:string"
+    },
+    "completedOn": {
+      "@id": "amzn:completedOn",
+      "@type": "xsd:string"
+    },
+    "condition": {
+      "@id": "amzn:condition",
+      "@type": "xsd:string"
+    },
+    "configurations": {
+      "@id": "amzn:configurations",
+      "@type": "xsd:string"
+    },
+    "constraints": {
+      "@id": "amzn:constraints",
+      "@type": "xsd:string"
+    },
+    "contains": {
+      "@id": "amzn:contains",
+      "@type": "xsd:string"
+    },
+    "createdAt": {
+      "@id": "amzn:createdAt",
+      "@type": "xsd:string"
+    },
+    "detail": {
+      "@id": "amzn:detail",
+      "@type": "xsd:string"
+    },
+    "ebsSnapshot": {
+      "@id": "amzn:ebsSnapshot",
+      "@type": "xsd:string"
+    },
+    "ecrRepository": {
+      "@id": "amzn:ecrRepository",
+      "@type": "xsd:string"
+    },
+    "efsFileSystem": {
+      "@id": "amzn:efsFileSystem",
+      "@type": "xsd:string"
+    },
+    "encryptionContextEquals": {
+      "@id": "amzn:encryptionContextEquals",
+      "@type": "xsd:string"
+    },
+    "encryptionContextSubset": {
+      "@id": "amzn:encryptionContextSubset",
+      "@type": "xsd:string"
+    },
+    "end": {
+      "@id": "amzn:end",
+      "@type": "xsd:string"
+    },
+    "endTime": {
+      "@id": "amzn:endTime",
+      "@type": "xsd:string"
+    },
+    "eq": {
+      "@id": "amzn:eq",
+      "@type": "xsd:string"
+    },
+    "error": {
+      "@id": "amzn:error",
+      "@type": "xsd:string"
+    },
+    "existingFindingId": {
+      "@id": "amzn:existingFindingId",
+      "@type": "xsd:string"
+    },
+    "existingFindingStatus": {
+      "@id": "amzn:existingFindingStatus",
+      "@type": "xsd:string"
+    },
+    "exists": {
+      "@id": "amzn:exists",
+      "@type": "xsd:string"
+    },
+    "fileSystemPolicy": {
+      "@id": "amzn:fileSystemPolicy",
+      "@type": "xsd:string"
+    },
+    "filter": {
+      "@id": "amzn:filter",
+      "@type": "xsd:string"
+    },
+    "finding": {
+      "@id": "amzn:finding",
+      "@type": "xsd:string"
+    },
+    "findingDetails": {
+      "@id": "amzn:findingDetails",
+      "@type": "xsd:string"
+    },
+    "findingType": {
+      "@id": "amzn:findingType",
+      "@type": "xsd:string"
+    },
+    "findings": {
+      "@id": "amzn:findings",
+      "@type": "xsd:string"
+    },
+    "generatedPolicies": {
+      "@id": "amzn:generatedPolicies",
+      "@type": "xsd:string"
+    },
+    "generatedPolicyResult": {
+      "@id": "amzn:generatedPolicyResult",
+      "@type": "xsd:string"
+    },
+    "grantee": {
+      "@id": "amzn:grantee",
+      "@type": "xsd:string"
+    },
+    "granteePrincipal": {
+      "@id": "amzn:granteePrincipal",
+      "@type": "xsd:string"
+    },
+    "grants": {
+      "@id": "amzn:grants",
+      "@type": "xsd:string"
+    },
+    "groups": {
+      "@id": "amzn:groups",
+      "@type": "xsd:string"
+    },
+    "iamRole": {
+      "@id": "amzn:iamRole",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "amzn:id",
+      "@type": "xsd:string"
+    },
+    "ids": {
+      "@id": "amzn:ids",
+      "@type": "xsd:string"
+    },
+    "ignorePublicAcls": {
+      "@id": "amzn:ignorePublicAcls",
+      "@type": "xsd:string"
+    },
+    "index": {
+      "@id": "amzn:index",
+      "@type": "xsd:string"
+    },
+    "internetConfiguration": {
+      "@id": "amzn:internetConfiguration",
+      "@type": "xsd:string"
+    },
+    "isComplete": {
+      "@id": "amzn:isComplete",
+      "@type": "xsd:string"
+    },
+    "isPublic": {
+      "@id": "amzn:isPublic",
+      "@type": "xsd:string"
+    },
+    "issueCode": {
+      "@id": "amzn:issueCode",
+      "@type": "xsd:string"
+    },
+    "issuingAccount": {
+      "@id": "amzn:issuingAccount",
+      "@type": "xsd:string"
+    },
+    "jobDetails": {
+      "@id": "amzn:jobDetails",
+      "@type": "xsd:string"
+    },
+    "jobError": {
+      "@id": "amzn:jobError",
+      "@type": "xsd:string"
+    },
+    "jobId": {
+      "@id": "amzn:jobId",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "amzn:key",
+      "@type": "xsd:string"
+    },
+    "keyPolicies": {
+      "@id": "amzn:keyPolicies",
+      "@type": "xsd:string"
+    },
+    "kmsKey": {
+      "@id": "amzn:kmsKey",
+      "@type": "xsd:string"
+    },
+    "kmsKeyId": {
+      "@id": "amzn:kmsKeyId",
+      "@type": "xsd:string"
+    },
+    "lastResourceAnalyzed": {
+      "@id": "amzn:lastResourceAnalyzed",
+      "@type": "xsd:string"
+    },
+    "lastResourceAnalyzedAt": {
+      "@id": "amzn:lastResourceAnalyzedAt",
+      "@type": "xsd:string"
+    },
+    "learnMoreLink": {
+      "@id": "amzn:learnMoreLink",
+      "@type": "xsd:string"
+    },
+    "length": {
+      "@id": "amzn:length",
+      "@type": "xsd:string"
+    },
+    "line": {
+      "@id": "amzn:line",
+      "@type": "xsd:string"
+    },
+    "locale": {
+      "@id": "amzn:locale",
+      "@type": "xsd:string"
+    },
+    "locations": {
+      "@id": "amzn:locations",
+      "@type": "xsd:string"
+    },
+    "maxResults": {
+      "@id": "amzn:maxResults",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "amzn:message",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "neq": {
+      "@id": "amzn:neq",
+      "@type": "xsd:string"
+    },
+    "networkOrigin": {
+      "@id": "amzn:networkOrigin",
+      "@type": "xsd:string"
+    },
+    "nextToken": {
+      "@id": "amzn:nextToken",
+      "@type": "xsd:string"
+    },
+    "offset": {
+      "@id": "amzn:offset",
+      "@type": "xsd:string"
+    },
+    "operations": {
+      "@id": "amzn:operations",
+      "@type": "xsd:string"
+    },
+    "orderBy": {
+      "@id": "amzn:orderBy",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "amzn:path",
+      "@type": "xsd:string"
+    },
+    "permission": {
+      "@id": "amzn:permission",
+      "@type": "xsd:string"
+    },
+    "policy": {
+      "@id": "amzn:policy",
+      "@type": "xsd:string"
+    },
+    "policyDocument": {
+      "@id": "amzn:policyDocument",
+      "@type": "xsd:string"
+    },
+    "policyGenerationDetails": {
+      "@id": "amzn:policyGenerationDetails",
+      "@type": "xsd:string"
+    },
+    "policyGenerations": {
+      "@id": "amzn:policyGenerations",
+      "@type": "xsd:string"
+    },
+    "policyType": {
+      "@id": "amzn:policyType",
+      "@type": "xsd:string"
+    },
+    "principal": {
+      "@id": "amzn:principal",
+      "@type": "xsd:string"
+    },
+    "principalArn": {
+      "@id": "amzn:principalArn",
+      "@type": "xsd:string"
+    },
+    "properties": {
+      "@id": "amzn:properties",
+      "@type": "xsd:string"
+    },
+    "publicAccessBlock": {
+      "@id": "amzn:publicAccessBlock",
+      "@type": "xsd:string"
+    },
+    "queuePolicy": {
+      "@id": "amzn:queuePolicy",
+      "@type": "xsd:string"
+    },
+    "rdsDbClusterSnapshot": {
+      "@id": "amzn:rdsDbClusterSnapshot",
+      "@type": "xsd:string"
+    },
+    "rdsDbSnapshot": {
+      "@id": "amzn:rdsDbSnapshot",
+      "@type": "xsd:string"
+    },
+    "regions": {
+      "@id": "amzn:regions",
+      "@type": "xsd:string"
+    },
+    "repositoryPolicy": {
+      "@id": "amzn:repositoryPolicy",
+      "@type": "xsd:string"
+    },
+    "resource": {
+      "@id": "amzn:resource",
+      "@type": "xsd:string"
+    },
+    "resourceArn": {
+      "@id": "amzn:resourceArn",
+      "@type": "xsd:string"
+    },
+    "resourceOwnerAccount": {
+      "@id": "amzn:resourceOwnerAccount",
+      "@type": "xsd:string"
+    },
+    "resourceType": {
+      "@id": "amzn:resourceType",
+      "@type": "xsd:string"
+    },
+    "restrictPublicBuckets": {
+      "@id": "amzn:restrictPublicBuckets",
+      "@type": "xsd:string"
+    },
+    "retiringPrincipal": {
+      "@id": "amzn:retiringPrincipal",
+      "@type": "xsd:string"
+    },
+    "ruleName": {
+      "@id": "amzn:ruleName",
+      "@type": "xsd:string"
+    },
+    "s3Bucket": {
+      "@id": "amzn:s3Bucket",
+      "@type": "xsd:string"
+    },
+    "secretPolicy": {
+      "@id": "amzn:secretPolicy",
+      "@type": "xsd:string"
+    },
+    "secretsManagerSecret": {
+      "@id": "amzn:secretsManagerSecret",
+      "@type": "xsd:string"
+    },
+    "sharedVia": {
+      "@id": "amzn:sharedVia",
+      "@type": "xsd:string"
+    },
+    "snsTopic": {
+      "@id": "amzn:snsTopic",
+      "@type": "xsd:string"
+    },
+    "sort": {
+      "@id": "amzn:sort",
+      "@type": "xsd:string"
+    },
+    "sources": {
+      "@id": "amzn:sources",
+      "@type": "xsd:string"
+    },
+    "span": {
+      "@id": "amzn:span",
+      "@type": "xsd:string"
+    },
+    "sqsQueue": {
+      "@id": "amzn:sqsQueue",
+      "@type": "xsd:string"
+    },
+    "start": {
+      "@id": "amzn:start",
+      "@type": "xsd:string"
+    },
+    "startTime": {
+      "@id": "amzn:startTime",
+      "@type": "xsd:string"
+    },
+    "startedOn": {
+      "@id": "amzn:startedOn",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "amzn:status",
+      "@type": "xsd:string"
+    },
+    "statusReason": {
+      "@id": "amzn:statusReason",
+      "@type": "@id"
+    },
+    "substring": {
+      "@id": "amzn:substring",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "amzn:tags",
+      "@type": "xsd:string"
+    },
+    "topicPolicy": {
+      "@id": "amzn:topicPolicy",
+      "@type": "xsd:string"
+    },
+    "trailProperties": {
+      "@id": "amzn:trailProperties",
+      "@type": "xsd:string"
+    },
+    "trails": {
+      "@id": "amzn:trails",
+      "@type": "xsd:string"
+    },
+    "trustPolicy": {
+      "@id": "amzn:trustPolicy",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "amzn:type",
+      "@type": "xsd:string"
+    },
+    "updatedAt": {
+      "@id": "amzn:updatedAt",
+      "@type": "xsd:string"
+    },
+    "uri": {
+      "@id": "amzn:uri",
+      "@type": "xsd:string"
+    },
+    "userIds": {
+      "@id": "amzn:userIds",
+      "@type": "xsd:string"
+    },
+    "validatePolicyResourceType": {
+      "@id": "amzn:validatePolicyResourceType",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "amzn:value",
+      "@type": "xsd:string"
+    },
+    "vpcConfiguration": {
+      "@id": "amzn:vpcConfiguration",
+      "@type": "@id"
+    },
+    "vpcId": {
+      "@id": "amzn:vpcId",
+      "@type": "xsd:string"
+    }
+  }
+}

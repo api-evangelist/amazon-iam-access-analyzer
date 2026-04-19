@@ -1,0 +1,5 @@
+{
+  "policyGenerationDetails": "{\"Version\":\"2012-10-17\",\"Statement\":[]}",
+  "cloudTrailDetails": "example-value",
+  "clientToken": "example-value"
+}

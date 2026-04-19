@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-sort-criteria-structure.json",
+  "name": "SortCriteria",
+  "description": "The criteria used to sort.",
+  "type": "object",
+  "properties": {
+    "attributeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The name of the attribute to sort on."
+        }
+      ]
+    },
+    "orderBy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OrderBy"
+        },
+        {
+          "description": "The sort order, ascending or descending."
+        }
+      ]
+    }
+  }
+}

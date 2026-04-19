@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-schema/iam-access-analyzer-list-access-preview-findings-response-schema.json",
+  "title": "ListAccessPreviewFindingsResponse",
+  "description": "ListAccessPreviewFindingsResponse schema from AWS IAM Access Analyzer API",
+  "type": "object",
+  "properties": {
+    "findings": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccessPreviewFindingsList"
+        },
+        {
+          "description": "A list of access preview findings that match the specified filter criteria."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Token"
+        },
+        {
+          "description": "A token used for pagination of results returned."
+        }
+      ]
+    }
+  },
+  "required": [
+    "findings"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/json-structure/iam-access-analyzer-finding-status-structure.json",
+  "name": "FindingStatus",
+  "description": "FindingStatus schema from AWS IAM Access Analyzer API",
+  "type": "string",
+  "enum": [
+    "ACTIVE",
+    "ARCHIVED",
+    "RESOLVED"
+  ]
+}
