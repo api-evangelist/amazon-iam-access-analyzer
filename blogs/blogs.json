@@ -1,0 +1,13 @@
+{
+  "repo": "amazon-iam-access-analyzer",
+  "feeds": [
+    {
+      "source": "https://aws.amazon.com/blogs/security/tag/iam-access-analyzer/",
+      "feed_url": "https://aws.amazon.com/blogs/security/tag/iam-access-analyzer/feed/",
+      "saved": 10,
+      "title": "IAM Access Analyzer \u2013 AWS Security Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:21:27Z"
+}
