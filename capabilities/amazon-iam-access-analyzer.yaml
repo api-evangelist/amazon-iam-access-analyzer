@@ -1,0 +1,1356 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Access Analyzer
+  description: 'Access Analyzer. 28 operations. Lead operation: Amazon IAM Access Analyzer Create Access Preview. Self-contained
+    Naftiko capability covering one Amazon Iam Access Analyzer business surface.'
+  tags:
+  - Amazon Iam Access Analyzer
+  - Access Analyzer
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_IAM_ACCESS_ANALYZER_API_KEY: AMAZON_IAM_ACCESS_ANALYZER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-iam-access-analyzer
+    baseUri: http://access-analyzer.{region}.amazonaws.com
+    description: Access Analyzer business capability. Self-contained, no shared references.
+    resources:
+    - name: access-preview
+      path: /access-preview
+      operations:
+      - name: createaccesspreview
+        method: PUT
+        description: Amazon IAM Access Analyzer Create Access Preview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: access-preview#analyzerArn
+      path: /access-preview#analyzerArn
+      operations:
+      - name: listaccesspreviews
+        method: GET
+        description: Amazon IAM Access Analyzer List Access Previews
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: analyzerArn
+          in: query
+          type: string
+          description: The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN
+            of the analyzer</a> used to generat
+          required: true
+        - name: nextToken
+          in: query
+          type: string
+          description: A token used for pagination of results returned.
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of results to return in the response.
+    - name: access-preview-accessPreviewId
+      path: /access-preview/{accessPreviewId}
+      operations:
+      - name: listaccesspreviewfindings
+        method: POST
+        description: Amazon IAM Access Analyzer List Access Preview Findings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: accessPreviewId
+          in: path
+          type: string
+          description: The unique ID for the access preview.
+          required: true
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: access-preview-accessPreviewId}#analyzerArn
+      path: /access-preview/{accessPreviewId}#analyzerArn
+      operations:
+      - name: getaccesspreview
+        method: GET
+        description: Amazon IAM Access Analyzer Get Access Preview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: accessPreviewId
+          in: path
+          type: string
+          description: The unique ID for the access preview.
+          required: true
+        - name: analyzerArn
+          in: query
+          type: string
+          description: The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN
+            of the analyzer</a> used to generat
+          required: true
+    - name: analyzed-resource
+      path: /analyzed-resource
+      operations:
+      - name: listanalyzedresources
+        method: POST
+        description: Amazon IAM Access Analyzer List Analyzed Resources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: analyzed-resource#analyzerArn&resourceArn
+      path: /analyzed-resource#analyzerArn&resourceArn
+      operations:
+      - name: getanalyzedresource
+        method: GET
+        description: Amazon IAM Access Analyzer Get Analyzed Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: analyzerArn
+          in: query
+          type: string
+          description: The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN
+            of the analyzer</a> to retrieve inf
+          required: true
+        - name: resourceArn
+          in: query
+          type: string
+          description: The ARN of the resource to retrieve information about.
+          required: true
+    - name: analyzer
+      path: /analyzer
+      operations:
+      - name: createanalyzer
+        method: PUT
+        description: Amazon IAM Access Analyzer Create Analyzer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listanalyzers
+        method: GET
+        description: Amazon IAM Access Analyzer List Analyzers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: nextToken
+          in: query
+          type: string
+          description: A token used for pagination of results returned.
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of results to return in the response.
+        - name: type
+          in: query
+          type: string
+          description: The type of analyzer.
+    - name: analyzer-analyzerName
+      path: /analyzer/{analyzerName}
+      operations:
+      - name: deleteanalyzer
+        method: DELETE
+        description: Amazon IAM Access Analyzer Delete Analyzer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: analyzerName
+          in: path
+          type: string
+          description: The name of the analyzer to delete.
+          required: true
+        - name: clientToken
+          in: query
+          type: string
+          description: A client token.
+      - name: getanalyzer
+        method: GET
+        description: Amazon IAM Access Analyzer Get Analyzer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: analyzerName
+          in: path
+          type: string
+          description: The name of the analyzer retrieved.
+          required: true
+    - name: analyzer-analyzerName-archive-rule
+      path: /analyzer/{analyzerName}/archive-rule
+      operations:
+      - name: createarchiverule
+        method: PUT
+        description: Amazon IAM Access Analyzer Create Archive Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: analyzerName
+          in: path
+          type: string
+          description: The name of the created analyzer.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listarchiverules
+        method: GET
+        description: Amazon IAM Access Analyzer List Archive Rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: analyzerName
+          in: path
+          type: string
+          description: The name of the analyzer to retrieve rules from.
+          required: true
+        - name: nextToken
+          in: query
+          type: string
+          description: A token used for pagination of results returned.
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of results to return in the request.
+    - name: analyzer-analyzerName-archive-rule-ruleName
+      path: /analyzer/{analyzerName}/archive-rule/{ruleName}
+      operations:
+      - name: deletearchiverule
+        method: DELETE
+        description: Amazon IAM Access Analyzer Delete Archive Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: analyzerName
+          in: path
+          type: string
+          description: The name of the analyzer that associated with the archive rule to delete.
+          required: true
+        - name: ruleName
+          in: path
+          type: string
+          description: The name of the rule to delete.
+          required: true
+        - name: clientToken
+          in: query
+          type: string
+          description: A client token.
+      - name: getarchiverule
+        method: GET
+        description: Amazon IAM Access Analyzer Get Archive Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: analyzerName
+          in: path
+          type: string
+          description: The name of the analyzer to retrieve rules from.
+          required: true
+        - name: ruleName
+          in: path
+          type: string
+          description: The name of the rule to retrieve.
+          required: true
+      - name: updatearchiverule
+        method: PUT
+        description: Amazon IAM Access Analyzer Update Archive Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: analyzerName
+          in: path
+          type: string
+          description: The name of the analyzer to update the archive rules for.
+          required: true
+        - name: ruleName
+          in: path
+          type: string
+          description: The name of the rule to update.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: archive-rule
+      path: /archive-rule
+      operations:
+      - name: applyarchiverule
+        method: PUT
+        description: Amazon IAM Access Analyzer Apply Archive Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: finding
+      path: /finding
+      operations:
+      - name: listfindings
+        method: POST
+        description: Amazon IAM Access Analyzer List Findings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: updatefindings
+        method: PUT
+        description: Amazon IAM Access Analyzer Update Findings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: finding-id}#analyzerArn
+      path: /finding/{id}#analyzerArn
+      operations:
+      - name: getfinding
+        method: GET
+        description: Amazon IAM Access Analyzer Get Finding
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: analyzerArn
+          in: query
+          type: string
+          description: 'The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN
+            of the analyzer</a> that generated '
+          required: true
+        - name: id
+          in: path
+          type: string
+          description: The ID of the finding to retrieve.
+          required: true
+    - name: policy-generation
+      path: /policy/generation
+      operations:
+      - name: listpolicygenerations
+        method: GET
+        description: Amazon IAM Access Analyzer List Policy Generations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: principalArn
+          in: query
+          type: string
+          description: The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with <code>ListGeneratedPolicies</code>
+            to filter the results to only i
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of results to return in the response.
+        - name: nextToken
+          in: query
+          type: string
+          description: A token used for pagination of results returned.
+      - name: startpolicygeneration
+        method: PUT
+        description: Amazon IAM Access Analyzer Start Policy Generation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: policy-generation-jobId
+      path: /policy/generation/{jobId}
+      operations:
+      - name: cancelpolicygeneration
+        method: PUT
+        description: Amazon IAM Access Analyzer Cancel Policy Generation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: jobId
+          in: path
+          type: string
+          description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code>
+            can be used with <code>GetGeneratedPolicy</c
+          required: true
+      - name: getgeneratedpolicy
+        method: GET
+        description: Amazon IAM Access Analyzer Get Generated Policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: jobId
+          in: path
+          type: string
+          description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code>
+            can be used with <code>GetGeneratedPolicy</c
+          required: true
+        - name: includeResourcePlaceholders
+          in: query
+          type: boolean
+          description: <p>The level of detail that you want to generate. You can specify whether to generate policies with
+            placeholders for resource ARNs for actions that support reso
+        - name: includeServiceLevelTemplate
+          in: query
+          type: boolean
+          description: <p>The level of detail that you want to generate. You can specify whether to generate service-level
+            policies. </p> <p>IAM Access Analyzer uses <code>iam:service
+    - name: policy-validation
+      path: /policy/validation
+      operations:
+      - name: validatepolicy
+        method: POST
+        description: Amazon IAM Access Analyzer Validate Policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          description: The maximum number of results to return in the response.
+        - name: nextToken
+          in: query
+          type: string
+          description: A token used for pagination of results returned.
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: resource-scan
+      path: /resource/scan
+      operations:
+      - name: startresourcescan
+        method: POST
+        description: Amazon IAM Access Analyzer Start Resource Scan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: tags-resourceArn
+      path: /tags/{resourceArn}
+      operations:
+      - name: listtagsforresource
+        method: GET
+        description: Amazon IAM Access Analyzer List Tags for Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          description: The ARN of the resource to retrieve tags from.
+          required: true
+      - name: tagresource
+        method: POST
+        description: Amazon IAM Access Analyzer Tag Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          description: The ARN of the resource to add the tag to.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: tags-resourceArn}#tagKeys
+      path: /tags/{resourceArn}#tagKeys
+      operations:
+      - name: untagresource
+        method: DELETE
+        description: Amazon IAM Access Analyzer Untag Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          description: The ARN of the resource to remove the tag from.
+          required: true
+        - name: tagKeys
+          in: query
+          type: array
+          description: The key for the tag to add.
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_IAM_ACCESS_ANALYZER_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-iam-access-analyzer-rest
+    port: 8080
+    description: REST adapter for Access Analyzer. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/access-preview
+      name: access-preview
+      description: REST surface for access-preview.
+      operations:
+      - method: PUT
+        name: createaccesspreview
+        description: Amazon IAM Access Analyzer Create Access Preview
+        call: amazon-iam-access-analyzer.createaccesspreview
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/access-preview-analyzerarn
+      name: access-preview-analyzerarn
+      description: REST surface for access-preview#analyzerArn.
+      operations:
+      - method: GET
+        name: listaccesspreviews
+        description: Amazon IAM Access Analyzer List Access Previews
+        call: amazon-iam-access-analyzer.listaccesspreviews
+        with:
+          analyzerArn: rest.analyzerArn
+          nextToken: rest.nextToken
+          maxResults: rest.maxResults
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/access-preview/{accesspreviewid}
+      name: access-preview-accesspreviewid
+      description: REST surface for access-preview-accessPreviewId.
+      operations:
+      - method: POST
+        name: listaccesspreviewfindings
+        description: Amazon IAM Access Analyzer List Access Preview Findings
+        call: amazon-iam-access-analyzer.listaccesspreviewfindings
+        with:
+          accessPreviewId: rest.accessPreviewId
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/access-preview/accesspreviewid-analyzerarn
+      name: access-preview-accesspreviewid-analyzerarn
+      description: REST surface for access-preview-accessPreviewId}#analyzerArn.
+      operations:
+      - method: GET
+        name: getaccesspreview
+        description: Amazon IAM Access Analyzer Get Access Preview
+        call: amazon-iam-access-analyzer.getaccesspreview
+        with:
+          accessPreviewId: rest.accessPreviewId
+          analyzerArn: rest.analyzerArn
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analyzed-resource
+      name: analyzed-resource
+      description: REST surface for analyzed-resource.
+      operations:
+      - method: POST
+        name: listanalyzedresources
+        description: Amazon IAM Access Analyzer List Analyzed Resources
+        call: amazon-iam-access-analyzer.listanalyzedresources
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analyzed-resource-analyzerarn-resourcearn
+      name: analyzed-resource-analyzerarn-resourcearn
+      description: REST surface for analyzed-resource#analyzerArn&resourceArn.
+      operations:
+      - method: GET
+        name: getanalyzedresource
+        description: Amazon IAM Access Analyzer Get Analyzed Resource
+        call: amazon-iam-access-analyzer.getanalyzedresource
+        with:
+          analyzerArn: rest.analyzerArn
+          resourceArn: rest.resourceArn
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analyzer
+      name: analyzer
+      description: REST surface for analyzer.
+      operations:
+      - method: PUT
+        name: createanalyzer
+        description: Amazon IAM Access Analyzer Create Analyzer
+        call: amazon-iam-access-analyzer.createanalyzer
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listanalyzers
+        description: Amazon IAM Access Analyzer List Analyzers
+        call: amazon-iam-access-analyzer.listanalyzers
+        with:
+          nextToken: rest.nextToken
+          maxResults: rest.maxResults
+          type: rest.type
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analyzer/{analyzername}
+      name: analyzer-analyzername
+      description: REST surface for analyzer-analyzerName.
+      operations:
+      - method: DELETE
+        name: deleteanalyzer
+        description: Amazon IAM Access Analyzer Delete Analyzer
+        call: amazon-iam-access-analyzer.deleteanalyzer
+        with:
+          analyzerName: rest.analyzerName
+          clientToken: rest.clientToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getanalyzer
+        description: Amazon IAM Access Analyzer Get Analyzer
+        call: amazon-iam-access-analyzer.getanalyzer
+        with:
+          analyzerName: rest.analyzerName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analyzer/{analyzername}/archive-rule
+      name: analyzer-analyzername-archive-rule
+      description: REST surface for analyzer-analyzerName-archive-rule.
+      operations:
+      - method: PUT
+        name: createarchiverule
+        description: Amazon IAM Access Analyzer Create Archive Rule
+        call: amazon-iam-access-analyzer.createarchiverule
+        with:
+          analyzerName: rest.analyzerName
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listarchiverules
+        description: Amazon IAM Access Analyzer List Archive Rules
+        call: amazon-iam-access-analyzer.listarchiverules
+        with:
+          analyzerName: rest.analyzerName
+          nextToken: rest.nextToken
+          maxResults: rest.maxResults
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analyzer/{analyzername}/archive-rule/{rulename}
+      name: analyzer-analyzername-archive-rule-rulename
+      description: REST surface for analyzer-analyzerName-archive-rule-ruleName.
+      operations:
+      - method: DELETE
+        name: deletearchiverule
+        description: Amazon IAM Access Analyzer Delete Archive Rule
+        call: amazon-iam-access-analyzer.deletearchiverule
+        with:
+          analyzerName: rest.analyzerName
+          ruleName: rest.ruleName
+          clientToken: rest.clientToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getarchiverule
+        description: Amazon IAM Access Analyzer Get Archive Rule
+        call: amazon-iam-access-analyzer.getarchiverule
+        with:
+          analyzerName: rest.analyzerName
+          ruleName: rest.ruleName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatearchiverule
+        description: Amazon IAM Access Analyzer Update Archive Rule
+        call: amazon-iam-access-analyzer.updatearchiverule
+        with:
+          analyzerName: rest.analyzerName
+          ruleName: rest.ruleName
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/archive-rule
+      name: archive-rule
+      description: REST surface for archive-rule.
+      operations:
+      - method: PUT
+        name: applyarchiverule
+        description: Amazon IAM Access Analyzer Apply Archive Rule
+        call: amazon-iam-access-analyzer.applyarchiverule
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/finding
+      name: finding
+      description: REST surface for finding.
+      operations:
+      - method: POST
+        name: listfindings
+        description: Amazon IAM Access Analyzer List Findings
+        call: amazon-iam-access-analyzer.listfindings
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatefindings
+        description: Amazon IAM Access Analyzer Update Findings
+        call: amazon-iam-access-analyzer.updatefindings
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/finding/id-analyzerarn
+      name: finding-id-analyzerarn
+      description: REST surface for finding-id}#analyzerArn.
+      operations:
+      - method: GET
+        name: getfinding
+        description: Amazon IAM Access Analyzer Get Finding
+        call: amazon-iam-access-analyzer.getfinding
+        with:
+          analyzerArn: rest.analyzerArn
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/policy/generation
+      name: policy-generation
+      description: REST surface for policy-generation.
+      operations:
+      - method: GET
+        name: listpolicygenerations
+        description: Amazon IAM Access Analyzer List Policy Generations
+        call: amazon-iam-access-analyzer.listpolicygenerations
+        with:
+          principalArn: rest.principalArn
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: startpolicygeneration
+        description: Amazon IAM Access Analyzer Start Policy Generation
+        call: amazon-iam-access-analyzer.startpolicygeneration
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/policy/generation/{jobid}
+      name: policy-generation-jobid
+      description: REST surface for policy-generation-jobId.
+      operations:
+      - method: PUT
+        name: cancelpolicygeneration
+        description: Amazon IAM Access Analyzer Cancel Policy Generation
+        call: amazon-iam-access-analyzer.cancelpolicygeneration
+        with:
+          jobId: rest.jobId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getgeneratedpolicy
+        description: Amazon IAM Access Analyzer Get Generated Policy
+        call: amazon-iam-access-analyzer.getgeneratedpolicy
+        with:
+          jobId: rest.jobId
+          includeResourcePlaceholders: rest.includeResourcePlaceholders
+          includeServiceLevelTemplate: rest.includeServiceLevelTemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/policy/validation
+      name: policy-validation
+      description: REST surface for policy-validation.
+      operations:
+      - method: POST
+        name: validatepolicy
+        description: Amazon IAM Access Analyzer Validate Policy
+        call: amazon-iam-access-analyzer.validatepolicy
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resource/scan
+      name: resource-scan
+      description: REST surface for resource-scan.
+      operations:
+      - method: POST
+        name: startresourcescan
+        description: Amazon IAM Access Analyzer Start Resource Scan
+        call: amazon-iam-access-analyzer.startresourcescan
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags/{resourcearn}
+      name: tags-resourcearn
+      description: REST surface for tags-resourceArn.
+      operations:
+      - method: GET
+        name: listtagsforresource
+        description: Amazon IAM Access Analyzer List Tags for Resource
+        call: amazon-iam-access-analyzer.listtagsforresource
+        with:
+          resourceArn: rest.resourceArn
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: tagresource
+        description: Amazon IAM Access Analyzer Tag Resource
+        call: amazon-iam-access-analyzer.tagresource
+        with:
+          resourceArn: rest.resourceArn
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags/resourcearn-tagkeys
+      name: tags-resourcearn-tagkeys
+      description: REST surface for tags-resourceArn}#tagKeys.
+      operations:
+      - method: DELETE
+        name: untagresource
+        description: Amazon IAM Access Analyzer Untag Resource
+        call: amazon-iam-access-analyzer.untagresource
+        with:
+          resourceArn: rest.resourceArn
+          tagKeys: rest.tagKeys
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-iam-access-analyzer-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Access Analyzer. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: amazon-iam-access-analyzer-create
+      description: Amazon IAM Access Analyzer Create Access Preview
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.createaccesspreview
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-list
+      description: Amazon IAM Access Analyzer List Access Previews
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.listaccesspreviews
+      with:
+        analyzerArn: tools.analyzerArn
+        nextToken: tools.nextToken
+        maxResults: tools.maxResults
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-list-2
+      description: Amazon IAM Access Analyzer List Access Preview Findings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iam-access-analyzer.listaccesspreviewfindings
+      with:
+        accessPreviewId: tools.accessPreviewId
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-get
+      description: Amazon IAM Access Analyzer Get Access Preview
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.getaccesspreview
+      with:
+        accessPreviewId: tools.accessPreviewId
+        analyzerArn: tools.analyzerArn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-list-3
+      description: Amazon IAM Access Analyzer List Analyzed Resources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iam-access-analyzer.listanalyzedresources
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-get-2
+      description: Amazon IAM Access Analyzer Get Analyzed Resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.getanalyzedresource
+      with:
+        analyzerArn: tools.analyzerArn
+        resourceArn: tools.resourceArn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-create-2
+      description: Amazon IAM Access Analyzer Create Analyzer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.createanalyzer
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-list-4
+      description: Amazon IAM Access Analyzer List Analyzers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.listanalyzers
+      with:
+        nextToken: tools.nextToken
+        maxResults: tools.maxResults
+        type: tools.type
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-delete
+      description: Amazon IAM Access Analyzer Delete Analyzer
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-iam-access-analyzer.deleteanalyzer
+      with:
+        analyzerName: tools.analyzerName
+        clientToken: tools.clientToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-get-3
+      description: Amazon IAM Access Analyzer Get Analyzer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.getanalyzer
+      with:
+        analyzerName: tools.analyzerName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-create-3
+      description: Amazon IAM Access Analyzer Create Archive Rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.createarchiverule
+      with:
+        analyzerName: tools.analyzerName
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-list-5
+      description: Amazon IAM Access Analyzer List Archive Rules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.listarchiverules
+      with:
+        analyzerName: tools.analyzerName
+        nextToken: tools.nextToken
+        maxResults: tools.maxResults
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-delete-2
+      description: Amazon IAM Access Analyzer Delete Archive Rule
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-iam-access-analyzer.deletearchiverule
+      with:
+        analyzerName: tools.analyzerName
+        ruleName: tools.ruleName
+        clientToken: tools.clientToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-get-4
+      description: Amazon IAM Access Analyzer Get Archive Rule
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.getarchiverule
+      with:
+        analyzerName: tools.analyzerName
+        ruleName: tools.ruleName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-update
+      description: Amazon IAM Access Analyzer Update Archive Rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.updatearchiverule
+      with:
+        analyzerName: tools.analyzerName
+        ruleName: tools.ruleName
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-apply
+      description: Amazon IAM Access Analyzer Apply Archive Rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.applyarchiverule
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-list-6
+      description: Amazon IAM Access Analyzer List Findings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iam-access-analyzer.listfindings
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-update-2
+      description: Amazon IAM Access Analyzer Update Findings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.updatefindings
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-get-5
+      description: Amazon IAM Access Analyzer Get Finding
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.getfinding
+      with:
+        analyzerArn: tools.analyzerArn
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-list-7
+      description: Amazon IAM Access Analyzer List Policy Generations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.listpolicygenerations
+      with:
+        principalArn: tools.principalArn
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-start
+      description: Amazon IAM Access Analyzer Start Policy Generation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.startpolicygeneration
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-cancel
+      description: Amazon IAM Access Analyzer Cancel Policy Generation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.cancelpolicygeneration
+      with:
+        jobId: tools.jobId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-get-6
+      description: Amazon IAM Access Analyzer Get Generated Policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.getgeneratedpolicy
+      with:
+        jobId: tools.jobId
+        includeResourcePlaceholders: tools.includeResourcePlaceholders
+        includeServiceLevelTemplate: tools.includeServiceLevelTemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-validate
+      description: Amazon IAM Access Analyzer Validate Policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iam-access-analyzer.validatepolicy
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-start-2
+      description: Amazon IAM Access Analyzer Start Resource Scan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-iam-access-analyzer.startresourcescan
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-list-8
+      description: Amazon IAM Access Analyzer List Tags for Resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-analyzer.listtagsforresource
+      with:
+        resourceArn: tools.resourceArn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-tag
+      description: Amazon IAM Access Analyzer Tag Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-iam-access-analyzer.tagresource
+      with:
+        resourceArn: tools.resourceArn
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-access-analyzer-untag
+      description: Amazon IAM Access Analyzer Untag Resource
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-iam-access-analyzer.untagresource
+      with:
+        resourceArn: tools.resourceArn
+        tagKeys: tools.tagKeys
+      outputParameters:
+      - type: object
+        mapping: $.
