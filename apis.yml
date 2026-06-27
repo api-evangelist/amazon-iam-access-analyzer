@@ -44,9 +44,9 @@ apis:
     url: json-schema/iam-access-analyzer-analyzer-schema.json
   - type: JSONStructure
     url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Example
+  - type: Examples
     url: examples/iam-access-analyzer-analyzer-example.json
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-iam-access-analyzer.yaml
 common:
 - type: Portal
@@ -67,7 +67,7 @@ common:
   url: https://github.com/aws
 - type: Console
   url: https://console.aws.amazon.com/access-analyzer/
-- type: SignUp
+- type: Signup
   url: https://portal.aws.amazon.com/billing/signup
 - type: Login
   url: https://signin.aws.amazon.com/
