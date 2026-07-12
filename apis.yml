@@ -49,6 +49,14 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-iam-access-analyzer.yaml
 common:
+- type: TrustCenter
+  url: security/amazon-iam-access-analyzer-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-iam-access-analyzer-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-iam-access-analyzer-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-iam-access-analyzer-authentication.yml
 - type: Portal
   url: https://aws.amazon.com/iam/features/analyze-access/
 - type: Website
