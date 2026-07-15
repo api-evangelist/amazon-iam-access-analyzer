@@ -49,6 +49,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-iam-access-analyzer.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/amazon-iam-access-analyzer-agentic-access.yml
 - type: TrustCenter
   url: security/amazon-iam-access-analyzer-trust-center.yml
 - type: VulnerabilityDisclosure
