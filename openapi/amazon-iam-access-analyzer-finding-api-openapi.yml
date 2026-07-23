@@ -1,0 +1,703 @@
+openapi: 3.0.0
+info:
+  version: 2019-11-01
+  x-release: v4
+  title: Access Analyzer Access Preview#analyzerArn Finding API
+  description: <p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview and validate public and cross-account access to your resources before deploying permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: accessanalyzer
+  x-aws-signingName: access-analyzer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/accessanalyzer-2019-11-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://access-analyzer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Access Analyzer multi-region endpoint
+- url: https://access-analyzer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Access Analyzer multi-region endpoint
+- url: http://access-analyzer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Access Analyzer endpoint for China (Beijing) and China (Ningxia)
+- url: https://access-analyzer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Access Analyzer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Finding
+paths:
+  /finding/{id}#analyzerArn:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetFinding
+      description: Retrieves information about the specified finding.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFindingResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: analyzerArn
+        in: query
+        required: true
+        description: The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> that generated the finding.
+        schema:
+          type: string
+          pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
+      - name: id
+        in: path
+        required: true
+        description: The ID of the finding to retrieve.
+        schema:
+          type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Get Finding
+      tags:
+      - Finding
+  /finding:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ListFindings
+      description: <p>Retrieves a list of findings generated by the specified analyzer.</p> <p>To learn about filter keys that you can use to retrieve a list of findings, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFindingsResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - analyzerArn
+              properties:
+                analyzerArn:
+                  description: The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> to retrieve findings from.
+                  type: string
+                  pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
+                filter:
+                  description: A filter to match for the findings to return.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/Criterion'
+                sort:
+                  description: The criteria used to sort.
+                  type: object
+                  properties:
+                    attributeName:
+                      allOf:
+                      - $ref: '#/components/schemas/String'
+                      - description: The name of the attribute to sort on.
+                    orderBy:
+                      allOf:
+                      - $ref: '#/components/schemas/OrderBy'
+                      - description: The sort order, ascending or descending.
+                nextToken:
+                  description: A token used for pagination of results returned.
+                  type: string
+                maxResults:
+                  description: The maximum number of results to return in the response.
+                  type: integer
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer List Findings
+      tags:
+      - Finding
+    put:
+      operationId: UpdateFindings
+      description: Updates the status for the specified findings.
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - analyzerArn
+              - status
+              properties:
+                analyzerArn:
+                  description: The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> that generated the findings to update.
+                  type: string
+                  pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
+                status:
+                  description: The state represents the action to take to update the finding Status. Use <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use <code>ACTIVE</code> to change an Archived finding to an Active finding.
+                  type: string
+                  enum:
+                  - ACTIVE
+                  - ARCHIVED
+                ids:
+                  description: The IDs of the findings to update.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/FindingId'
+                resourceArn:
+                  description: The ARN of the resource identified in the finding.
+                  type: string
+                  pattern: arn:[^:]*:[^:]*:[^:]*:[^:]*:.*
+                clientToken:
+                  description: A client token.
+                  type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Update Findings
+      tags:
+      - Finding
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    String:
+      type: string
+    FindingSource:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          allOf:
+          - $ref: '#/components/schemas/FindingSourceType'
+          - description: Indicates the type of access that generated the finding.
+        detail:
+          allOf:
+          - $ref: '#/components/schemas/FindingSourceDetail'
+          - description: Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.
+      description: The source of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.
+    FindingSourceDetail:
+      type: object
+      properties:
+        accessPointArn:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The ARN of the access point that generated the finding. The ARN format depends on whether the ARN represents an access point or a multi-region access point.
+        accessPointAccount:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The account of the cross-account access point that generated the finding.
+      description: Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.
+    ConditionKeyMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
+    InternalServerException: {}
+    FindingsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/FindingSummary'
+    FindingSummary:
+      type: object
+      required:
+      - id
+      - resourceType
+      - condition
+      - createdAt
+      - analyzedAt
+      - updatedAt
+      - status
+      - resourceOwnerAccount
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/FindingId'
+          - description: The ID of the finding.
+        principal:
+          allOf:
+          - $ref: '#/components/schemas/PrincipalMap'
+          - description: The external principal that has access to a resource within the zone of trust.
+        action:
+          allOf:
+          - $ref: '#/components/schemas/ActionList'
+          - description: The action in the analyzed policy statement that an external principal has permission to use.
+        resource:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The resource that the external principal has access to.
+        isPublic:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Indicates whether the finding reports a resource that has a policy that allows public access.
+        resourceType:
+          allOf:
+          - $ref: '#/components/schemas/ResourceType'
+          - description: The type of the resource that the external principal has access to.
+        condition:
+          allOf:
+          - $ref: '#/components/schemas/ConditionKeyMap'
+          - description: The condition in the analyzed policy statement that resulted in a finding.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the finding was created.
+        analyzedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the resource-based policy that generated the finding was analyzed.
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the finding was most recently updated.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/FindingStatus'
+          - description: The status of the finding.
+        resourceOwnerAccount:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The Amazon Web Services account ID that owns the resource.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The error that resulted in an Error finding.
+        sources:
+          allOf:
+          - $ref: '#/components/schemas/FindingSourceList'
+          - description: The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.
+      description: Contains information about a finding.
+    Token:
+      type: string
+    Criterion:
+      type: object
+      properties:
+        eq:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: An "equals" operator to match for the filter used to create the rule.
+        neq:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: A "not equals" operator to match for the filter used to create the rule.
+        contains:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: A "contains" operator to match for the filter used to create the rule.
+        exists:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: 'An "exists" operator to match for the filter used to create the rule. '
+      description: The criteria to use in the filter that defines the archive rule. For more information on available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a>.
+    ThrottlingException: {}
+    Boolean:
+      type: boolean
+    Finding:
+      type: object
+      required:
+      - id
+      - resourceType
+      - condition
+      - createdAt
+      - analyzedAt
+      - updatedAt
+      - status
+      - resourceOwnerAccount
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/FindingId'
+          - description: The ID of the finding.
+        principal:
+          allOf:
+          - $ref: '#/components/schemas/PrincipalMap'
+          - description: The external principal that access to a resource within the zone of trust.
+        action:
+          allOf:
+          - $ref: '#/components/schemas/ActionList'
+          - description: The action in the analyzed policy statement that an external principal has permission to use.
+        resource:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The resource that an external principal has access to.
+        isPublic:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Indicates whether the policy that generated the finding allows public access to the resource.
+        resourceType:
+          allOf:
+          - $ref: '#/components/schemas/ResourceType'
+          - description: The type of the resource identified in the finding.
+        condition:
+          allOf:
+          - $ref: '#/components/schemas/ConditionKeyMap'
+          - description: The condition in the analyzed policy statement that resulted in a finding.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the finding was generated.
+        analyzedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the resource was analyzed.
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the finding was updated.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/FindingStatus'
+          - description: The current status of the finding.
+        resourceOwnerAccount:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The Amazon Web Services account ID that owns the resource.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: An error.
+        sources:
+          allOf:
+          - $ref: '#/components/schemas/FindingSourceList'
+          - description: The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.
+      description: Contains information about a finding.
+    ActionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    ResourceType:
+      type: string
+      enum:
+      - AWS::S3::Bucket
+      - AWS::IAM::Role
+      - AWS::SQS::Queue
+      - AWS::Lambda::Function
+      - AWS::Lambda::LayerVersion
+      - AWS::KMS::Key
+      - AWS::SecretsManager::Secret
+      - AWS::EFS::FileSystem
+      - AWS::EC2::Snapshot
+      - AWS::ECR::Repository
+      - AWS::RDS::DBSnapshot
+      - AWS::RDS::DBClusterSnapshot
+      - AWS::SNS::Topic
+    OrderBy:
+      type: string
+      enum:
+      - ASC
+      - DESC
+    ListFindingsResponse:
+      type: object
+      required:
+      - findings
+      properties:
+        findings:
+          allOf:
+          - $ref: '#/components/schemas/FindingsList'
+          - description: A list of findings retrieved from the analyzer that match the filter criteria specified, if any.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+      description: The response to the request.
+    FindingId:
+      type: string
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    PrincipalMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
+    FindingSourceType:
+      type: string
+      enum:
+      - POLICY
+      - BUCKET_ACL
+      - S3_ACCESS_POINT
+      - S3_ACCESS_POINT_ACCOUNT
+    FindingSourceList:
+      type: array
+      items:
+        $ref: '#/components/schemas/FindingSource'
+    Timestamp:
+      type: string
+      format: date-time
+    FindingStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - ARCHIVED
+      - RESOLVED
+    ValidationException: {}
+    ValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+      minItems: 1
+      maxItems: 20
+    GetFindingResponse:
+      type: object
+      properties:
+        finding:
+          allOf:
+          - $ref: '#/components/schemas/Finding'
+          - description: A <code>finding</code> object that contains finding details.
+      description: The response to the request.
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/access-analyzer/
+x-hasEquivalentPaths: true

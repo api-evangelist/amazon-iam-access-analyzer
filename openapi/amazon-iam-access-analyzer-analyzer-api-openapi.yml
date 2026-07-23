@@ -1,0 +1,1068 @@
+openapi: 3.0.0
+info:
+  version: 2019-11-01
+  x-release: v4
+  title: Access Access Preview#analyzerArn Analyzer API
+  description: <p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview and validate public and cross-account access to your resources before deploying permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: accessanalyzer
+  x-aws-signingName: access-analyzer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/accessanalyzer-2019-11-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://access-analyzer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Access Analyzer multi-region endpoint
+- url: https://access-analyzer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Access Analyzer multi-region endpoint
+- url: http://access-analyzer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Access Analyzer endpoint for China (Beijing) and China (Ningxia)
+- url: https://access-analyzer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Access Analyzer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Analyzer
+paths:
+  /analyzer:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: CreateAnalyzer
+      description: Creates an analyzer for your account.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAnalyzerResponse'
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '484':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '485':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - analyzerName
+              - type
+              properties:
+                analyzerName:
+                  description: The name of the analyzer to create.
+                  type: string
+                  pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+                  minLength: 1
+                  maxLength: 255
+                type:
+                  description: The type of analyzer to create. Only ACCOUNT and ORGANIZATION analyzers are supported. You can create only one analyzer per account per Region. You can create up to 5 analyzers per organization per Region.
+                  type: string
+                  enum:
+                  - ACCOUNT
+                  - ORGANIZATION
+                archiveRules:
+                  description: Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/InlineArchiveRule'
+                tags:
+                  description: The tags to apply to the analyzer.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/String'
+                clientToken:
+                  description: A client token.
+                  type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Create Analyzer
+      tags:
+      - Analyzer
+    get:
+      operationId: ListAnalyzers
+      description: Retrieves a list of analyzers.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAnalyzersResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: nextToken
+        in: query
+        required: false
+        description: A token used for pagination of results returned.
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return in the response.
+        schema:
+          type: integer
+      - name: type
+        in: query
+        required: false
+        description: The type of analyzer.
+        schema:
+          type: string
+          enum:
+          - ACCOUNT
+          - ORGANIZATION
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer List Analyzers
+      tags:
+      - Analyzer
+  /analyzer/{analyzerName}/archive-rule:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: CreateArchiveRule
+      description: <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.</p> <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '482':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '484':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: analyzerName
+        in: path
+        required: true
+        description: The name of the created analyzer.
+        schema:
+          type: string
+          pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+          minLength: 1
+          maxLength: 255
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - ruleName
+              - filter
+              properties:
+                ruleName:
+                  description: The name of the rule to create.
+                  type: string
+                  pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+                  minLength: 1
+                  maxLength: 255
+                filter:
+                  description: The criteria for the rule.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/Criterion'
+                clientToken:
+                  description: A client token.
+                  type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Create Archive Rule
+      tags:
+      - Analyzer
+    get:
+      operationId: ListArchiveRules
+      description: Retrieves a list of archive rules created for the specified analyzer.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListArchiveRulesResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: analyzerName
+        in: path
+        required: true
+        description: The name of the analyzer to retrieve rules from.
+        schema:
+          type: string
+          pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+          minLength: 1
+          maxLength: 255
+      - name: nextToken
+        in: query
+        required: false
+        description: A token used for pagination of results returned.
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return in the request.
+        schema:
+          type: integer
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer List Archive Rules
+      tags:
+      - Analyzer
+  /analyzer/{analyzerName}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteAnalyzer
+      description: Deletes the specified analyzer. When you delete an analyzer, IAM Access Analyzer is disabled for the account or organization in the current or specific Region. All findings that were generated by the analyzer are deleted. You cannot undo this action.
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: analyzerName
+        in: path
+        required: true
+        description: The name of the analyzer to delete.
+        schema:
+          type: string
+          pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+          minLength: 1
+          maxLength: 255
+      - name: clientToken
+        in: query
+        required: false
+        description: A client token.
+        schema:
+          type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Delete Analyzer
+      tags:
+      - Analyzer
+    get:
+      operationId: GetAnalyzer
+      description: Retrieves information about the specified analyzer.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAnalyzerResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: analyzerName
+        in: path
+        required: true
+        description: The name of the analyzer retrieved.
+        schema:
+          type: string
+          pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Get Analyzer
+      tags:
+      - Analyzer
+  /analyzer/{analyzerName}/archive-rule/{ruleName}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteArchiveRule
+      description: Deletes the specified archive rule.
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: analyzerName
+        in: path
+        required: true
+        description: The name of the analyzer that associated with the archive rule to delete.
+        schema:
+          type: string
+          pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+          minLength: 1
+          maxLength: 255
+      - name: ruleName
+        in: path
+        required: true
+        description: The name of the rule to delete.
+        schema:
+          type: string
+          pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+          minLength: 1
+          maxLength: 255
+      - name: clientToken
+        in: query
+        required: false
+        description: A client token.
+        schema:
+          type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Delete Archive Rule
+      tags:
+      - Analyzer
+    get:
+      operationId: GetArchiveRule
+      description: <p>Retrieves information about an archive rule.</p> <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetArchiveRuleResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: analyzerName
+        in: path
+        required: true
+        description: The name of the analyzer to retrieve rules from.
+        schema:
+          type: string
+          pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+          minLength: 1
+          maxLength: 255
+      - name: ruleName
+        in: path
+        required: true
+        description: The name of the rule to retrieve.
+        schema:
+          type: string
+          pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Get Archive Rule
+      tags:
+      - Analyzer
+    put:
+      operationId: UpdateArchiveRule
+      description: Updates the criteria and values for the specified archive rule.
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: analyzerName
+        in: path
+        required: true
+        description: The name of the analyzer to update the archive rules for.
+        schema:
+          type: string
+          pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+          minLength: 1
+          maxLength: 255
+      - name: ruleName
+        in: path
+        required: true
+        description: The name of the rule to update.
+        schema:
+          type: string
+          pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+          minLength: 1
+          maxLength: 255
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - filter
+              properties:
+                filter:
+                  description: A filter to match for the rules to update. Only rules that match the filter are updated.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/Criterion'
+                clientToken:
+                  description: A client token.
+                  type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Update Archive Rule
+      tags:
+      - Analyzer
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    String:
+      type: string
+    InlineArchiveRule:
+      type: object
+      required:
+      - ruleName
+      - filter
+      properties:
+        ruleName:
+          allOf:
+          - $ref: '#/components/schemas/Name'
+          - description: The name of the rule.
+        filter:
+          allOf:
+          - $ref: '#/components/schemas/FilterCriteriaMap'
+          - description: The condition and values for a criterion.
+      description: An criterion statement in an archive rule. Each archive rule may have multiple criteria.
+    InternalServerException: {}
+    AnalyzersList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AnalyzerSummary'
+    Token:
+      type: string
+    Criterion:
+      type: object
+      properties:
+        eq:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: An "equals" operator to match for the filter used to create the rule.
+        neq:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: A "not equals" operator to match for the filter used to create the rule.
+        contains:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: A "contains" operator to match for the filter used to create the rule.
+        exists:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: 'An "exists" operator to match for the filter used to create the rule. '
+      description: The criteria to use in the filter that defines the archive rule. For more information on available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a>.
+    ThrottlingException: {}
+    AnalyzerSummary:
+      type: object
+      required:
+      - arn
+      - name
+      - type
+      - createdAt
+      - status
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzerArn'
+          - description: The ARN of the analyzer.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/Name'
+          - description: The name of the analyzer.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/Type'
+          - description: The type of analyzer, which corresponds to the zone of trust chosen for the analyzer.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: A timestamp for the time at which the analyzer was created.
+        lastResourceAnalyzed:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The resource that was most recently analyzed by the analyzer.
+        lastResourceAnalyzedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the most recently analyzed resource was analyzed.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagsMap'
+          - description: The tags added to the analyzer.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzerStatus'
+          - description: 'The status of the analyzer. An <code>Active</code> analyzer successfully monitors supported resources and generates new findings. The analyzer is <code>Disabled</code> when a user action, such as removing trusted access for Identity and Access Management Access Analyzer from Organizations, causes the analyzer to stop generating new findings. The status is <code>Creating</code> when the analyzer creation is in progress and <code>Failed</code> when the analyzer creation has failed. '
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/StatusReason'
+          - description: The <code>statusReason</code> provides more details about the current status of the analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status is returned. For an analyzer with organization as the type, this failure can be due to an issue with creating the service-linked roles required in the member accounts of the Amazon Web Services organization.
+      description: Contains information about the analyzer.
+    CreateAnalyzerResponse:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzerArn'
+          - description: The ARN of the analyzer that was created by the request.
+      description: The response to the request to create an analyzer.
+    Boolean:
+      type: boolean
+    ReasonCode:
+      type: string
+      enum:
+      - AWS_SERVICE_ACCESS_DISABLED
+      - DELEGATED_ADMINISTRATOR_DEREGISTERED
+      - ORGANIZATION_DELETED
+      - SERVICE_LINKED_ROLE_CREATION_FAILED
+    ConflictException: {}
+    AnalyzerStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - CREATING
+      - DISABLED
+      - FAILED
+    ServiceQuotaExceededException: {}
+    FilterCriteriaMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Criterion'
+    GetAnalyzerResponse:
+      type: object
+      required:
+      - analyzer
+      properties:
+        analyzer:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzerSummary'
+          - description: An <code>AnalyzerSummary</code> object that contains information about the analyzer.
+      description: The response to the request.
+    AnalyzerArn:
+      type: string
+      pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
+    GetArchiveRuleResponse:
+      type: object
+      required:
+      - archiveRule
+      properties:
+        archiveRule:
+          $ref: '#/components/schemas/ArchiveRuleSummary'
+      description: The response to the request.
+    ListArchiveRulesResponse:
+      type: object
+      required:
+      - archiveRules
+      properties:
+        archiveRules:
+          allOf:
+          - $ref: '#/components/schemas/ArchiveRulesList'
+          - description: A list of archive rules created for the specified analyzer.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+      description: The response to the request.
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    ListAnalyzersResponse:
+      type: object
+      required:
+      - analyzers
+      properties:
+        analyzers:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzersList'
+          - description: The analyzers retrieved.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+      description: The response to the request.
+    ArchiveRulesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ArchiveRuleSummary'
+    ArchiveRuleSummary:
+      type: object
+      required:
+      - ruleName
+      - filter
+      - createdAt
+      - updatedAt
+      properties:
+        ruleName:
+          allOf:
+          - $ref: '#/components/schemas/Name'
+          - description: The name of the archive rule.
+        filter:
+          allOf:
+          - $ref: '#/components/schemas/FilterCriteriaMap'
+          - description: A filter used to define the archive rule.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the archive rule was created.
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the archive rule was last updated.
+      description: Contains information about an archive rule.
+    Type:
+      type: string
+      enum:
+      - ACCOUNT
+      - ORGANIZATION
+    Timestamp:
+      type: string
+      format: date-time
+    Name:
+      type: string
+      pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+      minLength: 1
+      maxLength: 255
+    ValidationException: {}
+    TagsMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
+    ValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+      minItems: 1
+      maxItems: 20
+    StatusReason:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/ReasonCode'
+          - description: The reason code for the current status of the analyzer.
+      description: Provides more details about the current status of the analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status is returned. For an analyzer with organization as the type, this failure can be due to an issue with creating the service-linked roles required in the member accounts of the Amazon Web Services organization.
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/access-analyzer/
+x-hasEquivalentPaths: true

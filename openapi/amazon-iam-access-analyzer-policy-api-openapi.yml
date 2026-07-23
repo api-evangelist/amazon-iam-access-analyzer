@@ -1,0 +1,916 @@
+openapi: 3.0.0
+info:
+  version: 2019-11-01
+  x-release: v4
+  title: Access Analyzer Access Preview#analyzerArn Policy API
+  description: <p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview and validate public and cross-account access to your resources before deploying permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: accessanalyzer
+  x-aws-signingName: access-analyzer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/accessanalyzer-2019-11-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://access-analyzer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Access Analyzer multi-region endpoint
+- url: https://access-analyzer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Access Analyzer multi-region endpoint
+- url: http://access-analyzer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Access Analyzer endpoint for China (Beijing) and China (Ningxia)
+- url: https://access-analyzer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Access Analyzer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Policy
+paths:
+  /policy/generation/{jobId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: CancelPolicyGeneration
+      description: Cancels the requested policy generation.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CancelPolicyGenerationResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.
+        schema:
+          type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Cancel Policy Generation
+      tags:
+      - Policy
+    get:
+      operationId: GetGeneratedPolicy
+      description: 'Retrieves the policy that was generated using <code>StartPolicyGeneration</code>. '
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetGeneratedPolicyResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.
+        schema:
+          type: string
+      - name: includeResourcePlaceholders
+        in: query
+        required: false
+        description: <p>The level of detail that you want to generate. You can specify whether to generate policies with placeholders for resource ARNs for actions that support resource level granularity in policies.</p> <p>For example, in the resource section of a policy, you can receive a placeholder such as <code>"Resource":"arn:aws:s3:::${BucketName}"</code> instead of <code>"*"</code>.</p>
+        schema:
+          type: boolean
+      - name: includeServiceLevelTemplate
+        in: query
+        required: false
+        description: <p>The level of detail that you want to generate. You can specify whether to generate service-level policies. </p> <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have been used recently to create this service-level template.</p>
+        schema:
+          type: boolean
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Get Generated Policy
+      tags:
+      - Policy
+  /policy/generation:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListPolicyGenerations
+      description: Lists all of the policy generations requested in the last seven days.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPolicyGenerationsResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: principalArn
+        in: query
+        required: false
+        description: The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with <code>ListGeneratedPolicies</code> to filter the results to only include results for a specific principal.
+        schema:
+          type: string
+          pattern: arn:[^:]*:iam::[^:]*:(role|user)/.{1,576}
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return in the response.
+        schema:
+          type: integer
+          minimum: 1
+      - name: nextToken
+        in: query
+        required: false
+        description: A token used for pagination of results returned.
+        schema:
+          type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer List Policy Generations
+      tags:
+      - Policy
+    put:
+      operationId: StartPolicyGeneration
+      description: Starts the policy generation request.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartPolicyGenerationResponse'
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '484':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '485':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - policyGenerationDetails
+              properties:
+                policyGenerationDetails:
+                  description: Contains the ARN details about the IAM entity for which the policy is generated.
+                  type: object
+                  properties:
+                    principalArn:
+                      allOf:
+                      - $ref: '#/components/schemas/PrincipalArn'
+                      - description: The ARN of the IAM entity (user or role) for which you are generating a policy.
+                cloudTrailDetails:
+                  description: Contains information about CloudTrail access.
+                  type: object
+                  properties:
+                    trails:
+                      allOf:
+                      - $ref: '#/components/schemas/TrailList'
+                      - description: A <code>Trail</code> object that contains settings for a trail.
+                    accessRole:
+                      allOf:
+                      - $ref: '#/components/schemas/RoleArn'
+                      - description: The ARN of the service role that IAM Access Analyzer uses to access your CloudTrail trail and service last accessed information.
+                    startTime:
+                      allOf:
+                      - $ref: '#/components/schemas/Timestamp'
+                      - description: The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with a timestamp before this time are not considered to generate a policy.
+                    endTime:
+                      allOf:
+                      - $ref: '#/components/schemas/Timestamp'
+                      - description: The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with a timestamp after this time are not considered to generate a policy. If this is not included in the request, the default value is the current time.
+                clientToken:
+                  description: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services SDK.</p>
+                  type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Start Policy Generation
+      tags:
+      - Policy
+  /policy/validation:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ValidatePolicy
+      description: 'Requests the validation of a policy and returns a list of findings. The findings help you identify issues and provide actionable recommendations to resolve the issue and enable you to author functional policies that meet security best practices. '
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidatePolicyResponse'
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return in the response.
+        schema:
+          type: integer
+      - name: nextToken
+        in: query
+        required: false
+        description: A token used for pagination of results returned.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - policyDocument
+              - policyType
+              properties:
+                locale:
+                  description: The locale to use for localizing the findings.
+                  type: string
+                  enum:
+                  - DE
+                  - EN
+                  - ES
+                  - FR
+                  - IT
+                  - JA
+                  - KO
+                  - PT_BR
+                  - ZH_CN
+                  - ZH_TW
+                policyDocument:
+                  description: The JSON policy document to use as the content for the policy.
+                  type: string
+                policyType:
+                  description: <p>The type of policy to validate. Identity policies grant permissions to IAM principals. Identity policies include managed and inline policies for IAM roles, users, and groups. They also include service-control policies (SCPs) that are attached to an Amazon Web Services organization, organizational unit (OU), or an account.</p> <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic input such as identity policy or resource policy or a specific input such as managed policy or Amazon S3 bucket policy. </p>
+                  type: string
+                  enum:
+                  - IDENTITY_POLICY
+                  - RESOURCE_POLICY
+                  - SERVICE_CONTROL_POLICY
+                validatePolicyResourceType:
+                  description: <p>The type of resource to attach to your resource policy. Specify a value for the policy validation resource type only if the policy type is <code>RESOURCE_POLICY</code>. For example, to validate a resource policy to attach to an Amazon S3 bucket, you can choose <code>AWS::S3::Bucket</code> for the policy validation resource type.</p> <p>For resource types not supported as valid values, IAM Access Analyzer runs policy checks that apply to all resource policies. For example, to validate a resource policy to attach to a KMS key, do not specify a value for the policy validation resource type and IAM Access Analyzer will run policy checks that apply to all resource policies.</p>
+                  type: string
+                  enum:
+                  - AWS::S3::Bucket
+                  - AWS::S3::AccessPoint
+                  - AWS::S3::MultiRegionAccessPoint
+                  - AWS::S3ObjectLambda::AccessPoint
+                  - AWS::IAM::AssumeRolePolicyDocument
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Validate Policy
+      tags:
+      - Policy
+components:
+  schemas:
+    RegionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    Trail:
+      type: object
+      required:
+      - cloudTrailArn
+      properties:
+        cloudTrailArn:
+          allOf:
+          - $ref: '#/components/schemas/CloudTrailArn'
+          - description: Specifies the ARN of the trail. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>.
+        regions:
+          allOf:
+          - $ref: '#/components/schemas/RegionList'
+          - description: A list of regions to get CloudTrail data from and analyze to generate a policy.
+        allRegions:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Possible values are <code>true</code> or <code>false</code>. If set to <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and generate a policy.
+      description: Contains details about the CloudTrail trail being analyzed to generate a policy.
+    Substring:
+      type: object
+      required:
+      - start
+      - length
+      properties:
+        start:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The start index of the substring, starting from 0.
+        length:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The length of the substring.
+      description: A reference to a substring of a literal string in a JSON document.
+    String:
+      type: string
+    InternalServerException: {}
+    Integer:
+      type: integer
+    GeneratedPolicy:
+      type: object
+      required:
+      - policy
+      properties:
+        policy:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The text to use as the content for the new policy. The policy is created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.
+      description: Contains the text for the generated policy.
+    Token:
+      type: string
+    ThrottlingException: {}
+    JobErrorCode:
+      type: string
+      enum:
+      - AUTHORIZATION_ERROR
+      - RESOURCE_NOT_FOUND_ERROR
+      - SERVICE_QUOTA_EXCEEDED_ERROR
+      - SERVICE_ERROR
+    GeneratedPolicyList:
+      type: array
+      items:
+        $ref: '#/components/schemas/GeneratedPolicy'
+    Position:
+      type: object
+      required:
+      - line
+      - column
+      - offset
+      properties:
+        line:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The line of the position, starting from 1.
+        column:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The column of the position, starting from 0.
+        offset:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The offset within the policy that corresponds to the position, starting from 0.
+      description: A position in a policy.
+    Location:
+      type: object
+      required:
+      - path
+      - span
+      properties:
+        path:
+          allOf:
+          - $ref: '#/components/schemas/PathElementList'
+          - description: A path in a policy, represented as a sequence of path elements.
+        span:
+          allOf:
+          - $ref: '#/components/schemas/Span'
+          - description: A span in a policy.
+      description: A location in a policy that is represented as a path through the JSON representation and a corresponding span.
+    Boolean:
+      type: boolean
+    ConflictException: {}
+    PathElement:
+      type: object
+      properties:
+        index:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: Refers to an index in a JSON array.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: Refers to a key in a JSON object.
+        substring:
+          allOf:
+          - $ref: '#/components/schemas/Substring'
+          - description: Refers to a substring of a literal string in a JSON object.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: Refers to the value associated with a given key in a JSON object.
+      description: A single element in a path through the JSON representation of a policy.
+    CloudTrailArn:
+      type: string
+      pattern: arn:[^:]*:cloudtrail:[^:]*:[^:]*:trail/.{1,576}
+    JobId:
+      type: string
+    ServiceQuotaExceededException: {}
+    StartPolicyGenerationResponse:
+      type: object
+      required:
+      - jobId
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.
+    PathElementList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PathElement'
+    ValidatePolicyFindingType:
+      type: string
+      enum:
+      - ERROR
+      - SECURITY_WARNING
+      - SUGGESTION
+      - WARNING
+    PrincipalArn:
+      type: string
+      pattern: arn:[^:]*:iam::[^:]*:(role|user)/.{1,576}
+    PolicyGenerationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PolicyGeneration'
+    ValidatePolicyFindingList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ValidatePolicyFinding'
+    TrailList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Trail'
+    PolicyGeneration:
+      type: object
+      required:
+      - jobId
+      - principalArn
+      - status
+      - startedOn
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.
+        principalArn:
+          allOf:
+          - $ref: '#/components/schemas/PrincipalArn'
+          - description: The ARN of the IAM entity (user or role) for which you are generating a policy.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/JobStatus'
+          - description: The status of the policy generation request.
+        startedOn:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: A timestamp of when the policy generation started.
+        completedOn:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: A timestamp of when the policy generation was completed.
+      description: Contains details about the policy generation status and properties.
+    ValidatePolicyFinding:
+      type: object
+      required:
+      - findingDetails
+      - findingType
+      - issueCode
+      - learnMoreLink
+      - locations
+      properties:
+        findingDetails:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A localized message that explains the finding and provides guidance on how to address it.
+        findingType:
+          allOf:
+          - $ref: '#/components/schemas/ValidatePolicyFindingType'
+          - description: <p>The impact of the finding.</p> <p>Security warnings report when the policy allows access that we consider overly permissive.</p> <p>Errors report when a part of the policy is not functional.</p> <p>Warnings report non-security issues when a policy does not conform to policy writing best practices.</p> <p>Suggestions recommend stylistic improvements in the policy that do not impact access.</p>
+        issueCode:
+          allOf:
+          - $ref: '#/components/schemas/IssueCode'
+          - description: The issue code provides an identifier of the issue associated with this finding.
+        learnMoreLink:
+          allOf:
+          - $ref: '#/components/schemas/LearnMoreLink'
+          - description: A link to additional documentation about the type of finding.
+        locations:
+          allOf:
+          - $ref: '#/components/schemas/LocationList'
+          - description: The list of locations in the policy document that are related to the finding. The issue code provides a summary of an issue identified by the finding.
+      description: A finding in a policy. Each finding is an actionable recommendation that can be used to improve the policy.
+    ListPolicyGenerationsResponse:
+      type: object
+      required:
+      - policyGenerations
+      properties:
+        policyGenerations:
+          allOf:
+          - $ref: '#/components/schemas/PolicyGenerationList'
+          - description: A <code>PolicyGeneration</code> object that contains details about the generated policy.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+    AccessDeniedException: {}
+    GetGeneratedPolicyResponse:
+      type: object
+      required:
+      - jobDetails
+      - generatedPolicyResult
+      properties:
+        jobDetails:
+          allOf:
+          - $ref: '#/components/schemas/JobDetails'
+          - description: A <code>GeneratedPolicyDetails</code> object that contains details about the generated policy.
+        generatedPolicyResult:
+          allOf:
+          - $ref: '#/components/schemas/GeneratedPolicyResult'
+          - description: A <code>GeneratedPolicyResult</code> object that contains the generated policies and associated details.
+    JobStatus:
+      type: string
+      enum:
+      - IN_PROGRESS
+      - SUCCEEDED
+      - FAILED
+      - CANCELED
+    CancelPolicyGenerationResponse:
+      type: object
+      properties: {}
+    JobError:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/JobErrorCode'
+          - description: The job error code.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: Specific information about the error. For example, which service quota was exceeded or which resource was not found.
+      description: Contains the details about the policy generation error.
+    Timestamp:
+      type: string
+      format: date-time
+    Span:
+      type: object
+      required:
+      - start
+      - end
+      properties:
+        start:
+          allOf:
+          - $ref: '#/components/schemas/Position'
+          - description: The start position of the span (inclusive).
+        end:
+          allOf:
+          - $ref: '#/components/schemas/Position'
+          - description: The end position of the span (exclusive).
+      description: A span in a policy. The span consists of a start position (inclusive) and end position (exclusive).
+    RoleArn:
+      type: string
+      pattern: arn:[^:]*:iam::[^:]*:role/.{1,576}
+    ValidationException: {}
+    JobDetails:
+      type: object
+      required:
+      - jobId
+      - status
+      - startedOn
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/JobStatus'
+          - description: The status of the job request.
+        startedOn:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: A timestamp of when the job was started.
+        completedOn:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: A timestamp of when the job was completed.
+        jobError:
+          allOf:
+          - $ref: '#/components/schemas/JobError'
+          - description: The job error for the policy generation request.
+      description: Contains details about the policy generation request.
+    IssueCode:
+      type: string
+    LearnMoreLink:
+      type: string
+    ValidatePolicyResponse:
+      type: object
+      required:
+      - findings
+      properties:
+        findings:
+          allOf:
+          - $ref: '#/components/schemas/ValidatePolicyFindingList'
+          - description: The list of findings in a policy returned by IAM Access Analyzer based on its suite of policy checks.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+    LocationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Location'
+    GeneratedPolicyResult:
+      type: object
+      required:
+      - properties
+      properties:
+        properties:
+          description: A <code>GeneratedPolicyProperties</code> object that contains properties of the generated policy.
+        generatedPolicies:
+          allOf:
+          - $ref: '#/components/schemas/GeneratedPolicyList'
+          - description: The text to use as the content for the new policy. The policy is created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.
+      description: Contains the text for the generated policy and its details.
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/access-analyzer/
+x-hasEquivalentPaths: true

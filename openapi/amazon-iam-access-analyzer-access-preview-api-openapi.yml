@@ -1,0 +1,1166 @@
+openapi: 3.0.0
+info:
+  version: 2019-11-01
+  x-release: v4
+  title: 'Access Analyzer #analyzerArn Access Preview API'
+  description: <p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview and validate public and cross-account access to your resources before deploying permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: accessanalyzer
+  x-aws-signingName: access-analyzer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/accessanalyzer-2019-11-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://access-analyzer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Access Analyzer multi-region endpoint
+- url: https://access-analyzer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Access Analyzer multi-region endpoint
+- url: http://access-analyzer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Access Analyzer endpoint for China (Beijing) and China (Ningxia)
+- url: https://access-analyzer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Access Analyzer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Access Preview
+paths:
+  /access-preview:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: CreateAccessPreview
+      description: Creates an access preview that allows you to preview IAM Access Analyzer findings for your resource before deploying resource permissions.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAccessPreviewResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '482':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '484':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - analyzerArn
+              - configurations
+              properties:
+                analyzerArn:
+                  description: The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the account analyzer</a> used to generate the access preview. You can only create an access preview for analyzers with an <code>Account</code> type and <code>Active</code> status.
+                  type: string
+                  pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
+                configurations:
+                  description: Access control configuration for your resource that is used to generate the access preview. The access preview includes findings for external access allowed to the resource with the proposed access control configuration. The configuration must contain exactly one element.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/Configuration'
+                clientToken:
+                  description: A client token.
+                  type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Create Access Preview
+      tags:
+      - Access Preview
+  /access-preview/{accessPreviewId}#analyzerArn:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetAccessPreview
+      description: Retrieves information about an access preview for the specified analyzer.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAccessPreviewResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: accessPreviewId
+        in: path
+        required: true
+        description: The unique ID for the access preview.
+        schema:
+          type: string
+          pattern: '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'
+      - name: analyzerArn
+        in: query
+        required: true
+        description: The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> used to generate the access preview.
+        schema:
+          type: string
+          pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Get Access Preview
+      tags:
+      - Access Preview
+  /access-preview/{accessPreviewId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ListAccessPreviewFindings
+      description: Retrieves a list of access preview findings generated by the specified access preview.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessPreviewFindingsResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '482':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '484':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '485':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: accessPreviewId
+        in: path
+        required: true
+        description: The unique ID for the access preview.
+        schema:
+          type: string
+          pattern: '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'
+      - name: maxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - analyzerArn
+              properties:
+                analyzerArn:
+                  description: The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> used to generate the access.
+                  type: string
+                  pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
+                filter:
+                  description: Criteria to filter the returned findings.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/Criterion'
+                nextToken:
+                  description: A token used for pagination of results returned.
+                  type: string
+                maxResults:
+                  description: The maximum number of results to return in the response.
+                  type: integer
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer List Access Preview Findings
+      tags:
+      - Access Preview
+components:
+  schemas:
+    KmsConstraintsMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/KmsConstraintsValue'
+    String:
+      type: string
+    AclPermission:
+      type: string
+      enum:
+      - READ
+      - WRITE
+      - READ_ACP
+      - WRITE_ACP
+      - FULL_CONTROL
+    GetAccessPreviewResponse:
+      type: object
+      required:
+      - accessPreview
+      properties:
+        accessPreview:
+          allOf:
+          - $ref: '#/components/schemas/AccessPreview'
+          - description: An object that contains information about the access preview.
+    EbsSnapshotDataEncryptionKeyId:
+      type: string
+    RdsDbSnapshotKmsKeyId:
+      type: string
+    ResourceType:
+      type: string
+      enum:
+      - AWS::S3::Bucket
+      - AWS::IAM::Role
+      - AWS::SQS::Queue
+      - AWS::Lambda::Function
+      - AWS::Lambda::LayerVersion
+      - AWS::KMS::Key
+      - AWS::SecretsManager::Secret
+      - AWS::EFS::FileSystem
+      - AWS::EC2::Snapshot
+      - AWS::ECR::Repository
+      - AWS::RDS::DBSnapshot
+      - AWS::RDS::DBClusterSnapshot
+      - AWS::SNS::Topic
+    ListAccessPreviewFindingsResponse:
+      type: object
+      required:
+      - findings
+      properties:
+        findings:
+          allOf:
+          - $ref: '#/components/schemas/AccessPreviewFindingsList'
+          - description: A list of access preview findings that match the specified filter criteria.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+    AccessPointPolicy:
+      type: string
+    AnalyzerArn:
+      type: string
+      pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
+    InternetConfiguration:
+      type: object
+      properties: {}
+      description: This configuration sets the network origin for the Amazon S3 access point or multi-region access point to <code>Internet</code>.
+    RetiringPrincipal:
+      type: string
+    EcrRepositoryConfiguration:
+      type: object
+      properties:
+        repositoryPolicy:
+          allOf:
+          - $ref: '#/components/schemas/EcrRepositoryPolicy'
+          - description: The JSON repository policy text to apply to the Amazon ECR repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html">Private repository policy examples</a> in the <i>Amazon ECR User Guide</i>.
+      description: <p>The proposed access control configuration for an Amazon ECR repository. You can propose a configuration for a new Amazon ECR repository or an existing Amazon ECR repository that you own by specifying the Amazon ECR policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_Repository.html">Repository</a>.</p> <ul> <li> <p>If the configuration is for an existing Amazon ECR repository and you do not specify the Amazon ECR policy, then the access preview uses the existing Amazon ECR policy for the repository.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the policy, then the access preview assumes an Amazon ECR repository without a policy.</p> </li> <li> <p>To propose deletion of an existing Amazon ECR repository policy, you can specify an empty string for the Amazon ECR policy.</p> </li> </ul>
+    ResourceNotFoundException: {}
+    FindingId:
+      type: string
+    Timestamp:
+      type: string
+      format: date-time
+    SnsTopicConfiguration:
+      type: object
+      properties:
+        topicPolicy:
+          allOf:
+          - $ref: '#/components/schemas/SnsTopicPolicy'
+          - description: The JSON policy text that defines who can access an Amazon SNS topic. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html">Example cases for Amazon SNS access control</a> in the <i>Amazon SNS Developer Guide</i>.
+      description: The proposed access control configuration for an Amazon SNS topic. You can propose a configuration for a new Amazon SNS topic or an existing Amazon SNS topic that you own by specifying the policy. If the configuration is for an existing Amazon SNS topic and you do not specify the Amazon SNS policy, then the access preview uses the existing Amazon SNS policy for the topic. If the access preview is for a new resource and you do not specify the policy, then the access preview assumes an Amazon SNS topic without a policy. To propose deletion of an existing Amazon SNS topic policy, you can specify an empty string for the Amazon SNS policy. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_Topic.html">Topic</a>.
+    S3AccessPointConfigurationsMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/S3AccessPointConfiguration'
+    EbsUserIdList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EbsUserId'
+    S3BucketAclGrantConfigurationsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/S3BucketAclGrantConfiguration'
+    AccessPreviewFinding:
+      type: object
+      required:
+      - id
+      - resourceType
+      - createdAt
+      - changeType
+      - status
+      - resourceOwnerAccount
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/AccessPreviewFindingId'
+          - description: The ID of the access preview finding. This ID uniquely identifies the element in the list of access preview findings and is not related to the finding ID in Access Analyzer.
+        existingFindingId:
+          allOf:
+          - $ref: '#/components/schemas/FindingId'
+          - description: The existing ID of the finding in IAM Access Analyzer, provided only for existing findings.
+        existingFindingStatus:
+          allOf:
+          - $ref: '#/components/schemas/FindingStatus'
+          - description: The existing status of the finding, provided only for existing findings.
+        principal:
+          allOf:
+          - $ref: '#/components/schemas/PrincipalMap'
+          - description: The external principal that has access to a resource within the zone of trust.
+        action:
+          allOf:
+          - $ref: '#/components/schemas/ActionList'
+          - description: The action in the analyzed policy statement that an external principal has permission to perform.
+        condition:
+          allOf:
+          - $ref: '#/components/schemas/ConditionKeyMap'
+          - description: The condition in the analyzed policy statement that resulted in a finding.
+        resource:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The resource that an external principal has access to. This is the resource associated with the access preview.
+        isPublic:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Indicates whether the policy that generated the finding allows public access to the resource.
+        resourceType:
+          allOf:
+          - $ref: '#/components/schemas/ResourceType'
+          - description: The type of the resource that can be accessed in the finding.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the access preview finding was created.
+        changeType:
+          allOf:
+          - $ref: '#/components/schemas/FindingChangeType'
+          - description: <p>Provides context on how the access preview finding compares to existing access identified in IAM Access Analyzer.</p> <ul> <li> <p> <code>New</code> - The finding is for newly-introduced access.</p> </li> <li> <p> <code>Unchanged</code> - The preview finding is an existing finding that would remain unchanged.</p> </li> <li> <p> <code>Changed</code> - The preview finding is an existing finding with a change in status.</p> </li> </ul> <p>For example, a <code>Changed</code> finding with preview status <code>Resolved</code> and existing status <code>Active</code> indicates the existing <code>Active</code> finding would become <code>Resolved</code> as a result of the proposed permissions change.</p>
+        status:
+          allOf:
+          - $ref: '#/components/schemas/FindingStatus'
+          - description: The preview status of the finding. This is what the status of the finding would be after permissions deployment. For example, a <code>Changed</code> finding with preview status <code>Resolved</code> and existing status <code>Active</code> indicates the existing <code>Active</code> finding would become <code>Resolved</code> as a result of the proposed permissions change.
+        resourceOwnerAccount:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning account is the account in which the resource was created.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: An error.
+        sources:
+          allOf:
+          - $ref: '#/components/schemas/FindingSourceList'
+          - description: The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.
+      description: An access preview finding generated by the access preview.
+    ConditionKeyMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
+    SecretsManagerSecretKmsId:
+      type: string
+    NetworkOriginConfiguration:
+      type: object
+      properties:
+        vpcConfiguration:
+          $ref: '#/components/schemas/VpcConfiguration'
+        internetConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/InternetConfiguration'
+          - description: The configuration for the Amazon S3 access point or multi-region access point with an <code>Internet</code> origin.
+      description: The proposed <code>InternetConfiguration</code> or <code>VpcConfiguration</code> to apply to the Amazon S3 access point. <code>VpcConfiguration</code> does not apply to multi-region access points. You can make the access point accessible from the internet, or you can specify that all requests made through that access point must originate from a specific virtual private cloud (VPC). You can specify only one type of network configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>.
+    Token:
+      type: string
+    KmsGrantConfiguration:
+      type: object
+      required:
+      - operations
+      - granteePrincipal
+      - issuingAccount
+      properties:
+        operations:
+          allOf:
+          - $ref: '#/components/schemas/KmsGrantOperationsList'
+          - description: A list of operations that the grant permits.
+        granteePrincipal:
+          allOf:
+          - $ref: '#/components/schemas/GranteePrincipal'
+          - description: The principal that is given permission to perform the operations that the grant permits.
+        retiringPrincipal:
+          allOf:
+          - $ref: '#/components/schemas/RetiringPrincipal'
+          - description: The principal that is given permission to retire the grant by using <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html">RetireGrant</a> operation.
+        constraints:
+          allOf:
+          - $ref: '#/components/schemas/KmsGrantConstraints'
+          - description: Use this structure to propose allowing <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> in the grant only when the operation request includes the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>.
+        issuingAccount:
+          allOf:
+          - $ref: '#/components/schemas/IssuingAccount'
+          - description: ' The Amazon Web Services account under which the grant was issued. The account is used to propose KMS grants issued by accounts other than the owner of the key.'
+      description: A proposed grant configuration for a KMS key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a>.
+    S3BucketAclGrantConfiguration:
+      type: object
+      required:
+      - permission
+      - grantee
+      properties:
+        permission:
+          allOf:
+          - $ref: '#/components/schemas/AclPermission'
+          - description: The permissions being granted.
+        grantee:
+          allOf:
+          - $ref: '#/components/schemas/AclGrantee'
+          - description: The grantee to whom you’re assigning access rights.
+      description: A proposed access control list grant configuration for an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#setting-acls">How to Specify an ACL</a>.
+    IamTrustPolicy:
+      type: string
+    AccessPreviewStatusReason:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/AccessPreviewStatusReasonCode'
+          - description: The reason code for the current status of the access preview.
+      description: Provides more details about the current status of the access preview. For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid proposed resource configuration.
+    RdsDbSnapshotAccountId:
+      type: string
+    ConflictException: {}
+    AccessPreviewFindingsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccessPreviewFinding'
+    VpcConfiguration:
+      type: object
+      required:
+      - vpcId
+      properties:
+        vpcId:
+          allOf:
+          - $ref: '#/components/schemas/VpcId'
+          - description: ' If this field is specified, this access point will only allow connections from the specified VPC ID. '
+      description: 'The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC configuration does not apply to multi-region access points. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>. '
+    RdsDbSnapshotAttributesMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/RdsDbSnapshotAttributeValue'
+    KmsGrantConstraints:
+      type: object
+      properties:
+        encryptionContextEquals:
+          allOf:
+          - $ref: '#/components/schemas/KmsConstraintsMap'
+          - description: A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.
+        encryptionContextSubset:
+          allOf:
+          - $ref: '#/components/schemas/KmsConstraintsMap'
+          - description: A list of key-value pairs that must be included in the encryption context of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.
+      description: Use this structure to propose allowing <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> in the grant only when the operation request includes the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>. You can specify only one type of encryption context. An empty map is treated as not specified. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GrantConstraints.html">GrantConstraints</a>.
+    IamRoleConfiguration:
+      type: object
+      properties:
+        trustPolicy:
+          allOf:
+          - $ref: '#/components/schemas/IamTrustPolicy'
+          - description: The proposed trust policy for the IAM role.
+      description: The proposed access control configuration for an IAM role. You can propose a configuration for a new IAM role or an existing IAM role that you own by specifying the trust policy. If the configuration is for a new IAM role, you must specify the trust policy. If the configuration is for an existing IAM role that you own and you do not propose the trust policy, the access preview uses the existing trust policy for the role. The proposed trust policy cannot be an empty string. For more information about role trust policy limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a>.
+    Configuration:
+      type: object
+      properties:
+        ebsSnapshot:
+          allOf:
+          - $ref: '#/components/schemas/EbsSnapshotConfiguration'
+          - description: The access control configuration is for an Amazon EBS volume snapshot.
+        ecrRepository:
+          allOf:
+          - $ref: '#/components/schemas/EcrRepositoryConfiguration'
+          - description: The access control configuration is for an Amazon ECR repository.
+        iamRole:
+          allOf:
+          - $ref: '#/components/schemas/IamRoleConfiguration'
+          - description: 'The access control configuration is for an IAM role. '
+        efsFileSystem:
+          allOf:
+          - $ref: '#/components/schemas/EfsFileSystemConfiguration'
+          - description: The access control configuration is for an Amazon EFS file system.
+        kmsKey:
+          allOf:
+          - $ref: '#/components/schemas/KmsKeyConfiguration'
+          - description: 'The access control configuration is for a KMS key. '
+        rdsDbClusterSnapshot:
+          allOf:
+          - $ref: '#/components/schemas/RdsDbClusterSnapshotConfiguration'
+          - description: The access control configuration is for an Amazon RDS DB cluster snapshot.
+        rdsDbSnapshot:
+          allOf:
+          - $ref: '#/components/schemas/RdsDbSnapshotConfiguration'
+          - description: The access control configuration is for an Amazon RDS DB snapshot.
+        secretsManagerSecret:
+          allOf:
+          - $ref: '#/components/schemas/SecretsManagerSecretConfiguration'
+          - description: The access control configuration is for a Secrets Manager secret.
+        s3Bucket:
+          allOf:
+          - $ref: '#/components/schemas/S3BucketConfiguration'
+          - description: 'The access control configuration is for an Amazon S3 Bucket. '
+        snsTopic:
+          allOf:
+          - $ref: '#/components/schemas/SnsTopicConfiguration'
+          - description: The access control configuration is for an Amazon SNS topic
+        sqsQueue:
+          allOf:
+          - $ref: '#/components/schemas/SqsQueueConfiguration'
+          - description: 'The access control configuration is for an Amazon SQS queue. '
+      description: Access control configuration structures for your resource. You specify the configuration as a type-value pair. You can specify only one type of access control configuration.
+    RdsDbClusterSnapshotKmsKeyId:
+      type: string
+    AccessDeniedException: {}
+    SqsQueueConfiguration:
+      type: object
+      properties:
+        queuePolicy:
+          allOf:
+          - $ref: '#/components/schemas/SqsQueuePolicy'
+          - description: ' The proposed resource policy for the Amazon SQS queue. '
+      description: The proposed access control configuration for an Amazon SQS queue. You can propose a configuration for a new Amazon SQS queue or an existing Amazon SQS queue that you own by specifying the Amazon SQS policy. If the configuration is for an existing Amazon SQS queue and you do not specify the Amazon SQS policy, the access preview uses the existing Amazon SQS policy for the queue. If the access preview is for a new resource and you do not specify the policy, the access preview assumes an Amazon SQS queue without a policy. To propose deletion of an existing Amazon SQS queue policy, you can specify an empty string for the Amazon SQS policy. For more information about Amazon SQS policy limits, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-policies.html">Quotas related to policies</a>.
+    FindingSourceList:
+      type: array
+      items:
+        $ref: '#/components/schemas/FindingSource'
+    SnsTopicPolicy:
+      type: string
+      minLength: 0
+      maxLength: 30720
+    AccessPreviewFindingId:
+      type: string
+    S3PublicAccessBlockConfiguration:
+      type: object
+      required:
+      - ignorePublicAcls
+      - restrictPublicBuckets
+      properties:
+        ignorePublicAcls:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. '
+        restrictPublicBuckets:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: ' Specifies whether Amazon S3 should restrict public bucket policies for this bucket. '
+      description: 'The <code>PublicAccessBlock</code> configuration to apply to this Amazon S3 bucket. If the proposed configuration is for an existing Amazon S3 bucket and the configuration is not specified, the access preview uses the existing setting. If the proposed configuration is for a new bucket and the configuration is not specified, the access preview uses <code>false</code>. If the proposed configuration is for a new access point or multi-region access point and the access point BPA configuration is not specified, the access preview uses <code>true</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html">PublicAccessBlockConfiguration</a>. '
+    AclCanonicalId:
+      type: string
+    EfsFileSystemConfiguration:
+      type: object
+      properties:
+        fileSystemPolicy:
+          allOf:
+          - $ref: '#/components/schemas/EfsFileSystemPolicy'
+          - description: The JSON policy definition to apply to the Amazon EFS file system. For more information on the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">Amazon EFS Resource-based policies</a>.
+      description: <p>The proposed access control configuration for an Amazon EFS file system. You can propose a configuration for a new Amazon EFS file system or an existing Amazon EFS file system that you own by specifying the Amazon EFS policy. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-fs.html">Using file systems in Amazon EFS</a>.</p> <ul> <li> <p>If the configuration is for an existing Amazon EFS file system and you do not specify the Amazon EFS policy, then the access preview uses the existing Amazon EFS policy for the file system.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the policy, then the access preview assumes an Amazon EFS file system without a policy.</p> </li> <li> <p>To propose deletion of an existing Amazon EFS file system policy, you can specify an empty string for the Amazon EFS policy.</p> </li> </ul>
+    FindingSource:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          allOf:
+          - $ref: '#/components/schemas/FindingSourceType'
+          - description: Indicates the type of access that generated the finding.
+        detail:
+          allOf:
+          - $ref: '#/components/schemas/FindingSourceDetail'
+          - description: Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.
+      description: The source of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.
+    InternalServerException: {}
+    EcrRepositoryPolicy:
+      type: string
+    Criterion:
+      type: object
+      properties:
+        eq:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: An "equals" operator to match for the filter used to create the rule.
+        neq:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: A "not equals" operator to match for the filter used to create the rule.
+        contains:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: A "contains" operator to match for the filter used to create the rule.
+        exists:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: 'An "exists" operator to match for the filter used to create the rule. '
+      description: The criteria to use in the filter that defines the archive rule. For more information on available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a>.
+    EbsGroupList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EbsGroup'
+    CreateAccessPreviewResponse:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/AccessPreviewId'
+          - description: The unique ID for the access preview.
+    FindingChangeType:
+      type: string
+      enum:
+      - CHANGED
+      - NEW
+      - UNCHANGED
+    Boolean:
+      type: boolean
+    S3BucketConfiguration:
+      type: object
+      properties:
+        bucketPolicy:
+          allOf:
+          - $ref: '#/components/schemas/S3BucketPolicy'
+          - description: The proposed bucket policy for the Amazon S3 bucket.
+        bucketAclGrants:
+          allOf:
+          - $ref: '#/components/schemas/S3BucketAclGrantConfigurationsList'
+          - description: The proposed list of ACL grants for the Amazon S3 bucket. You can propose up to 100 ACL grants per bucket. If the proposed grant configuration is for an existing bucket, the access preview uses the proposed list of grant configurations in place of the existing grants. Otherwise, the access preview uses the existing grants for the bucket.
+        bucketPublicAccessBlock:
+          allOf:
+          - $ref: '#/components/schemas/S3PublicAccessBlockConfiguration'
+          - description: The proposed block public access configuration for the Amazon S3 bucket.
+        accessPoints:
+          allOf:
+          - $ref: '#/components/schemas/S3AccessPointConfigurationsMap'
+          - description: The configuration of Amazon S3 access points or multi-region access points for the bucket. You can propose up to 10 new access points per bucket.
+      description: Proposed access control configuration for an Amazon S3 bucket. You can propose a configuration for a new Amazon S3 bucket or an existing Amazon S3 bucket that you own by specifying the Amazon S3 bucket policy, bucket ACLs, bucket BPA settings, Amazon S3 access points, and multi-region access points attached to the bucket. If the configuration is for an existing Amazon S3 bucket and you do not specify the Amazon S3 bucket policy, the access preview uses the existing policy attached to the bucket. If the access preview is for a new resource and you do not specify the Amazon S3 bucket policy, the access preview assumes a bucket without a policy. To propose deletion of an existing bucket policy, you can specify an empty string. For more information about bucket policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html">Bucket Policy Examples</a>.
+    EfsFileSystemPolicy:
+      type: string
+    RdsDbClusterSnapshotConfiguration:
+      type: object
+      properties:
+        attributes:
+          allOf:
+          - $ref: '#/components/schemas/RdsDbClusterSnapshotAttributesMap'
+          - description: 'The names and values of manual DB cluster snapshot attributes. Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual DB cluster snapshot. The only valid value for <code>AttributeName</code> for the attribute map is <code>restore</code> '
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/RdsDbClusterSnapshotKmsKeyId'
+          - description: <p>The KMS key identifier for an encrypted Amazon RDS DB cluster snapshot. The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <ul> <li> <p>If the configuration is for an existing Amazon RDS DB cluster snapshot and you do not specify the <code>kmsKeyId</code>, or you specify an empty string, then the access preview uses the existing <code>kmsKeyId</code> of the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the specify the <code>kmsKeyId</code>, then the access preview considers the snapshot as unencrypted.</p> </li> </ul>
+      description: The proposed access control configuration for an Amazon RDS DB cluster snapshot. You can propose a configuration for a new Amazon RDS DB cluster snapshot or an Amazon RDS DB cluster snapshot that you own by specifying the <code>RdsDbClusterSnapshotAttributeValue</code> and optional KMS encryption key. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBClusterSnapshotAttribute.html">ModifyDBClusterSnapshotAttribute</a>.
+    IssuingAccount:
+      type: string
+    RdsDbClusterSnapshotAttributesMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/RdsDbClusterSnapshotAttributeValue'
+    ServiceQuotaExceededException: {}
+    GranteePrincipal:
+      type: string
+    KmsGrantOperationsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/KmsGrantOperation'
+    RdsDbClusterSnapshotAttributeValue:
+      type: object
+      properties:
+        accountIds:
+          allOf:
+          - $ref: '#/components/schemas/RdsDbClusterSnapshotAccountIdsList'
+          - description: <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB cluster snapshot. If the value <code>all</code> is specified, then the Amazon RDS DB cluster snapshot is public and can be copied or restored by all Amazon Web Services accounts.</p> <ul> <li> <p>If the configuration is for an existing Amazon RDS DB cluster snapshot and you do not specify the <code>accountIds</code> in <code>RdsDbClusterSnapshotAttributeValue</code>, then the access preview uses the existing shared <code>accountIds</code> for the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the specify the <code>accountIds</code> in <code>RdsDbClusterSnapshotAttributeValue</code>, then the access preview considers the snapshot without any attributes.</p> </li> <li> <p>To propose deletion of existing shared <code>accountIds</code>, you can specify an empty list for <code>accountIds</code> in the <code>RdsDbClusterSnapshotAttributeValue</code>.</p> </li> </ul>
+      description: The values for a manual Amazon RDS DB cluster snapshot attribute.
+    KmsGrantOperation:
+      type: string
+      enum:
+      - CreateGrant
+      - Decrypt
+      - DescribeKey
+      - Encrypt
+      - GenerateDataKey
+      - GenerateDataKeyPair
+      - GenerateDataKeyPairWithoutPlaintext
+      - GenerateDataKeyWithoutPlaintext
+      - GetPublicKey
+      - ReEncryptFrom
+      - ReEncryptTo
+      - RetireGrant
+      - Sign
+      - Verify
+    PrincipalMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
+    S3BucketPolicy:
+      type: string
+    KmsKeyConfiguration:
+      type: object
+      properties:
+        keyPolicies:
+          allOf:
+          - $ref: '#/components/schemas/KmsKeyPoliciesMap'
+          - description: Resource policy configuration for the KMS key. The only valid value for the name of the key policy is <code>default</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key policy</a>.
+        grants:
+          allOf:
+          - $ref: '#/components/schemas/KmsGrantConfigurationsList'
+          - description: A list of proposed grant configurations for the KMS key. If the proposed grant configuration is for an existing key, the access preview uses the proposed list of grant configurations in place of the existing grants. Otherwise, the access preview uses the existing grants for the key.
+      description: <p>Proposed access control configuration for a KMS key. You can propose a configuration for a new KMS key or an existing KMS key that you own by specifying the key policy and KMS grant configuration. If the configuration is for an existing key and you do not specify the key policy, the access preview uses the existing policy for the key. If the access preview is for a new resource and you do not specify the key policy, then the access preview uses the default key policy. The proposed key policy cannot be an empty string. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key policy</a>. For more information about key policy limits, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html">Resource quotas</a>.</p> <p/>
+    ConfigurationsMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Configuration'
+    KmsKeyPolicy:
+      type: string
+    VpcId:
+      type: string
+      pattern: vpc-([0-9a-f]){8}(([0-9a-f]){9})?
+    ValidationException: {}
+    FindingStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - ARCHIVED
+      - RESOLVED
+    SecretsManagerSecretPolicy:
+      type: string
+    ValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+      minItems: 1
+      maxItems: 20
+    EbsGroup:
+      type: string
+    KmsKeyPoliciesMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/KmsKeyPolicy'
+    AccessPreview:
+      type: object
+      required:
+      - id
+      - analyzerArn
+      - configurations
+      - createdAt
+      - status
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/AccessPreviewId'
+          - description: The unique ID for the access preview.
+        analyzerArn:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzerArn'
+          - description: The ARN of the analyzer used to generate the access preview.
+        configurations:
+          allOf:
+          - $ref: '#/components/schemas/ConfigurationsMap'
+          - description: A map of resource ARNs for the proposed resource configuration.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the access preview was created.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/AccessPreviewStatus'
+          - description: <p>The status of the access preview.</p> <ul> <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li> <li> <p> <code>Completed</code> - The access preview is complete. You can preview findings for external access to the resource.</p> </li> <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li> </ul>
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/AccessPreviewStatusReason'
+          - description: <p>Provides more details about the current status of the access preview.</p> <p>For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid resource configuration.</p>
+      description: Contains information about an access preview.
+    SqsQueuePolicy:
+      type: string
+    FindingSourceDetail:
+      type: object
+      properties:
+        accessPointArn:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The ARN of the access point that generated the finding. The ARN format depends on whether the ARN represents an access point or a multi-region access point.
+        accessPointAccount:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The account of the cross-account access point that generated the finding.
+      description: Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.
+    ThrottlingException: {}
+    AccessPreviewStatus:
+      type: string
+      enum:
+      - COMPLETED
+      - CREATING
+      - FAILED
+    RdsDbSnapshotAccountIdsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/RdsDbSnapshotAccountId'
+    S3AccessPointConfiguration:
+      type: object
+      properties:
+        accessPointPolicy:
+          allOf:
+          - $ref: '#/components/schemas/AccessPointPolicy'
+          - description: The access point or multi-region access point policy.
+        publicAccessBlock:
+          allOf:
+          - $ref: '#/components/schemas/S3PublicAccessBlockConfiguration'
+          - description: The proposed <code>S3PublicAccessBlock</code> configuration to apply to this Amazon S3 access point or multi-region access point.
+        networkOrigin:
+          allOf:
+          - $ref: '#/components/schemas/NetworkOriginConfiguration'
+          - description: The proposed <code>Internet</code> and <code>VpcConfiguration</code> to apply to this Amazon S3 access point. <code>VpcConfiguration</code> does not apply to multi-region access points. If the access preview is for a new resource and neither is specified, the access preview uses <code>Internet</code> for the network origin. If the access preview is for an existing resource and neither is specified, the access preview uses the exiting network origin.
+      description: The configuration for an Amazon S3 access point or multi-region access point for the bucket. You can propose up to 10 access points or multi-region access points per bucket. If the proposed Amazon S3 access point configuration is for an existing bucket, the access preview uses the proposed access point configuration in place of the existing access points. To propose an access point without a policy, you can provide an empty string as the access point policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/creating-access-points.html">Creating access points</a>. For more information about access point policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points-restrictions-limitations.html">Access points restrictions and limitations</a>.
+    RdsDbClusterSnapshotAccountId:
+      type: string
+    EbsUserId:
+      type: string
+    ActionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    AccessPreviewStatusReasonCode:
+      type: string
+      enum:
+      - INTERNAL_ERROR
+      - INVALID_CONFIGURATION
+    RdsDbClusterSnapshotAccountIdsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/RdsDbClusterSnapshotAccountId'
+    AccessPreviewId:
+      type: string
+      pattern: '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'
+    RdsDbSnapshotConfiguration:
+      type: object
+      properties:
+        attributes:
+          allOf:
+          - $ref: '#/components/schemas/RdsDbSnapshotAttributesMap'
+          - description: The names and values of manual DB snapshot attributes. Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual DB snapshot. The only valid value for <code>attributeName</code> for the attribute map is restore.
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/RdsDbSnapshotKmsKeyId'
+          - description: <p>The KMS key identifier for an encrypted Amazon RDS DB snapshot. The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <ul> <li> <p>If the configuration is for an existing Amazon RDS DB snapshot and you do not specify the <code>kmsKeyId</code>, or you specify an empty string, then the access preview uses the existing <code>kmsKeyId</code> of the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the specify the <code>kmsKeyId</code>, then the access preview considers the snapshot as unencrypted.</p> </li> </ul>
+      description: The proposed access control configuration for an Amazon RDS DB snapshot. You can propose a configuration for a new Amazon RDS DB snapshot or an Amazon RDS DB snapshot that you own by specifying the <code>RdsDbSnapshotAttributeValue</code> and optional KMS encryption key. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSnapshotAttribute.html">ModifyDBSnapshotAttribute</a>.
+    RdsDbSnapshotAttributeValue:
+      type: object
+      properties:
+        accountIds:
+          allOf:
+          - $ref: '#/components/schemas/RdsDbSnapshotAccountIdsList'
+          - description: <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB snapshot. If the value <code>all</code> is specified, then the Amazon RDS DB snapshot is public and can be copied or restored by all Amazon Web Services accounts.</p> <ul> <li> <p>If the configuration is for an existing Amazon RDS DB snapshot and you do not specify the <code>accountIds</code> in <code>RdsDbSnapshotAttributeValue</code>, then the access preview uses the existing shared <code>accountIds</code> for the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the specify the <code>accountIds</code> in <code>RdsDbSnapshotAttributeValue</code>, then the access preview considers the snapshot without any attributes.</p> </li> <li> <p>To propose deletion of an existing shared <code>accountIds</code>, you can specify an empty list for <code>accountIds</code> in the <code>RdsDbSnapshotAttributeValue</code>.</p> </li> </ul>
+      description: The name and values of a manual Amazon RDS DB snapshot attribute. Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual DB snapshot.
+    SecretsManagerSecretConfiguration:
+      type: object
+      properties:
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/SecretsManagerSecretKmsId'
+          - description: The proposed ARN, key ID, or alias of the KMS key.
+        secretPolicy:
+          allOf:
+          - $ref: '#/components/schemas/SecretsManagerSecretPolicy'
+          - description: The proposed resource policy defining who can access or manage the secret.
+      description: <p>The configuration for a Secrets Manager secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html">CreateSecret</a>.</p> <p>You can propose a configuration for a new secret or an existing secret that you own by specifying the secret policy and optional KMS encryption key. If the configuration is for an existing secret and you do not specify the secret policy, the access preview uses the existing policy for the secret. If the access preview is for a new resource and you do not specify the policy, the access preview assumes a secret without a policy. To propose deletion of an existing policy, you can specify an empty string. If the proposed configuration is for a new secret and you do not specify the KMS key ID, the access preview uses the Amazon Web Services managed key <code>aws/secretsmanager</code>. If you specify an empty string for the KMS key ID, the access preview uses the Amazon Web Services managed key of the Amazon Web Services account. For more information about secret policy limits, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html">Quotas for Secrets Manager.</a>.</p>
+    FindingSourceType:
+      type: string
+      enum:
+      - POLICY
+      - BUCKET_ACL
+      - S3_ACCESS_POINT
+      - S3_ACCESS_POINT_ACCOUNT
+    EbsSnapshotConfiguration:
+      type: object
+      properties:
+        userIds:
+          allOf:
+          - $ref: '#/components/schemas/EbsUserIdList'
+          - description: <p>The IDs of the Amazon Web Services accounts that have access to the Amazon EBS volume snapshot.</p> <ul> <li> <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not specify the <code>userIds</code>, then the access preview uses the existing shared <code>userIds</code> for the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the <code>userIds</code>, then the access preview considers the snapshot without any <code>userIds</code>.</p> </li> <li> <p>To propose deletion of existing shared <code>accountIds</code>, you can specify an empty list for <code>userIds</code>.</p> </li> </ul>
+        groups:
+          allOf:
+          - $ref: '#/components/schemas/EbsGroupList'
+          - description: <p>The groups that have access to the Amazon EBS volume snapshot. If the value <code>all</code> is specified, then the Amazon EBS volume snapshot is public.</p> <ul> <li> <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not specify the <code>groups</code>, then the access preview uses the existing shared <code>groups</code> for the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the <code>groups</code>, then the access preview considers the snapshot without any <code>groups</code>.</p> </li> <li> <p>To propose deletion of existing shared <code>groups</code>, you can specify an empty list for <code>groups</code>.</p> </li> </ul>
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/EbsSnapshotDataEncryptionKeyId'
+          - description: <p>The KMS key identifier for an encrypted Amazon EBS volume snapshot. The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <ul> <li> <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not specify the <code>kmsKeyId</code>, or you specify an empty string, then the access preview uses the existing <code>kmsKeyId</code> of the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the <code>kmsKeyId</code>, the access preview considers the snapshot as unencrypted.</p> </li> </ul>
+      description: The proposed access control configuration for an Amazon EBS volume snapshot. You can propose a configuration for a new Amazon EBS volume snapshot or an Amazon EBS volume snapshot that you own by specifying the user IDs, groups, and optional KMS encryption key. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySnapshotAttribute.html">ModifySnapshotAttribute</a>.
+    AclGrantee:
+      type: object
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/AclCanonicalId'
+          - description: The value specified is the canonical user ID of an Amazon Web Services account.
+        uri:
+          allOf:
+          - $ref: '#/components/schemas/AclUri'
+          - description: Used for granting permissions to a predefined group.
+      description: You specify each grantee as a type-value pair using one of these types. You can specify only one type of grantee. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAcl.html">PutBucketAcl</a>.
+    KmsConstraintsValue:
+      type: string
+    KmsGrantConfigurationsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/KmsGrantConfiguration'
+    AclUri:
+      type: string
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/access-analyzer/
+x-hasEquivalentPaths: true
