@@ -5,7 +5,20 @@ description: AWS IAM Access Analyzer helps you set, verify, and refine your IAM 
   policy generation to generate fine-grained policies. It uses automated reasoning to identify resources shared with external
   entities and helps implement least privilege access across your AWS environment.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-iam-access-analyzer.png
 tags:
 - Access Control
 - AWS
@@ -18,22 +31,259 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: amazon-iam-access-analyzer:aws-access-analyzer-api
-  name: AWS IAM Access Analyzer API
-  description: The AWS IAM Access Analyzer API provides programmatic access to create and manage analyzers, findings, archive
-    rules, and policy validations to identify and remediate unintended resource access across AWS accounts and organizations.
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-access-preview-analyzerarn-api
+  name: Amazon IAM Access Analyzer Access Preview#analyzerArn API
+  description: >-
+    The Access Preview#analyzerArn API from Amazon IAM Access Analyzer — 1 operation(s) for access preview#analyzerarn.
   humanURL: https://aws.amazon.com/iam/features/analyze-access/
   baseURL: https://access-analyzer.amazonaws.com
   tags:
-  - Access Control
-  - IAM
-  - Policy Management
-  - Security
+  - Access Preview#analyzerArn
   properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-access-preview-analyzerarn-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/iam-access-analyzer-analyzer-schema.json
+  - type: JSONStructure
+    url: json-structure/iam-access-analyzer-analyzer-structure.json
+  - type: Examples
+    url: examples/iam-access-analyzer-analyzer-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iam-access-analyzer.yaml
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-access-preview-api
+  name: Amazon IAM Access Analyzer Access Preview API
+  description: >-
+    The Access Preview API from Amazon IAM Access Analyzer — 3 operation(s) for access preview.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Access Preview
+  properties:
   - type: OpenAPI
-    url: openapi/amazon-iam-access-analyzer-openapi-original.yml
+    url: openapi/amazon-iam-access-analyzer-access-preview-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/iam-access-analyzer-analyzer-schema.json
+  - type: JSONStructure
+    url: json-structure/iam-access-analyzer-analyzer-structure.json
+  - type: Examples
+    url: examples/iam-access-analyzer-analyzer-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iam-access-analyzer.yaml
+- aid: >-
+    amazon-iam-access-analyzer:amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api
+  name: Amazon IAM Access Analyzer Analyzed Resource#analyzerArn&resourceArn API
+  description: >-
+    The Analyzed Resource#analyzerArn&resourceArn API from Amazon IAM Access Analyzer — 1 operation(s)
+    for analyzed resource#analyzerarn&resourcearn.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Analyzed Resource#analyzerArn&resourceArn
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/iam-access-analyzer-analyzer-schema.json
+  - type: JSONStructure
+    url: json-structure/iam-access-analyzer-analyzer-structure.json
+  - type: Examples
+    url: examples/iam-access-analyzer-analyzer-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iam-access-analyzer.yaml
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-analyzed-resource-api
+  name: Amazon IAM Access Analyzer Analyzed Resource API
+  description: >-
+    The Analyzed Resource API from Amazon IAM Access Analyzer — 1 operation(s) for analyzed resource.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Analyzed Resource
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-analyzed-resource-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/iam-access-analyzer-analyzer-schema.json
+  - type: JSONStructure
+    url: json-structure/iam-access-analyzer-analyzer-structure.json
+  - type: Examples
+    url: examples/iam-access-analyzer-analyzer-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iam-access-analyzer.yaml
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-analyzer-api
+  name: Amazon IAM Access Analyzer Analyzer API
+  description: The Analyzer API from Amazon IAM Access Analyzer — 4 operation(s) for analyzer.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Analyzer
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-analyzer-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/iam-access-analyzer-analyzer-schema.json
+  - type: JSONStructure
+    url: json-structure/iam-access-analyzer-analyzer-structure.json
+  - type: Examples
+    url: examples/iam-access-analyzer-analyzer-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iam-access-analyzer.yaml
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-archive-rule-api
+  name: Amazon IAM Access Analyzer Archive Rule API
+  description: The Archive Rule API from Amazon IAM Access Analyzer — 1 operation(s) for archive rule.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Archive Rule
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-archive-rule-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/iam-access-analyzer-analyzer-schema.json
+  - type: JSONStructure
+    url: json-structure/iam-access-analyzer-analyzer-structure.json
+  - type: Examples
+    url: examples/iam-access-analyzer-analyzer-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iam-access-analyzer.yaml
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-finding-api
+  name: Amazon IAM Access Analyzer Finding API
+  description: The Finding API from Amazon IAM Access Analyzer — 2 operation(s) for finding.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Finding
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-finding-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/iam-access-analyzer-analyzer-schema.json
+  - type: JSONStructure
+    url: json-structure/iam-access-analyzer-analyzer-structure.json
+  - type: Examples
+    url: examples/iam-access-analyzer-analyzer-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iam-access-analyzer.yaml
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-policy-api
+  name: Amazon IAM Access Analyzer Policy API
+  description: The Policy API from Amazon IAM Access Analyzer — 3 operation(s) for policy.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-policy-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/iam-access-analyzer-analyzer-schema.json
+  - type: JSONStructure
+    url: json-structure/iam-access-analyzer-analyzer-structure.json
+  - type: Examples
+    url: examples/iam-access-analyzer-analyzer-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iam-access-analyzer.yaml
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-resource-api
+  name: Amazon IAM Access Analyzer Resource API
+  description: The Resource API from Amazon IAM Access Analyzer — 1 operation(s) for resource.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Resource
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-resource-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/iam-access-analyzer-analyzer-schema.json
+  - type: JSONStructure
+    url: json-structure/iam-access-analyzer-analyzer-structure.json
+  - type: Examples
+    url: examples/iam-access-analyzer-analyzer-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iam-access-analyzer.yaml
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-tags-api
+  name: Amazon IAM Access Analyzer Tags API
+  description: The Tags API from Amazon IAM Access Analyzer — 2 operation(s) for tags.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
   - type: GettingStarted
     url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
   - type: Pricing
@@ -49,6 +299,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-iam-access-analyzer.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-iam-access-analyzer/overview
 - type: AgenticAccess
   url: agentic-access/amazon-iam-access-analyzer-agentic-access.yml
 - type: TrustCenter
