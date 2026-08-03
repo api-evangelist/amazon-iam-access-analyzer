@@ -1,0 +1,648 @@
+{
+  "info": {
+    "_postman_id": "7bcf4920-367f-44cb-9412-85fc39dce30d",
+    "name": "Access Analyzer Access Preview#analyzerArn API",
+    "description": "<p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview and validate public and cross-account access to your resources before deploying permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html\">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:25:19.000Z",
+    "updatedAt": "2026-07-28T10:25:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7bcf4920-367f-44cb-9412-85fc39dce30d"
+  },
+  "item": [
+    {
+      "name": "access-preview#analyzerArn",
+      "item": [
+        {
+          "name": "Amazon IAM Access Analyzer List Access Previews",
+          "id": "9aaa1446-febd-484d-9b1f-fb6fad72a040",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/access-preview?analyzerArn=n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^%26F]02:%23p&nextToken=<string>&maxResults=<integer>#analyzerArn",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "access-preview"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access preview.",
+                  "key": "analyzerArn",
+                  "value": "n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^&F]02:#p"
+                },
+                {
+                  "description": "A token used for pagination of results returned.",
+                  "key": "nextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of results to return in the response.",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                }
+              ],
+              "hash": "analyzerArn"
+            },
+            "description": "Retrieves a list of access previews for the specified analyzer."
+          },
+          "response": [
+            {
+              "id": "b421e221-8aff-4b32-af78-c479cd792eac",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/access-preview?analyzerArn=n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^%26F]02:%23p&nextToken=<string>&maxResults=<integer>#analyzerArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "access-preview"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access preview.",
+                      "key": "analyzerArn",
+                      "value": "n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^&F]02:#p"
+                    },
+                    {
+                      "description": "A token used for pagination of results returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "hash": "analyzerArn"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"accessPreviews\": [\n    {\n      \"id\": \"d5f1a770-41cf-1353-87c1-ffd790490edc\",\n      \"analyzerArn\": \"Fhn<$acj;D:tm5b5&(q:.ohH:P}E}Wb:AeAUOgm==:analyzer/fB qIg'_S^fwhG@pDG6?<3nPGbG\\\\}o\\\\\\\"-GC?I,~u9\\\":nQ@,l|9`5_XQw]TX4tQtK283j]l&0$)p_i@J3*kN$#{o_3<ky 8-vk,T}\\\\JL\\\\KK@]vxWi0'5t\\\":*\\\":J2v2sGd2WF\\\"0f-@Yk&UzL;8<^7N)CW:*'_z<1* \\\\F1,EvvWDEA[c(\\\\`FTr\",\n      \"createdAt\": \"<dateTime>\",\n      \"status\": \"CREATING\",\n      \"statusReason\": {\n        \"code\": \"INVALID_CONFIGURATION\"\n      }\n    },\n    {\n      \"id\": \"67e4a8b0-fc67-72cd-6f95-07173995296b\",\n      \"analyzerArn\": \"j{_FR;8n\\\":S3:0mA.h:S*:X:analyzer/SrIZpv6||_Za[ZAk$%?m{/7gE\\\"i=:M(HxU{4%A}\\\\t t_t_8@^XdC;H4@xxG#.=$N~=+'+99m_BuVh^zY'G!q3d-G' Y/Q5^u'#7k!Kt*a0baz>$j&VMO@8^q:'%F@2Vs|IKh9{aha[,iW8c'}e\\\"6/D1\",\n      \"createdAt\": \"<dateTime>\",\n      \"status\": \"COMPLETED\",\n      \"statusReason\": {\n        \"code\": \"INTERNAL_ERROR\"\n      }\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:25:20.000Z",
+              "updatedAt": "2026-07-28T10:25:20.000Z",
+              "uid": "35240-b421e221-8aff-4b32-af78-c479cd792eac"
+            },
+            {
+              "id": "1f3d8896-e018-47fb-8a14-5c35f0d45a5b",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/access-preview?analyzerArn=n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^%26F]02:%23p&nextToken=<string>&maxResults=<integer>#analyzerArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "access-preview"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access preview.",
+                      "key": "analyzerArn",
+                      "value": "n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^&F]02:#p"
+                    },
+                    {
+                      "description": "A token used for pagination of results returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "hash": "analyzerArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:25:20.000Z",
+              "updatedAt": "2026-07-28T10:25:20.000Z",
+              "uid": "35240-1f3d8896-e018-47fb-8a14-5c35f0d45a5b"
+            },
+            {
+              "id": "95b0a12e-1378-41a5-ac77-ab77db9258cd",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/access-preview?analyzerArn=n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^%26F]02:%23p&nextToken=<string>&maxResults=<integer>#analyzerArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "access-preview"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access preview.",
+                      "key": "analyzerArn",
+                      "value": "n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^&F]02:#p"
+                    },
+                    {
+                      "description": "A token used for pagination of results returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "hash": "analyzerArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:25:20.000Z",
+              "updatedAt": "2026-07-28T10:25:20.000Z",
+              "uid": "35240-95b0a12e-1378-41a5-ac77-ab77db9258cd"
+            },
+            {
+              "id": "0dccdfef-f748-4032-8bf2-2798d6bb05ad",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/access-preview?analyzerArn=n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^%26F]02:%23p&nextToken=<string>&maxResults=<integer>#analyzerArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "access-preview"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access preview.",
+                      "key": "analyzerArn",
+                      "value": "n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^&F]02:#p"
+                    },
+                    {
+                      "description": "A token used for pagination of results returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "hash": "analyzerArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:25:20.000Z",
+              "updatedAt": "2026-07-28T10:25:20.000Z",
+              "uid": "35240-0dccdfef-f748-4032-8bf2-2798d6bb05ad"
+            },
+            {
+              "id": "250c071f-dc9d-4b42-83cf-eac1713f48e7",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/access-preview?analyzerArn=n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^%26F]02:%23p&nextToken=<string>&maxResults=<integer>#analyzerArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "access-preview"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access preview.",
+                      "key": "analyzerArn",
+                      "value": "n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^&F]02:#p"
+                    },
+                    {
+                      "description": "A token used for pagination of results returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "hash": "analyzerArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:25:20.000Z",
+              "updatedAt": "2026-07-28T10:25:20.000Z",
+              "uid": "35240-250c071f-dc9d-4b42-83cf-eac1713f48e7"
+            },
+            {
+              "id": "05392c80-3e91-41e5-bc92-50df29ed756d",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/access-preview?analyzerArn=n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^%26F]02:%23p&nextToken=<string>&maxResults=<integer>#analyzerArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "access-preview"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access preview.",
+                      "key": "analyzerArn",
+                      "value": "n /9U}pn:l\\|-mbQU:::%LEl:analyzer/\\3}UUsM,jf`gK5C6tE!!q|gK4/c,bWe\"kl=HVd69WFA%\\c1u1+dv8|S]%y5GcfvX,FQ Lk+{iNbAW1PRerGdhm.dn)*CRi,F^&F]02:#p"
+                    },
+                    {
+                      "description": "A token used for pagination of results returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "hash": "analyzerArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:25:20.000Z",
+              "updatedAt": "2026-07-28T10:25:20.000Z",
+              "uid": "35240-05392c80-3e91-41e5-bc92-50df29ed756d"
+            }
+          ],
+          "createdAt": "2026-07-28T10:25:20.000Z",
+          "updatedAt": "2026-07-28T10:25:20.000Z",
+          "uid": "35240-9aaa1446-febd-484d-9b1f-fb6fad72a040"
+        }
+      ],
+      "id": "dcfcac28-f5b7-48af-8e04-5d8d73b89a38",
+      "createdAt": "2026-07-28T10:25:20.000Z",
+      "updatedAt": "2026-07-28T10:25:20.000Z",
+      "uid": "35240-dcfcac28-f5b7-48af-8e04-5d8d73b89a38"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://access-analyzer.{{region}}.amazonaws.com"
+    }
+  ]
+}

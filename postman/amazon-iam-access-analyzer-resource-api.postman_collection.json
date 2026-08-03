@@ -1,0 +1,627 @@
+{
+  "info": {
+    "_postman_id": "f1dd81c3-18d2-484e-83cd-35d46330ac55",
+    "name": "Access Analyzer Access Preview#analyzerArn Resource API",
+    "description": "<p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview and validate public and cross-account access to your resources before deploying permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html\">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:25:28.000Z",
+    "updatedAt": "2026-07-28T10:25:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f1dd81c3-18d2-484e-83cd-35d46330ac55"
+  },
+  "item": [
+    {
+      "name": "resource",
+      "item": [
+        {
+          "name": "scan",
+          "item": [
+            {
+              "name": "Amazon IAM Access Analyzer Start Resource Scan",
+              "id": "b5225344-ebb3-4124-8e56-9b881fd54f02",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"analyzerArn\": \"d{:>w\\\\X>:B|ln(0t;z=:WQi'3sU@z:kmPbQFF,7f:analyzer/;ndepJ~*4,yGuQj\",\n  \"resourceArn\": \"arn:::D;.{ozA76:hU=s:\",\n  \"resourceOwnerAccount\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/resource/scan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resource",
+                    "scan"
+                  ]
+                },
+                "description": "Immediately starts a scan of the policies applied to the specified resource."
+              },
+              "response": [
+                {
+                  "id": "acf08ced-337a-4efb-becb-5acd7ee054de",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"analyzerArn\": \"d{:>w\\\\X>:B|ln(0t;z=:WQi'3sU@z:kmPbQFF,7f:analyzer/;ndepJ~*4,yGuQj\",\n  \"resourceArn\": \"arn:::D;.{ozA76:hU=s:\",\n  \"resourceOwnerAccount\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource/scan",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource",
+                        "scan"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T10:25:29.000Z",
+                  "updatedAt": "2026-07-28T10:25:29.000Z",
+                  "uid": "35240-acf08ced-337a-4efb-becb-5acd7ee054de"
+                },
+                {
+                  "id": "132b60da-cc5b-44ce-9219-edc71f0d2cb3",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"analyzerArn\": \"d{:>w\\\\X>:B|ln(0t;z=:WQi'3sU@z:kmPbQFF,7f:analyzer/;ndepJ~*4,yGuQj\",\n  \"resourceArn\": \"arn:::D;.{ozA76:hU=s:\",\n  \"resourceOwnerAccount\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource/scan",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource",
+                        "scan"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:29.000Z",
+                  "updatedAt": "2026-07-28T10:25:29.000Z",
+                  "uid": "35240-132b60da-cc5b-44ce-9219-edc71f0d2cb3"
+                },
+                {
+                  "id": "7b3908c8-c9b5-41aa-9833-74e5ef31f96b",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"analyzerArn\": \"d{:>w\\\\X>:B|ln(0t;z=:WQi'3sU@z:kmPbQFF,7f:analyzer/;ndepJ~*4,yGuQj\",\n  \"resourceArn\": \"arn:::D;.{ozA76:hU=s:\",\n  \"resourceOwnerAccount\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource/scan",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource",
+                        "scan"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:29.000Z",
+                  "updatedAt": "2026-07-28T10:25:29.000Z",
+                  "uid": "35240-7b3908c8-c9b5-41aa-9833-74e5ef31f96b"
+                },
+                {
+                  "id": "7b8bf113-f06a-4431-846e-d770c15fdd29",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"analyzerArn\": \"d{:>w\\\\X>:B|ln(0t;z=:WQi'3sU@z:kmPbQFF,7f:analyzer/;ndepJ~*4,yGuQj\",\n  \"resourceArn\": \"arn:::D;.{ozA76:hU=s:\",\n  \"resourceOwnerAccount\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource/scan",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource",
+                        "scan"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:29.000Z",
+                  "updatedAt": "2026-07-28T10:25:29.000Z",
+                  "uid": "35240-7b8bf113-f06a-4431-846e-d770c15fdd29"
+                },
+                {
+                  "id": "ec435435-6b2e-4e46-9db2-16207a52060f",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"analyzerArn\": \"d{:>w\\\\X>:B|ln(0t;z=:WQi'3sU@z:kmPbQFF,7f:analyzer/;ndepJ~*4,yGuQj\",\n  \"resourceArn\": \"arn:::D;.{ozA76:hU=s:\",\n  \"resourceOwnerAccount\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource/scan",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource",
+                        "scan"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:29.000Z",
+                  "updatedAt": "2026-07-28T10:25:29.000Z",
+                  "uid": "35240-ec435435-6b2e-4e46-9db2-16207a52060f"
+                },
+                {
+                  "id": "f65c0598-44da-425a-a6ca-53871117c993",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"analyzerArn\": \"d{:>w\\\\X>:B|ln(0t;z=:WQi'3sU@z:kmPbQFF,7f:analyzer/;ndepJ~*4,yGuQj\",\n  \"resourceArn\": \"arn:::D;.{ozA76:hU=s:\",\n  \"resourceOwnerAccount\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/resource/scan",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resource",
+                        "scan"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:29.000Z",
+                  "updatedAt": "2026-07-28T10:25:29.000Z",
+                  "uid": "35240-f65c0598-44da-425a-a6ca-53871117c993"
+                }
+              ],
+              "createdAt": "2026-07-28T10:25:29.000Z",
+              "updatedAt": "2026-07-28T10:25:29.000Z",
+              "uid": "35240-b5225344-ebb3-4124-8e56-9b881fd54f02"
+            }
+          ],
+          "id": "f85dbc60-3556-4c4c-a889-bee26d4210c1",
+          "createdAt": "2026-07-28T10:25:29.000Z",
+          "updatedAt": "2026-07-28T10:25:29.000Z",
+          "uid": "35240-f85dbc60-3556-4c4c-a889-bee26d4210c1"
+        }
+      ],
+      "id": "27bcadfa-6083-4fcd-9ba3-cc03060cef8c",
+      "createdAt": "2026-07-28T10:25:29.000Z",
+      "updatedAt": "2026-07-28T10:25:29.000Z",
+      "uid": "35240-27bcadfa-6083-4fcd-9ba3-cc03060cef8c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://access-analyzer.{{region}}.amazonaws.com"
+    }
+  ]
+}

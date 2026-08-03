@@ -1,0 +1,2773 @@
+{
+  "info": {
+    "_postman_id": "13df5e0e-1325-4e24-8fee-46fa99916782",
+    "name": "Access Analyzer Access Preview#analyzerArn Policy API",
+    "description": "<p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview and validate public and cross-account access to your resources before deploying permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html\">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:25:27.000Z",
+    "updatedAt": "2026-07-28T10:25:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-13df5e0e-1325-4e24-8fee-46fa99916782"
+  },
+  "item": [
+    {
+      "name": "policy",
+      "item": [
+        {
+          "name": "generation",
+          "item": [
+            {
+              "name": "{jobId}",
+              "item": [
+                {
+                  "name": "Amazon IAM Access Analyzer Cancel Policy Generation",
+                  "id": "05c4e600-4aa9-4d4a-be0b-99e8fba9b5ea",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "985a03f7-6858-4c49-ac1a-3188d8fc33ec",
+                          "key": "jobId",
+                          "value": "<string>",
+                          "description": "(Required) The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request."
+                        }
+                      ]
+                    },
+                    "description": "Cancels the requested policy generation."
+                  },
+                  "response": [
+                    {
+                      "id": "975fc567-26df-477c-8895-f69a989b2bc0",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policy/generation/:jobId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policy",
+                            "generation",
+                            ":jobId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:25:28.000Z",
+                      "updatedAt": "2026-07-28T10:25:28.000Z",
+                      "uid": "35240-975fc567-26df-477c-8895-f69a989b2bc0"
+                    },
+                    {
+                      "id": "80643866-45b7-4fe9-ae14-7506c60bc76a",
+                      "name": "ValidationException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policy/generation/:jobId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policy",
+                            "generation",
+                            ":jobId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:25:28.000Z",
+                      "updatedAt": "2026-07-28T10:25:28.000Z",
+                      "uid": "35240-80643866-45b7-4fe9-ae14-7506c60bc76a"
+                    },
+                    {
+                      "id": "2c112333-a6a9-4c30-92b5-ea0085da51df",
+                      "name": "InternalServerException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policy/generation/:jobId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policy",
+                            "generation",
+                            ":jobId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:25:28.000Z",
+                      "updatedAt": "2026-07-28T10:25:28.000Z",
+                      "uid": "35240-2c112333-a6a9-4c30-92b5-ea0085da51df"
+                    },
+                    {
+                      "id": "fc11d99c-82d5-4a33-9f94-103b4d991570",
+                      "name": "ThrottlingException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policy/generation/:jobId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policy",
+                            "generation",
+                            ":jobId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:25:28.000Z",
+                      "updatedAt": "2026-07-28T10:25:28.000Z",
+                      "uid": "35240-fc11d99c-82d5-4a33-9f94-103b4d991570"
+                    },
+                    {
+                      "id": "eb7f1ba3-eafb-4e2a-9f24-cfd2006d8460",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policy/generation/:jobId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policy",
+                            "generation",
+                            ":jobId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:25:28.000Z",
+                      "updatedAt": "2026-07-28T10:25:28.000Z",
+                      "uid": "35240-eb7f1ba3-eafb-4e2a-9f24-cfd2006d8460"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-05c4e600-4aa9-4d4a-be0b-99e8fba9b5ea"
+                },
+                {
+                  "name": "Amazon IAM Access Analyzer Get Generated Policy",
+                  "id": "215090d5-6d71-4153-9cf4-3f9a5b1307b2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation/:jobId?includeResourcePlaceholders=<boolean>&includeServiceLevelTemplate=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation",
+                        ":jobId"
+                      ],
+                      "query": [
+                        {
+                          "description": "<p>The level of detail that you want to generate. You can specify whether to generate policies with placeholders for resource ARNs for actions that support resource level granularity in policies.</p> <p>For example, in the resource section of a policy, you can receive a placeholder such as <code>\"Resource\":\"arn:aws:s3:::${BucketName}\"</code> instead of <code>\"*\"</code>.</p>",
+                          "key": "includeResourcePlaceholders",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "<p>The level of detail that you want to generate. You can specify whether to generate service-level policies. </p> <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have been used recently to create this service-level template.</p>",
+                          "key": "includeServiceLevelTemplate",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "916e43a4-73c3-4000-9743-fd43a5fbdadf",
+                          "key": "jobId",
+                          "value": "<string>",
+                          "description": "(Required) The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves the policy that was generated using <code>StartPolicyGeneration</code>. "
+                  },
+                  "response": [
+                    {
+                      "id": "f9a3ba9d-eb47-46ba-9904-ba0a600a711c",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policy/generation/:jobId?includeResourcePlaceholders=<boolean>&includeServiceLevelTemplate=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policy",
+                            "generation",
+                            ":jobId"
+                          ],
+                          "query": [
+                            {
+                              "description": "<p>The level of detail that you want to generate. You can specify whether to generate policies with placeholders for resource ARNs for actions that support resource level granularity in policies.</p> <p>For example, in the resource section of a policy, you can receive a placeholder such as <code>\"Resource\":\"arn:aws:s3:::${BucketName}\"</code> instead of <code>\"*\"</code>.</p>",
+                              "key": "includeResourcePlaceholders",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "<p>The level of detail that you want to generate. You can specify whether to generate service-level policies. </p> <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have been used recently to create this service-level template.</p>",
+                              "key": "includeServiceLevelTemplate",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"jobDetails\": {\n    \"jobId\": \"<string>\",\n    \"status\": \"FAILED\",\n    \"startedOn\": \"<dateTime>\",\n    \"completedOn\": \"<dateTime>\",\n    \"jobError\": {\n      \"code\": \"SERVICE_ERROR\",\n      \"message\": \"<string>\"\n    }\n  },\n  \"generatedPolicyResult\": {\n    \"properties\": {\n      \"description\": \"A <code>GeneratedPolicyProperties</code> object that contains properties of the generated policy.\"\n    },\n    \"generatedPolicies\": [\n      {\n        \"policy\": \"<string>\"\n      },\n      {\n        \"policy\": \"<string>\"\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T10:25:28.000Z",
+                      "updatedAt": "2026-07-28T10:25:28.000Z",
+                      "uid": "35240-f9a3ba9d-eb47-46ba-9904-ba0a600a711c"
+                    },
+                    {
+                      "id": "c9bf185b-1266-4ec0-b67c-ace7f78f521b",
+                      "name": "ValidationException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policy/generation/:jobId?includeResourcePlaceholders=<boolean>&includeServiceLevelTemplate=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policy",
+                            "generation",
+                            ":jobId"
+                          ],
+                          "query": [
+                            {
+                              "description": "<p>The level of detail that you want to generate. You can specify whether to generate policies with placeholders for resource ARNs for actions that support resource level granularity in policies.</p> <p>For example, in the resource section of a policy, you can receive a placeholder such as <code>\"Resource\":\"arn:aws:s3:::${BucketName}\"</code> instead of <code>\"*\"</code>.</p>",
+                              "key": "includeResourcePlaceholders",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "<p>The level of detail that you want to generate. You can specify whether to generate service-level policies. </p> <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have been used recently to create this service-level template.</p>",
+                              "key": "includeServiceLevelTemplate",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:25:28.000Z",
+                      "updatedAt": "2026-07-28T10:25:28.000Z",
+                      "uid": "35240-c9bf185b-1266-4ec0-b67c-ace7f78f521b"
+                    },
+                    {
+                      "id": "ecd6a655-ab7d-4e23-95b5-80a4d0a7afad",
+                      "name": "InternalServerException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policy/generation/:jobId?includeResourcePlaceholders=<boolean>&includeServiceLevelTemplate=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policy",
+                            "generation",
+                            ":jobId"
+                          ],
+                          "query": [
+                            {
+                              "description": "<p>The level of detail that you want to generate. You can specify whether to generate policies with placeholders for resource ARNs for actions that support resource level granularity in policies.</p> <p>For example, in the resource section of a policy, you can receive a placeholder such as <code>\"Resource\":\"arn:aws:s3:::${BucketName}\"</code> instead of <code>\"*\"</code>.</p>",
+                              "key": "includeResourcePlaceholders",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "<p>The level of detail that you want to generate. You can specify whether to generate service-level policies. </p> <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have been used recently to create this service-level template.</p>",
+                              "key": "includeServiceLevelTemplate",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:25:28.000Z",
+                      "updatedAt": "2026-07-28T10:25:28.000Z",
+                      "uid": "35240-ecd6a655-ab7d-4e23-95b5-80a4d0a7afad"
+                    },
+                    {
+                      "id": "5dd166b7-648d-4b5d-a54a-246648a7f8ac",
+                      "name": "ThrottlingException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policy/generation/:jobId?includeResourcePlaceholders=<boolean>&includeServiceLevelTemplate=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policy",
+                            "generation",
+                            ":jobId"
+                          ],
+                          "query": [
+                            {
+                              "description": "<p>The level of detail that you want to generate. You can specify whether to generate policies with placeholders for resource ARNs for actions that support resource level granularity in policies.</p> <p>For example, in the resource section of a policy, you can receive a placeholder such as <code>\"Resource\":\"arn:aws:s3:::${BucketName}\"</code> instead of <code>\"*\"</code>.</p>",
+                              "key": "includeResourcePlaceholders",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "<p>The level of detail that you want to generate. You can specify whether to generate service-level policies. </p> <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have been used recently to create this service-level template.</p>",
+                              "key": "includeServiceLevelTemplate",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:25:28.000Z",
+                      "updatedAt": "2026-07-28T10:25:28.000Z",
+                      "uid": "35240-5dd166b7-648d-4b5d-a54a-246648a7f8ac"
+                    },
+                    {
+                      "id": "01524f59-bd0c-4b89-8456-f19dfd9e5f81",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/policy/generation/:jobId?includeResourcePlaceholders=<boolean>&includeServiceLevelTemplate=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "policy",
+                            "generation",
+                            ":jobId"
+                          ],
+                          "query": [
+                            {
+                              "description": "<p>The level of detail that you want to generate. You can specify whether to generate policies with placeholders for resource ARNs for actions that support resource level granularity in policies.</p> <p>For example, in the resource section of a policy, you can receive a placeholder such as <code>\"Resource\":\"arn:aws:s3:::${BucketName}\"</code> instead of <code>\"*\"</code>.</p>",
+                              "key": "includeResourcePlaceholders",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "<p>The level of detail that you want to generate. You can specify whether to generate service-level policies. </p> <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have been used recently to create this service-level template.</p>",
+                              "key": "includeServiceLevelTemplate",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:25:28.000Z",
+                      "updatedAt": "2026-07-28T10:25:28.000Z",
+                      "uid": "35240-01524f59-bd0c-4b89-8456-f19dfd9e5f81"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-215090d5-6d71-4153-9cf4-3f9a5b1307b2"
+                }
+              ],
+              "id": "05d80843-fc2f-4e70-ac5f-8e513dc070a1",
+              "createdAt": "2026-07-28T10:25:28.000Z",
+              "updatedAt": "2026-07-28T10:25:28.000Z",
+              "uid": "35240-05d80843-fc2f-4e70-ac5f-8e513dc070a1"
+            },
+            {
+              "name": "Amazon IAM Access Analyzer List Policy Generations",
+              "id": "a46dd1d5-c48d-420c-b00b-bcbd1ca52114",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/policy/generation?principalArn=arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~%232w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC%23Ad-bfMalx}U`7h+C%26|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{%23Ofc%26NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t%26M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*&maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "policy",
+                    "generation"
+                  ],
+                  "query": [
+                    {
+                      "description": "The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with <code>ListGeneratedPolicies</code> to filter the results to only include results for a specific principal.",
+                      "key": "principalArn",
+                      "value": "arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~#2w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC#Ad-bfMalx}U`7h+C&|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{#Ofc&NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t&M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*"
+                    },
+                    {
+                      "description": "The maximum number of results to return in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A token used for pagination of results returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Lists all of the policy generations requested in the last seven days."
+              },
+              "response": [
+                {
+                  "id": "d7552dfe-d5d8-45c3-a9ee-5fddbec98c21",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation?principalArn=arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~%232w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC%23Ad-bfMalx}U`7h+C%26|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{%23Ofc%26NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t%26M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*&maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ],
+                      "query": [
+                        {
+                          "description": "The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with <code>ListGeneratedPolicies</code> to filter the results to only include results for a specific principal.",
+                          "key": "principalArn",
+                          "value": "arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~#2w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC#Ad-bfMalx}U`7h+C&|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{#Ofc&NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t&M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*"
+                        },
+                        {
+                          "description": "The maximum number of results to return in the response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A token used for pagination of results returned.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"policyGenerations\": [\n    {\n      \"jobId\": \"<string>\",\n      \"principalArn\": \"arn:jL:iam::r?:role/WO;aw6@fQu\\\"p/nnl}zsr#brfuj8Oh8~Gc[A}?`(=/3[{.^je?PhW}m{*i{YJ5p)'2`MUl<VhT2f~%HIBrx}{Me<M&Uqp8(iJr{,rUz*+a3OjlPkY:HR]r}TUL#WXV)!j6W^\\\"Nz\\\":kzYg)Jg$ gs-HE[[7*<s9=f=C`hl$A~hPu]9&bdS^Dyp]*Ky@nnFS<P)r9RC;NnbFs'=LRlDaG>~[av(^<fM[mXS\\\\jYw8_.1tN7+m>..rPX<MSUxo'$AD%uFgA;Ow*q*aZ,Z?o%uI-K/5\\\"G|h1R&4fuNF\",\n      \"status\": \"IN_PROGRESS\",\n      \"startedOn\": \"<dateTime>\",\n      \"completedOn\": \"<dateTime>\"\n    },\n    {\n      \"jobId\": \"<string>\",\n      \"principalArn\": \"arn:Nc0b@#:iam::ki j:role/zvyKcyOQ0XSb;Vk>Fy@M_.QE5;5S85d`4+=gFZoPx!o9gDe8*mkdbEA<~QaK8OVy6C8`NSh/VHxiA[P@w^#DHN1'@bzyt7k\\\"bFQFI42&$}08GJmvBdZfdXHJr*a=2{U{>*)fB9u\\\\W?X{+&2}S?<OcH/B3-6QtjIH1~e&Yt4MVu7S|[}giF`aJe@e06h2fFiTkO}}+\",\n      \"status\": \"SUCCEEDED\",\n      \"startedOn\": \"<dateTime>\",\n      \"completedOn\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-d7552dfe-d5d8-45c3-a9ee-5fddbec98c21"
+                },
+                {
+                  "id": "fcee0b06-afd7-4710-8711-155063ac3f69",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation?principalArn=arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~%232w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC%23Ad-bfMalx}U`7h+C%26|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{%23Ofc%26NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t%26M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*&maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ],
+                      "query": [
+                        {
+                          "description": "The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with <code>ListGeneratedPolicies</code> to filter the results to only include results for a specific principal.",
+                          "key": "principalArn",
+                          "value": "arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~#2w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC#Ad-bfMalx}U`7h+C&|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{#Ofc&NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t&M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*"
+                        },
+                        {
+                          "description": "The maximum number of results to return in the response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A token used for pagination of results returned.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-fcee0b06-afd7-4710-8711-155063ac3f69"
+                },
+                {
+                  "id": "f20a66db-1410-4612-945f-64a395535356",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation?principalArn=arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~%232w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC%23Ad-bfMalx}U`7h+C%26|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{%23Ofc%26NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t%26M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*&maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ],
+                      "query": [
+                        {
+                          "description": "The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with <code>ListGeneratedPolicies</code> to filter the results to only include results for a specific principal.",
+                          "key": "principalArn",
+                          "value": "arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~#2w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC#Ad-bfMalx}U`7h+C&|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{#Ofc&NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t&M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*"
+                        },
+                        {
+                          "description": "The maximum number of results to return in the response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A token used for pagination of results returned.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-f20a66db-1410-4612-945f-64a395535356"
+                },
+                {
+                  "id": "28ec40b1-9ebf-4ce9-aba2-4b54b3f95715",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation?principalArn=arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~%232w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC%23Ad-bfMalx}U`7h+C%26|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{%23Ofc%26NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t%26M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*&maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ],
+                      "query": [
+                        {
+                          "description": "The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with <code>ListGeneratedPolicies</code> to filter the results to only include results for a specific principal.",
+                          "key": "principalArn",
+                          "value": "arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~#2w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC#Ad-bfMalx}U`7h+C&|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{#Ofc&NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t&M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*"
+                        },
+                        {
+                          "description": "The maximum number of results to return in the response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A token used for pagination of results returned.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-28ec40b1-9ebf-4ce9-aba2-4b54b3f95715"
+                },
+                {
+                  "id": "3eb51e82-c8f3-4475-b4c6-a71ebf9d8a24",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation?principalArn=arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~%232w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC%23Ad-bfMalx}U`7h+C%26|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{%23Ofc%26NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t%26M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*&maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ],
+                      "query": [
+                        {
+                          "description": "The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with <code>ListGeneratedPolicies</code> to filter the results to only include results for a specific principal.",
+                          "key": "principalArn",
+                          "value": "arn:el8:iam::;|+Srqg:user/CU-1_bWlEGpRVCBl<5K?`P|Yhs%4%XgRWL!k@oc:qN/PQ}g{sSxL2y`VzyznhAsf7]EX%RN>N!o>XWglf?$0\\;D!d!'~#2w09|`koL4wGKT6VAz[A1z5[5.nCt]55 VJmJPyll/zwP;GcP7N>%<\\K1/?)?*ifrON^{7b%Mt@Il ;?7M>/\\nr\"~}9;XUdX[`n9}HXydueUDL+Jg?qDE[?92Bu?3D*$dYGO=9DrykyVYP:NSg-l)p\\q(j.eJc9I~ihI?eRETjKFwWC#Ad-bfMalx}U`7h+C&|6j!O8lzd;mJQ,-U-]y[jLW+;s2_Dd5<}N\\r6E}W'hiz3\"2 a\\.scv3g7UV{#Ofc&NuR\\)Orir*YC4WYJ?4\"}/LM2'p$o^wcnzK[ 6EyQ|%IoFJ=3CveVJS736\\Z;;*2DSr9,a \"?@.t&M8FuH8y:_D3?9(_s1:*Rw2*e(aM6d;I_dM9d$nYfr}}Q(ajGb[!2o_$izY{fF$5bQL@;'X%sG t=TiZm9d\".eG5-<7o2/dzcO*"
+                        },
+                        {
+                          "description": "The maximum number of results to return in the response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A token used for pagination of results returned.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-3eb51e82-c8f3-4475-b4c6-a71ebf9d8a24"
+                }
+              ],
+              "createdAt": "2026-07-28T10:25:28.000Z",
+              "updatedAt": "2026-07-28T10:25:28.000Z",
+              "uid": "35240-a46dd1d5-c48d-420c-b00b-bcbd1ca52114"
+            },
+            {
+              "name": "Amazon IAM Access Analyzer Start Policy Generation",
+              "id": "ff545a97-23ba-42dd-a008-e6e6116faa11",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policyGenerationDetails\": {\n    \"principalArn\": \"arn:vQ:iam:::user/i5i1b(6^^u8@Zf:4y(`-0rg3?JXG$UDm1lF*0)!J#(H{]\\\"Ju1i&hNb$!oygsa6zcVON*~3U{cIhK&zmmVx\\\"MpHP-!Tg.8HDiH@96LaQB6r$VThh^(:E}N1x`-,.JU-!rD!U4*g*gL|ikLaElt?{tI!\\\">'wPI67E[_jjetrzk3aLt^`y_HAm2Kq'`!AxOO@IeJSkYW;iy'9}FeqaRYNOR<\\\\JOwD&{6-^2NoP6e=f 2S+:coHi \\\\@qpzv)AG}Zy>(b@Gd\\\"4bR6Af8U_S.Ku_ V_t35OCmQCZHwekwleB6]z@}}lP\"\n  },\n  \"cloudTrailDetails\": {\n    \"trails\": [\n      {\n        \"cloudTrailArn\": \"arn:m:cloudtrail:;?zD:@k1:trail/`[%b!nuEk1w4'y5Mp@$&Qdje>c^57yy,^L_KC=T+BK[#gV*RKl/gU&E+/`:@>d]C^B9vvT[,;0al~b]^Hy-5\\\"kXPy]2G&oZ[]gl},tyXC\\\"=bARMW#lx8nv~1M^1iKF#q?c3-QZ>\\\\)R|At\\\"+ow0a,_HU39| s>%[`RNH2zaP-8=OnV\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      },\n      {\n        \"cloudTrailArn\": \"arn:r/N'Kv:cloudtrail:0: E5?520a~n:trail/=xT/,$O!!U[N!Q6ZKFNJ1T%)ll9JZBKl>UTRSE d(f:!wvWv1bPO)iF[*/\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      }\n    ],\n    \"accessRole\": \"arn:-&:iam::.+}s BnCM/:role/;Z|\\\"iA%UY1gE+-U\\\\=K{Jo+KL>hwYHZLegS;3L^<)=NhO,Y0jW|uY26w\\\"_NO=''qL@D<5`e'm`x3>'c(\\\\isIpHrCfSM};/3<B%&$@;e_AL_Md2t&\\\\O]g8]ZVH}Ocz&5u3[]mF$3L8FrPWwv`-mRv1*Yq\\\\%/Y<Hz8hjC+Pk{!AWs0ZViC06\\\\,gCqSO ;4@SaTzp\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"clientToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/policy/generation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "policy",
+                    "generation"
+                  ]
+                },
+                "description": "Starts the policy generation request."
+              },
+              "response": [
+                {
+                  "id": "a4d1e9d0-e9ef-4577-91ee-240f8a5eea7a",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyGenerationDetails\": {\n    \"principalArn\": \"arn:vQ:iam:::user/i5i1b(6^^u8@Zf:4y(`-0rg3?JXG$UDm1lF*0)!J#(H{]\\\"Ju1i&hNb$!oygsa6zcVON*~3U{cIhK&zmmVx\\\"MpHP-!Tg.8HDiH@96LaQB6r$VThh^(:E}N1x`-,.JU-!rD!U4*g*gL|ikLaElt?{tI!\\\">'wPI67E[_jjetrzk3aLt^`y_HAm2Kq'`!AxOO@IeJSkYW;iy'9}FeqaRYNOR<\\\\JOwD&{6-^2NoP6e=f 2S+:coHi \\\\@qpzv)AG}Zy>(b@Gd\\\"4bR6Af8U_S.Ku_ V_t35OCmQCZHwekwleB6]z@}}lP\"\n  },\n  \"cloudTrailDetails\": {\n    \"trails\": [\n      {\n        \"cloudTrailArn\": \"arn:m:cloudtrail:;?zD:@k1:trail/`[%b!nuEk1w4'y5Mp@$&Qdje>c^57yy,^L_KC=T+BK[#gV*RKl/gU&E+/`:@>d]C^B9vvT[,;0al~b]^Hy-5\\\"kXPy]2G&oZ[]gl},tyXC\\\"=bARMW#lx8nv~1M^1iKF#q?c3-QZ>\\\\)R|At\\\"+ow0a,_HU39| s>%[`RNH2zaP-8=OnV\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      },\n      {\n        \"cloudTrailArn\": \"arn:r/N'Kv:cloudtrail:0: E5?520a~n:trail/=xT/,$O!!U[N!Q6ZKFNJ1T%)ll9JZBKl>UTRSE d(f:!wvWv1bPO)iF[*/\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      }\n    ],\n    \"accessRole\": \"arn:-&:iam::.+}s BnCM/:role/;Z|\\\"iA%UY1gE+-U\\\\=K{Jo+KL>hwYHZLegS;3L^<)=NhO,Y0jW|uY26w\\\"_NO=''qL@D<5`e'm`x3>'c(\\\\isIpHrCfSM};/3<B%&$@;e_AL_Md2t&\\\\O]g8]ZVH}Ocz&5u3[]mF$3L8FrPWwv`-mRv1*Yq\\\\%/Y<Hz8hjC+Pk{!AWs0ZViC06\\\\,gCqSO ;4@SaTzp\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"clientToken\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"jobId\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-a4d1e9d0-e9ef-4577-91ee-240f8a5eea7a"
+                },
+                {
+                  "id": "c9827b1c-a3ab-49c5-b4b1-ea4256034549",
+                  "name": "ConflictException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyGenerationDetails\": {\n    \"principalArn\": \"arn:vQ:iam:::user/i5i1b(6^^u8@Zf:4y(`-0rg3?JXG$UDm1lF*0)!J#(H{]\\\"Ju1i&hNb$!oygsa6zcVON*~3U{cIhK&zmmVx\\\"MpHP-!Tg.8HDiH@96LaQB6r$VThh^(:E}N1x`-,.JU-!rD!U4*g*gL|ikLaElt?{tI!\\\">'wPI67E[_jjetrzk3aLt^`y_HAm2Kq'`!AxOO@IeJSkYW;iy'9}FeqaRYNOR<\\\\JOwD&{6-^2NoP6e=f 2S+:coHi \\\\@qpzv)AG}Zy>(b@Gd\\\"4bR6Af8U_S.Ku_ V_t35OCmQCZHwekwleB6]z@}}lP\"\n  },\n  \"cloudTrailDetails\": {\n    \"trails\": [\n      {\n        \"cloudTrailArn\": \"arn:m:cloudtrail:;?zD:@k1:trail/`[%b!nuEk1w4'y5Mp@$&Qdje>c^57yy,^L_KC=T+BK[#gV*RKl/gU&E+/`:@>d]C^B9vvT[,;0al~b]^Hy-5\\\"kXPy]2G&oZ[]gl},tyXC\\\"=bARMW#lx8nv~1M^1iKF#q?c3-QZ>\\\\)R|At\\\"+ow0a,_HU39| s>%[`RNH2zaP-8=OnV\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      },\n      {\n        \"cloudTrailArn\": \"arn:r/N'Kv:cloudtrail:0: E5?520a~n:trail/=xT/,$O!!U[N!Q6ZKFNJ1T%)ll9JZBKl>UTRSE d(f:!wvWv1bPO)iF[*/\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      }\n    ],\n    \"accessRole\": \"arn:-&:iam::.+}s BnCM/:role/;Z|\\\"iA%UY1gE+-U\\\\=K{Jo+KL>hwYHZLegS;3L^<)=NhO,Y0jW|uY26w\\\"_NO=''qL@D<5`e'm`x3>'c(\\\\isIpHrCfSM};/3<B%&$@;e_AL_Md2t&\\\\O]g8]ZVH}Ocz&5u3[]mF$3L8FrPWwv`-mRv1*Yq\\\\%/Y<Hz8hjC+Pk{!AWs0ZViC06\\\\,gCqSO ;4@SaTzp\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"clientToken\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-c9827b1c-a3ab-49c5-b4b1-ea4256034549"
+                },
+                {
+                  "id": "8934a6dc-fd39-4a51-bb38-7fffd07b7624",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyGenerationDetails\": {\n    \"principalArn\": \"arn:vQ:iam:::user/i5i1b(6^^u8@Zf:4y(`-0rg3?JXG$UDm1lF*0)!J#(H{]\\\"Ju1i&hNb$!oygsa6zcVON*~3U{cIhK&zmmVx\\\"MpHP-!Tg.8HDiH@96LaQB6r$VThh^(:E}N1x`-,.JU-!rD!U4*g*gL|ikLaElt?{tI!\\\">'wPI67E[_jjetrzk3aLt^`y_HAm2Kq'`!AxOO@IeJSkYW;iy'9}FeqaRYNOR<\\\\JOwD&{6-^2NoP6e=f 2S+:coHi \\\\@qpzv)AG}Zy>(b@Gd\\\"4bR6Af8U_S.Ku_ V_t35OCmQCZHwekwleB6]z@}}lP\"\n  },\n  \"cloudTrailDetails\": {\n    \"trails\": [\n      {\n        \"cloudTrailArn\": \"arn:m:cloudtrail:;?zD:@k1:trail/`[%b!nuEk1w4'y5Mp@$&Qdje>c^57yy,^L_KC=T+BK[#gV*RKl/gU&E+/`:@>d]C^B9vvT[,;0al~b]^Hy-5\\\"kXPy]2G&oZ[]gl},tyXC\\\"=bARMW#lx8nv~1M^1iKF#q?c3-QZ>\\\\)R|At\\\"+ow0a,_HU39| s>%[`RNH2zaP-8=OnV\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      },\n      {\n        \"cloudTrailArn\": \"arn:r/N'Kv:cloudtrail:0: E5?520a~n:trail/=xT/,$O!!U[N!Q6ZKFNJ1T%)ll9JZBKl>UTRSE d(f:!wvWv1bPO)iF[*/\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      }\n    ],\n    \"accessRole\": \"arn:-&:iam::.+}s BnCM/:role/;Z|\\\"iA%UY1gE+-U\\\\=K{Jo+KL>hwYHZLegS;3L^<)=NhO,Y0jW|uY26w\\\"_NO=''qL@D<5`e'm`x3>'c(\\\\isIpHrCfSM};/3<B%&$@;e_AL_Md2t&\\\\O]g8]ZVH}Ocz&5u3[]mF$3L8FrPWwv`-mRv1*Yq\\\\%/Y<Hz8hjC+Pk{!AWs0ZViC06\\\\,gCqSO ;4@SaTzp\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"clientToken\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-8934a6dc-fd39-4a51-bb38-7fffd07b7624"
+                },
+                {
+                  "id": "7415ce3d-024e-4abe-815d-737cf05dfc45",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyGenerationDetails\": {\n    \"principalArn\": \"arn:vQ:iam:::user/i5i1b(6^^u8@Zf:4y(`-0rg3?JXG$UDm1lF*0)!J#(H{]\\\"Ju1i&hNb$!oygsa6zcVON*~3U{cIhK&zmmVx\\\"MpHP-!Tg.8HDiH@96LaQB6r$VThh^(:E}N1x`-,.JU-!rD!U4*g*gL|ikLaElt?{tI!\\\">'wPI67E[_jjetrzk3aLt^`y_HAm2Kq'`!AxOO@IeJSkYW;iy'9}FeqaRYNOR<\\\\JOwD&{6-^2NoP6e=f 2S+:coHi \\\\@qpzv)AG}Zy>(b@Gd\\\"4bR6Af8U_S.Ku_ V_t35OCmQCZHwekwleB6]z@}}lP\"\n  },\n  \"cloudTrailDetails\": {\n    \"trails\": [\n      {\n        \"cloudTrailArn\": \"arn:m:cloudtrail:;?zD:@k1:trail/`[%b!nuEk1w4'y5Mp@$&Qdje>c^57yy,^L_KC=T+BK[#gV*RKl/gU&E+/`:@>d]C^B9vvT[,;0al~b]^Hy-5\\\"kXPy]2G&oZ[]gl},tyXC\\\"=bARMW#lx8nv~1M^1iKF#q?c3-QZ>\\\\)R|At\\\"+ow0a,_HU39| s>%[`RNH2zaP-8=OnV\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      },\n      {\n        \"cloudTrailArn\": \"arn:r/N'Kv:cloudtrail:0: E5?520a~n:trail/=xT/,$O!!U[N!Q6ZKFNJ1T%)ll9JZBKl>UTRSE d(f:!wvWv1bPO)iF[*/\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      }\n    ],\n    \"accessRole\": \"arn:-&:iam::.+}s BnCM/:role/;Z|\\\"iA%UY1gE+-U\\\\=K{Jo+KL>hwYHZLegS;3L^<)=NhO,Y0jW|uY26w\\\"_NO=''qL@D<5`e'm`x3>'c(\\\\isIpHrCfSM};/3<B%&$@;e_AL_Md2t&\\\\O]g8]ZVH}Ocz&5u3[]mF$3L8FrPWwv`-mRv1*Yq\\\\%/Y<Hz8hjC+Pk{!AWs0ZViC06\\\\,gCqSO ;4@SaTzp\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"clientToken\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-7415ce3d-024e-4abe-815d-737cf05dfc45"
+                },
+                {
+                  "id": "069c00ba-b8b8-479f-ab2d-c9cbf1fa35e3",
+                  "name": "ServiceQuotaExceededException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyGenerationDetails\": {\n    \"principalArn\": \"arn:vQ:iam:::user/i5i1b(6^^u8@Zf:4y(`-0rg3?JXG$UDm1lF*0)!J#(H{]\\\"Ju1i&hNb$!oygsa6zcVON*~3U{cIhK&zmmVx\\\"MpHP-!Tg.8HDiH@96LaQB6r$VThh^(:E}N1x`-,.JU-!rD!U4*g*gL|ikLaElt?{tI!\\\">'wPI67E[_jjetrzk3aLt^`y_HAm2Kq'`!AxOO@IeJSkYW;iy'9}FeqaRYNOR<\\\\JOwD&{6-^2NoP6e=f 2S+:coHi \\\\@qpzv)AG}Zy>(b@Gd\\\"4bR6Af8U_S.Ku_ V_t35OCmQCZHwekwleB6]z@}}lP\"\n  },\n  \"cloudTrailDetails\": {\n    \"trails\": [\n      {\n        \"cloudTrailArn\": \"arn:m:cloudtrail:;?zD:@k1:trail/`[%b!nuEk1w4'y5Mp@$&Qdje>c^57yy,^L_KC=T+BK[#gV*RKl/gU&E+/`:@>d]C^B9vvT[,;0al~b]^Hy-5\\\"kXPy]2G&oZ[]gl},tyXC\\\"=bARMW#lx8nv~1M^1iKF#q?c3-QZ>\\\\)R|At\\\"+ow0a,_HU39| s>%[`RNH2zaP-8=OnV\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      },\n      {\n        \"cloudTrailArn\": \"arn:r/N'Kv:cloudtrail:0: E5?520a~n:trail/=xT/,$O!!U[N!Q6ZKFNJ1T%)ll9JZBKl>UTRSE d(f:!wvWv1bPO)iF[*/\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      }\n    ],\n    \"accessRole\": \"arn:-&:iam::.+}s BnCM/:role/;Z|\\\"iA%UY1gE+-U\\\\=K{Jo+KL>hwYHZLegS;3L^<)=NhO,Y0jW|uY26w\\\"_NO=''qL@D<5`e'm`x3>'c(\\\\isIpHrCfSM};/3<B%&$@;e_AL_Md2t&\\\\O]g8]ZVH}Ocz&5u3[]mF$3L8FrPWwv`-mRv1*Yq\\\\%/Y<Hz8hjC+Pk{!AWs0ZViC06\\\\,gCqSO ;4@SaTzp\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"clientToken\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-069c00ba-b8b8-479f-ab2d-c9cbf1fa35e3"
+                },
+                {
+                  "id": "4c09ea5f-3c3b-471b-8a15-495354086456",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyGenerationDetails\": {\n    \"principalArn\": \"arn:vQ:iam:::user/i5i1b(6^^u8@Zf:4y(`-0rg3?JXG$UDm1lF*0)!J#(H{]\\\"Ju1i&hNb$!oygsa6zcVON*~3U{cIhK&zmmVx\\\"MpHP-!Tg.8HDiH@96LaQB6r$VThh^(:E}N1x`-,.JU-!rD!U4*g*gL|ikLaElt?{tI!\\\">'wPI67E[_jjetrzk3aLt^`y_HAm2Kq'`!AxOO@IeJSkYW;iy'9}FeqaRYNOR<\\\\JOwD&{6-^2NoP6e=f 2S+:coHi \\\\@qpzv)AG}Zy>(b@Gd\\\"4bR6Af8U_S.Ku_ V_t35OCmQCZHwekwleB6]z@}}lP\"\n  },\n  \"cloudTrailDetails\": {\n    \"trails\": [\n      {\n        \"cloudTrailArn\": \"arn:m:cloudtrail:;?zD:@k1:trail/`[%b!nuEk1w4'y5Mp@$&Qdje>c^57yy,^L_KC=T+BK[#gV*RKl/gU&E+/`:@>d]C^B9vvT[,;0al~b]^Hy-5\\\"kXPy]2G&oZ[]gl},tyXC\\\"=bARMW#lx8nv~1M^1iKF#q?c3-QZ>\\\\)R|At\\\"+ow0a,_HU39| s>%[`RNH2zaP-8=OnV\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      },\n      {\n        \"cloudTrailArn\": \"arn:r/N'Kv:cloudtrail:0: E5?520a~n:trail/=xT/,$O!!U[N!Q6ZKFNJ1T%)ll9JZBKl>UTRSE d(f:!wvWv1bPO)iF[*/\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      }\n    ],\n    \"accessRole\": \"arn:-&:iam::.+}s BnCM/:role/;Z|\\\"iA%UY1gE+-U\\\\=K{Jo+KL>hwYHZLegS;3L^<)=NhO,Y0jW|uY26w\\\"_NO=''qL@D<5`e'm`x3>'c(\\\\isIpHrCfSM};/3<B%&$@;e_AL_Md2t&\\\\O]g8]ZVH}Ocz&5u3[]mF$3L8FrPWwv`-mRv1*Yq\\\\%/Y<Hz8hjC+Pk{!AWs0ZViC06\\\\,gCqSO ;4@SaTzp\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"clientToken\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-4c09ea5f-3c3b-471b-8a15-495354086456"
+                },
+                {
+                  "id": "3f99161a-01f8-428e-a036-8895c6f13f3d",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyGenerationDetails\": {\n    \"principalArn\": \"arn:vQ:iam:::user/i5i1b(6^^u8@Zf:4y(`-0rg3?JXG$UDm1lF*0)!J#(H{]\\\"Ju1i&hNb$!oygsa6zcVON*~3U{cIhK&zmmVx\\\"MpHP-!Tg.8HDiH@96LaQB6r$VThh^(:E}N1x`-,.JU-!rD!U4*g*gL|ikLaElt?{tI!\\\">'wPI67E[_jjetrzk3aLt^`y_HAm2Kq'`!AxOO@IeJSkYW;iy'9}FeqaRYNOR<\\\\JOwD&{6-^2NoP6e=f 2S+:coHi \\\\@qpzv)AG}Zy>(b@Gd\\\"4bR6Af8U_S.Ku_ V_t35OCmQCZHwekwleB6]z@}}lP\"\n  },\n  \"cloudTrailDetails\": {\n    \"trails\": [\n      {\n        \"cloudTrailArn\": \"arn:m:cloudtrail:;?zD:@k1:trail/`[%b!nuEk1w4'y5Mp@$&Qdje>c^57yy,^L_KC=T+BK[#gV*RKl/gU&E+/`:@>d]C^B9vvT[,;0al~b]^Hy-5\\\"kXPy]2G&oZ[]gl},tyXC\\\"=bARMW#lx8nv~1M^1iKF#q?c3-QZ>\\\\)R|At\\\"+ow0a,_HU39| s>%[`RNH2zaP-8=OnV\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      },\n      {\n        \"cloudTrailArn\": \"arn:r/N'Kv:cloudtrail:0: E5?520a~n:trail/=xT/,$O!!U[N!Q6ZKFNJ1T%)ll9JZBKl>UTRSE d(f:!wvWv1bPO)iF[*/\",\n        \"regions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"allRegions\": \"<boolean>\"\n      }\n    ],\n    \"accessRole\": \"arn:-&:iam::.+}s BnCM/:role/;Z|\\\"iA%UY1gE+-U\\\\=K{Jo+KL>hwYHZLegS;3L^<)=NhO,Y0jW|uY26w\\\"_NO=''qL@D<5`e'm`x3>'c(\\\\isIpHrCfSM};/3<B%&$@;e_AL_Md2t&\\\\O]g8]ZVH}Ocz&5u3[]mF$3L8FrPWwv`-mRv1*Yq\\\\%/Y<Hz8hjC+Pk{!AWs0ZViC06\\\\,gCqSO ;4@SaTzp\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"clientToken\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/generation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "generation"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-3f99161a-01f8-428e-a036-8895c6f13f3d"
+                }
+              ],
+              "createdAt": "2026-07-28T10:25:28.000Z",
+              "updatedAt": "2026-07-28T10:25:28.000Z",
+              "uid": "35240-ff545a97-23ba-42dd-a008-e6e6116faa11"
+            }
+          ],
+          "id": "5614cd67-79f4-4ec6-aaa6-367502ab54fe",
+          "createdAt": "2026-07-28T10:25:28.000Z",
+          "updatedAt": "2026-07-28T10:25:28.000Z",
+          "uid": "35240-5614cd67-79f4-4ec6-aaa6-367502ab54fe"
+        },
+        {
+          "name": "validation",
+          "item": [
+            {
+              "name": "Amazon IAM Access Analyzer Validate Policy",
+              "id": "a6cec0be-c2eb-42cb-8313-dc5043a5d8df",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policyDocument\": \"<string>\",\n  \"policyType\": \"SERVICE_CONTROL_POLICY\",\n  \"locale\": \"ES\",\n  \"validatePolicyResourceType\": \"AWS::S3::AccessPoint\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/policy/validation?maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "policy",
+                    "validation"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of results to return in the response.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A token used for pagination of results returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Requests the validation of a policy and returns a list of findings. The findings help you identify issues and provide actionable recommendations to resolve the issue and enable you to author functional policies that meet security best practices. "
+              },
+              "response": [
+                {
+                  "id": "1bffd9cc-6c0e-412d-b72a-8f7d9a8dfd75",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyDocument\": \"<string>\",\n  \"policyType\": \"SERVICE_CONTROL_POLICY\",\n  \"locale\": \"ES\",\n  \"validatePolicyResourceType\": \"AWS::S3::AccessPoint\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/validation?maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "validation"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of results to return in the response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A token used for pagination of results returned.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"findings\": [\n    {\n      \"findingDetails\": \"<string>\",\n      \"findingType\": \"WARNING\",\n      \"issueCode\": \"<string>\",\n      \"learnMoreLink\": \"<string>\",\n      \"locations\": [\n        {\n          \"path\": [\n            {\n              \"index\": \"<integer>\",\n              \"key\": \"<string>\",\n              \"substring\": {\n                \"start\": \"<integer>\",\n                \"length\": \"<integer>\"\n              },\n              \"value\": \"<string>\"\n            },\n            {\n              \"index\": \"<integer>\",\n              \"key\": \"<string>\",\n              \"substring\": {\n                \"start\": \"<integer>\",\n                \"length\": \"<integer>\"\n              },\n              \"value\": \"<string>\"\n            }\n          ],\n          \"span\": {\n            \"start\": {\n              \"line\": \"<integer>\",\n              \"column\": \"<integer>\",\n              \"offset\": \"<integer>\"\n            },\n            \"end\": {\n              \"line\": \"<integer>\",\n              \"column\": \"<integer>\",\n              \"offset\": \"<integer>\"\n            }\n          }\n        },\n        {\n          \"path\": [\n            {\n              \"index\": \"<integer>\",\n              \"key\": \"<string>\",\n              \"substring\": {\n                \"start\": \"<integer>\",\n                \"length\": \"<integer>\"\n              },\n              \"value\": \"<string>\"\n            },\n            {\n              \"index\": \"<integer>\",\n              \"key\": \"<string>\",\n              \"substring\": {\n                \"start\": \"<integer>\",\n                \"length\": \"<integer>\"\n              },\n              \"value\": \"<string>\"\n            }\n          ],\n          \"span\": {\n            \"start\": {\n              \"line\": \"<integer>\",\n              \"column\": \"<integer>\",\n              \"offset\": \"<integer>\"\n            },\n            \"end\": {\n              \"line\": \"<integer>\",\n              \"column\": \"<integer>\",\n              \"offset\": \"<integer>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"findingDetails\": \"<string>\",\n      \"findingType\": \"SUGGESTION\",\n      \"issueCode\": \"<string>\",\n      \"learnMoreLink\": \"<string>\",\n      \"locations\": [\n        {\n          \"path\": [\n            {\n              \"index\": \"<integer>\",\n              \"key\": \"<string>\",\n              \"substring\": {\n                \"start\": \"<integer>\",\n                \"length\": \"<integer>\"\n              },\n              \"value\": \"<string>\"\n            },\n            {\n              \"index\": \"<integer>\",\n              \"key\": \"<string>\",\n              \"substring\": {\n                \"start\": \"<integer>\",\n                \"length\": \"<integer>\"\n              },\n              \"value\": \"<string>\"\n            }\n          ],\n          \"span\": {\n            \"start\": {\n              \"line\": \"<integer>\",\n              \"column\": \"<integer>\",\n              \"offset\": \"<integer>\"\n            },\n            \"end\": {\n              \"line\": \"<integer>\",\n              \"column\": \"<integer>\",\n              \"offset\": \"<integer>\"\n            }\n          }\n        },\n        {\n          \"path\": [\n            {\n              \"index\": \"<integer>\",\n              \"key\": \"<string>\",\n              \"substring\": {\n                \"start\": \"<integer>\",\n                \"length\": \"<integer>\"\n              },\n              \"value\": \"<string>\"\n            },\n            {\n              \"index\": \"<integer>\",\n              \"key\": \"<string>\",\n              \"substring\": {\n                \"start\": \"<integer>\",\n                \"length\": \"<integer>\"\n              },\n              \"value\": \"<string>\"\n            }\n          ],\n          \"span\": {\n            \"start\": {\n              \"line\": \"<integer>\",\n              \"column\": \"<integer>\",\n              \"offset\": \"<integer>\"\n            },\n            \"end\": {\n              \"line\": \"<integer>\",\n              \"column\": \"<integer>\",\n              \"offset\": \"<integer>\"\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-1bffd9cc-6c0e-412d-b72a-8f7d9a8dfd75"
+                },
+                {
+                  "id": "a4807357-25eb-4bfb-a4b5-219dcade9af5",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyDocument\": \"<string>\",\n  \"policyType\": \"SERVICE_CONTROL_POLICY\",\n  \"locale\": \"ES\",\n  \"validatePolicyResourceType\": \"AWS::S3::AccessPoint\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/validation?maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "validation"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of results to return in the response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A token used for pagination of results returned.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-a4807357-25eb-4bfb-a4b5-219dcade9af5"
+                },
+                {
+                  "id": "5a343121-426c-45df-aced-50b577fb3b14",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyDocument\": \"<string>\",\n  \"policyType\": \"SERVICE_CONTROL_POLICY\",\n  \"locale\": \"ES\",\n  \"validatePolicyResourceType\": \"AWS::S3::AccessPoint\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/validation?maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "validation"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of results to return in the response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A token used for pagination of results returned.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-5a343121-426c-45df-aced-50b577fb3b14"
+                },
+                {
+                  "id": "314bf93d-84e4-43fb-999b-4434149b178f",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyDocument\": \"<string>\",\n  \"policyType\": \"SERVICE_CONTROL_POLICY\",\n  \"locale\": \"ES\",\n  \"validatePolicyResourceType\": \"AWS::S3::AccessPoint\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/validation?maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "validation"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of results to return in the response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A token used for pagination of results returned.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-314bf93d-84e4-43fb-999b-4434149b178f"
+                },
+                {
+                  "id": "beb47c89-b0ed-42f6-bf94-ad0767864de6",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policyDocument\": \"<string>\",\n  \"policyType\": \"SERVICE_CONTROL_POLICY\",\n  \"locale\": \"ES\",\n  \"validatePolicyResourceType\": \"AWS::S3::AccessPoint\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/policy/validation?maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "policy",
+                        "validation"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of results to return in the response.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A token used for pagination of results returned.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:25:28.000Z",
+                  "updatedAt": "2026-07-28T10:25:28.000Z",
+                  "uid": "35240-beb47c89-b0ed-42f6-bf94-ad0767864de6"
+                }
+              ],
+              "createdAt": "2026-07-28T10:25:28.000Z",
+              "updatedAt": "2026-07-28T10:25:28.000Z",
+              "uid": "35240-a6cec0be-c2eb-42cb-8313-dc5043a5d8df"
+            }
+          ],
+          "id": "5c9fc405-29b6-4839-9f74-b717f8197136",
+          "createdAt": "2026-07-28T10:25:28.000Z",
+          "updatedAt": "2026-07-28T10:25:28.000Z",
+          "uid": "35240-5c9fc405-29b6-4839-9f74-b717f8197136"
+        }
+      ],
+      "id": "2eaf2e03-4617-40ee-bb81-cca5203cd56f",
+      "createdAt": "2026-07-28T10:25:28.000Z",
+      "updatedAt": "2026-07-28T10:25:28.000Z",
+      "uid": "35240-2eaf2e03-4617-40ee-bb81-cca5203cd56f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://access-analyzer.{{region}}.amazonaws.com"
+    }
+  ]
+}

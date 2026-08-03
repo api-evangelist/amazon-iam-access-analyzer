@@ -1,0 +1,32 @@
+{
+  "provider": "amazon-iam-access-analyzer",
+  "sources": [
+    "amazon-iam-access-analyzer-access-preview-analyzerarn-api-openapi.yml",
+    "amazon-iam-access-analyzer-access-preview-api-openapi.yml",
+    "amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api-openapi.yml",
+    "amazon-iam-access-analyzer-analyzed-resource-api-openapi.yml",
+    "amazon-iam-access-analyzer-analyzer-api-openapi.yml",
+    "amazon-iam-access-analyzer-archive-rule-api-openapi.yml",
+    "amazon-iam-access-analyzer-finding-api-openapi.yml",
+    "amazon-iam-access-analyzer-policy-api-openapi.yml",
+    "amazon-iam-access-analyzer-resource-api-openapi.yml",
+    "amazon-iam-access-analyzer-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-iam-access-analyzer-access-preview-analyzerarn-api-openapi.yml",
+    "amazon-iam-access-analyzer-access-preview-api-openapi.yml",
+    "amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api-openapi.yml",
+    "amazon-iam-access-analyzer-analyzed-resource-api-openapi.yml",
+    "amazon-iam-access-analyzer-analyzer-api-openapi.yml",
+    "amazon-iam-access-analyzer-archive-rule-api-openapi.yml",
+    "amazon-iam-access-analyzer-finding-api-openapi.yml",
+    "amazon-iam-access-analyzer-policy-api-openapi.yml",
+    "amazon-iam-access-analyzer-resource-api-openapi.yml",
+    "amazon-iam-access-analyzer-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

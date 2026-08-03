@@ -1,0 +1,613 @@
+{
+  "info": {
+    "_postman_id": "4da6957e-454e-4c3d-9cc1-97de10f7db04",
+    "name": "Access Analyzer Access Preview#analyzerArn Analyzed Resource#analyzerArn&resourceArn API",
+    "description": "<p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview and validate public and cross-account access to your resources before deploying permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html\">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:25:21.000Z",
+    "updatedAt": "2026-07-28T10:25:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4da6957e-454e-4c3d-9cc1-97de10f7db04"
+  },
+  "item": [
+    {
+      "name": "analyzed-resource#analyzerArn&resourceArn",
+      "item": [
+        {
+          "name": "Amazon IAM Access Analyzer Get Analyzed Resource",
+          "id": "b288e7d8-1f85-4c41-b14d-2af714470dd1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/analyzed-resource?analyzerArn=.aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F%26Jsxo]/`7%26T+cEf\"zxS(.{>c<2{&resourceArn=arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$#analyzerArn&resourceArn",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "analyzed-resource"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.",
+                  "key": "analyzerArn",
+                  "value": ".aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F&Jsxo]/`7&T+cEf\"zxS(.{>c<2{"
+                },
+                {
+                  "description": "(Required) The ARN of the resource to retrieve information about.",
+                  "key": "resourceArn",
+                  "value": "arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$"
+                }
+              ],
+              "hash": "analyzerArn&resourceArn"
+            },
+            "description": "Retrieves information about a resource that was analyzed."
+          },
+          "response": [
+            {
+              "id": "3123688b-a7c2-4029-95e6-2078513d8366",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/analyzed-resource?analyzerArn=.aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F%26Jsxo]/`7%26T+cEf\"zxS(.{>c<2{&resourceArn=arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$#analyzerArn&resourceArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "analyzed-resource"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.",
+                      "key": "analyzerArn",
+                      "value": ".aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F&Jsxo]/`7&T+cEf\"zxS(.{>c<2{"
+                    },
+                    {
+                      "description": "(Required) The ARN of the resource to retrieve information about.",
+                      "key": "resourceArn",
+                      "value": "arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$"
+                    }
+                  ],
+                  "hash": "analyzerArn&resourceArn"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"resource\": {\n    \"resourceArn\": \"arn:;\\\\\\\\tv]<:|W_G*:Yh._n^Aa:c`d^SSm:\",\n    \"resourceType\": \"AWS::Lambda::Function\",\n    \"createdAt\": \"<dateTime>\",\n    \"analyzedAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"isPublic\": \"<boolean>\",\n    \"resourceOwnerAccount\": \"<string>\",\n    \"actions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sharedVia\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"status\": \"ACTIVE\",\n    \"error\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T10:25:22.000Z",
+              "updatedAt": "2026-07-28T10:25:22.000Z",
+              "uid": "35240-3123688b-a7c2-4029-95e6-2078513d8366"
+            },
+            {
+              "id": "6924ddcf-70a0-4772-9994-77f5e6ef78dd",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/analyzed-resource?analyzerArn=.aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F%26Jsxo]/`7%26T+cEf\"zxS(.{>c<2{&resourceArn=arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$#analyzerArn&resourceArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "analyzed-resource"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.",
+                      "key": "analyzerArn",
+                      "value": ".aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F&Jsxo]/`7&T+cEf\"zxS(.{>c<2{"
+                    },
+                    {
+                      "description": "(Required) The ARN of the resource to retrieve information about.",
+                      "key": "resourceArn",
+                      "value": "arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$"
+                    }
+                  ],
+                  "hash": "analyzerArn&resourceArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:25:22.000Z",
+              "updatedAt": "2026-07-28T10:25:22.000Z",
+              "uid": "35240-6924ddcf-70a0-4772-9994-77f5e6ef78dd"
+            },
+            {
+              "id": "ead9cb3c-4dc4-4e7e-8986-e5ed0f4fdea2",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/analyzed-resource?analyzerArn=.aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F%26Jsxo]/`7%26T+cEf\"zxS(.{>c<2{&resourceArn=arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$#analyzerArn&resourceArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "analyzed-resource"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.",
+                      "key": "analyzerArn",
+                      "value": ".aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F&Jsxo]/`7&T+cEf\"zxS(.{>c<2{"
+                    },
+                    {
+                      "description": "(Required) The ARN of the resource to retrieve information about.",
+                      "key": "resourceArn",
+                      "value": "arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$"
+                    }
+                  ],
+                  "hash": "analyzerArn&resourceArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:25:22.000Z",
+              "updatedAt": "2026-07-28T10:25:22.000Z",
+              "uid": "35240-ead9cb3c-4dc4-4e7e-8986-e5ed0f4fdea2"
+            },
+            {
+              "id": "e3b9763a-cdcb-4468-b5fb-fe7c52ed2a1e",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/analyzed-resource?analyzerArn=.aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F%26Jsxo]/`7%26T+cEf\"zxS(.{>c<2{&resourceArn=arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$#analyzerArn&resourceArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "analyzed-resource"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.",
+                      "key": "analyzerArn",
+                      "value": ".aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F&Jsxo]/`7&T+cEf\"zxS(.{>c<2{"
+                    },
+                    {
+                      "description": "(Required) The ARN of the resource to retrieve information about.",
+                      "key": "resourceArn",
+                      "value": "arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$"
+                    }
+                  ],
+                  "hash": "analyzerArn&resourceArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:25:22.000Z",
+              "updatedAt": "2026-07-28T10:25:22.000Z",
+              "uid": "35240-e3b9763a-cdcb-4468-b5fb-fe7c52ed2a1e"
+            },
+            {
+              "id": "913b101a-0d34-4135-b8fc-f993bcb9f89a",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/analyzed-resource?analyzerArn=.aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F%26Jsxo]/`7%26T+cEf\"zxS(.{>c<2{&resourceArn=arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$#analyzerArn&resourceArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "analyzed-resource"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.",
+                      "key": "analyzerArn",
+                      "value": ".aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F&Jsxo]/`7&T+cEf\"zxS(.{>c<2{"
+                    },
+                    {
+                      "description": "(Required) The ARN of the resource to retrieve information about.",
+                      "key": "resourceArn",
+                      "value": "arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$"
+                    }
+                  ],
+                  "hash": "analyzerArn&resourceArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:25:22.000Z",
+              "updatedAt": "2026-07-28T10:25:22.000Z",
+              "uid": "35240-913b101a-0d34-4135-b8fc-f993bcb9f89a"
+            },
+            {
+              "id": "03dd1f8f-b7c3-43bb-aff6-e394cbc1c8d7",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/analyzed-resource?analyzerArn=.aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F%26Jsxo]/`7%26T+cEf\"zxS(.{>c<2{&resourceArn=arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$#analyzerArn&resourceArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "analyzed-resource"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.",
+                      "key": "analyzerArn",
+                      "value": ".aq*:7-:k;IF;[\"WE:\"\\GP):b0v)1+Qibx:analyzer/q}>uh_F&Jsxo]/`7&T+cEf\"zxS(.{>c<2{"
+                    },
+                    {
+                      "description": "(Required) The ARN of the resource to retrieve information about.",
+                      "key": "resourceArn",
+                      "value": "arn:U:jZh`B:yMfjXS:/sO<fVRPxB:ZQR?-Orb{$"
+                    }
+                  ],
+                  "hash": "analyzerArn&resourceArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:25:22.000Z",
+              "updatedAt": "2026-07-28T10:25:22.000Z",
+              "uid": "35240-03dd1f8f-b7c3-43bb-aff6-e394cbc1c8d7"
+            }
+          ],
+          "createdAt": "2026-07-28T10:25:22.000Z",
+          "updatedAt": "2026-07-28T10:25:22.000Z",
+          "uid": "35240-b288e7d8-1f85-4c41-b14d-2af714470dd1"
+        }
+      ],
+      "id": "610ea731-5ef0-4b4c-a1f8-04def3549248",
+      "createdAt": "2026-07-28T10:25:22.000Z",
+      "updatedAt": "2026-07-28T10:25:22.000Z",
+      "uid": "35240-610ea731-5ef0-4b4c-a1f8-04def3549248"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://access-analyzer.{{region}}.amazonaws.com"
+    }
+  ]
+}
