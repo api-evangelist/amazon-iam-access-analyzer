@@ -50,14 +50,6 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-  - type: JSONSchema
-    url: json-schema/iam-access-analyzer-analyzer-schema.json
-  - type: JSONStructure
-    url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Examples
-    url: examples/iam-access-analyzer-analyzer-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iam-access-analyzer.yaml
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-access-preview-api
   name: Amazon IAM Access Analyzer Access Preview API
   description: >-
@@ -77,14 +69,6 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-  - type: JSONSchema
-    url: json-schema/iam-access-analyzer-analyzer-schema.json
-  - type: JSONStructure
-    url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Examples
-    url: examples/iam-access-analyzer-analyzer-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iam-access-analyzer.yaml
 - aid: >-
     amazon-iam-access-analyzer:amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api
   name: Amazon IAM Access Analyzer Analyzed Resource#analyzerArn&resourceArn API
@@ -107,14 +91,6 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-  - type: JSONSchema
-    url: json-schema/iam-access-analyzer-analyzer-schema.json
-  - type: JSONStructure
-    url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Examples
-    url: examples/iam-access-analyzer-analyzer-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iam-access-analyzer.yaml
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-analyzed-resource-api
   name: Amazon IAM Access Analyzer Analyzed Resource API
   description: >-
@@ -134,14 +110,6 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-  - type: JSONSchema
-    url: json-schema/iam-access-analyzer-analyzer-schema.json
-  - type: JSONStructure
-    url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Examples
-    url: examples/iam-access-analyzer-analyzer-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iam-access-analyzer.yaml
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-analyzer-api
   name: Amazon IAM Access Analyzer Analyzer API
   description: The Analyzer API from Amazon IAM Access Analyzer — 4 operation(s) for analyzer.
@@ -160,14 +128,6 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-  - type: JSONSchema
-    url: json-schema/iam-access-analyzer-analyzer-schema.json
-  - type: JSONStructure
-    url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Examples
-    url: examples/iam-access-analyzer-analyzer-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iam-access-analyzer.yaml
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-archive-rule-api
   name: Amazon IAM Access Analyzer Archive Rule API
   description: The Archive Rule API from Amazon IAM Access Analyzer — 1 operation(s) for archive rule.
@@ -186,14 +146,6 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-  - type: JSONSchema
-    url: json-schema/iam-access-analyzer-analyzer-schema.json
-  - type: JSONStructure
-    url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Examples
-    url: examples/iam-access-analyzer-analyzer-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iam-access-analyzer.yaml
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-finding-api
   name: Amazon IAM Access Analyzer Finding API
   description: The Finding API from Amazon IAM Access Analyzer — 2 operation(s) for finding.
@@ -212,14 +164,6 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-  - type: JSONSchema
-    url: json-schema/iam-access-analyzer-analyzer-schema.json
-  - type: JSONStructure
-    url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Examples
-    url: examples/iam-access-analyzer-analyzer-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iam-access-analyzer.yaml
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-policy-api
   name: Amazon IAM Access Analyzer Policy API
   description: The Policy API from Amazon IAM Access Analyzer — 3 operation(s) for policy.
@@ -238,14 +182,6 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-  - type: JSONSchema
-    url: json-schema/iam-access-analyzer-analyzer-schema.json
-  - type: JSONStructure
-    url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Examples
-    url: examples/iam-access-analyzer-analyzer-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iam-access-analyzer.yaml
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-resource-api
   name: Amazon IAM Access Analyzer Resource API
   description: The Resource API from Amazon IAM Access Analyzer — 1 operation(s) for resource.
@@ -264,14 +200,6 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-  - type: JSONSchema
-    url: json-schema/iam-access-analyzer-analyzer-schema.json
-  - type: JSONStructure
-    url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Examples
-    url: examples/iam-access-analyzer-analyzer-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iam-access-analyzer.yaml
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-tags-api
   name: Amazon IAM Access Analyzer Tags API
   description: The Tags API from Amazon IAM Access Analyzer — 2 operation(s) for tags.
@@ -290,14 +218,6 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-  - type: JSONSchema
-    url: json-schema/iam-access-analyzer-analyzer-schema.json
-  - type: JSONStructure
-    url: json-structure/iam-access-analyzer-analyzer-structure.json
-  - type: Examples
-    url: examples/iam-access-analyzer-analyzer-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iam-access-analyzer.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-iam-access-analyzer/overview
