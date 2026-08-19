@@ -1,0 +1,525 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Access Access Preview#analyzerArn Analyzer API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Analyzer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IAM Access Analyzer List Analyzers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://access-analyzer.{region}.amazonaws.com/analyzer",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A token used for pagination of results returned."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return in the response."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of analyzer."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of analyzers."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Access Analyzer Create Analyzer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://access-analyzer.{region}.amazonaws.com/analyzer",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an analyzer for your account."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Access Analyzer List Archive Rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://access-analyzer.{region}.amazonaws.com/analyzer/:analyzerName/archive-rule",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "analyzerName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the analyzer to retrieve rules from."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A token used for pagination of results returned."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return in the request."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of archive rules created for the specified analyzer."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Access Analyzer Create Archive Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://access-analyzer.{region}.amazonaws.com/analyzer/:analyzerName/archive-rule",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "analyzerName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the created analyzer."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Creates an archive rule for the specified analyzer. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.</p> <p>To learn about filter keys that you can use to create an archive rule, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html\">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Access Analyzer Get Analyzer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://access-analyzer.{region}.amazonaws.com/analyzer/:analyzerName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "analyzerName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the analyzer retrieved."
+              }
+            ]
+          },
+          "docs": "Retrieves information about the specified analyzer."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Access Analyzer Delete Analyzer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://access-analyzer.{region}.amazonaws.com/analyzer/:analyzerName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "analyzerName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the analyzer to delete."
+              },
+              {
+                "name": "clientToken",
+                "value": "",
+                "type": "query",
+                "description": "A client token."
+              }
+            ]
+          },
+          "docs": "Deletes the specified analyzer. When you delete an analyzer, IAM Access Analyzer is disabled for the account or organization in the current or specific Region. All findings that were generated by the analyzer are deleted. You cannot undo this action."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Access Analyzer Get Archive Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://access-analyzer.{region}.amazonaws.com/analyzer/:analyzerName/archive-rule/:ruleName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "analyzerName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the analyzer to retrieve rules from."
+              },
+              {
+                "name": "ruleName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the rule to retrieve."
+              }
+            ]
+          },
+          "docs": "<p>Retrieves information about an archive rule.</p> <p>To learn about filter keys that you can use to create an archive rule, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html\">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Access Analyzer Update Archive Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://access-analyzer.{region}.amazonaws.com/analyzer/:analyzerName/archive-rule/:ruleName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "analyzerName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the analyzer to update the archive rules for."
+              },
+              {
+                "name": "ruleName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the rule to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the criteria and values for the specified archive rule."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Access Analyzer Delete Archive Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://access-analyzer.{region}.amazonaws.com/analyzer/:analyzerName/archive-rule/:ruleName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "analyzerName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the analyzer that associated with the archive rule to delete."
+              },
+              {
+                "name": "ruleName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the rule to delete."
+              },
+              {
+                "name": "clientToken",
+                "value": "",
+                "type": "query",
+                "description": "A client token."
+              }
+            ]
+          },
+          "docs": "Deletes the specified archive rule."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Access Analyzer Access Preview#analyzerArn Analyzed Resource#analyzerArn&resourceArn API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Analyzed Resource#analyzerArn&resourceArn",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IAM Access Analyzer Get Analyzed Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://access-analyzer.{region}.amazonaws.com/analyzed-resource#analyzerArn&resourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "analyzerArn",
+                "value": "",
+                "type": "query",
+                "description": "The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from."
+              },
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "query",
+                "description": "The ARN of the resource to retrieve information about."
+              }
+            ]
+          },
+          "docs": "Retrieves information about a resource that was analyzed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
