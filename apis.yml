@@ -29,7 +29,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/apis.yml
 created: '2026-03-16'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-access-preview-analyzerarn-api
   name: Amazon IAM Access Analyzer Access Preview#analyzerArn API
