@@ -5,6 +5,18 @@ description: AWS IAM Access Analyzer helps you set, verify, and refine your IAM 
   policy generation to generate fine-grained policies. It uses automated reasoning to identify resources shared with external
   entities and helps implement least privilege access across your AWS environment.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
