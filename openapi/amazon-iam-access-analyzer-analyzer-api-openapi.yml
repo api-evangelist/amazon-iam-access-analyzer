@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: Access Access Preview#analyzerArn Analyzer API
   description: <p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview and validate public and cross-account access to your resources before deploying permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>
@@ -776,20 +776,14 @@ paths:
       - Analyzer
 components:
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -806,21 +800,92 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
   schemas:
-    String:
+    ValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+      minItems: 1
+      maxItems: 20
+    ConflictException: {}
+    AnalyzerArn:
       type: string
+      pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
+    ThrottlingException: {}
+    TagsMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
+    AnalyzerStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - CREATING
+      - DISABLED
+      - FAILED
+    AnalyzersList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AnalyzerSummary'
+    ServiceQuotaExceededException: {}
+    GetAnalyzerResponse:
+      type: object
+      required:
+      - analyzer
+      properties:
+        analyzer:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzerSummary'
+          - description: An <code>AnalyzerSummary</code> object that contains information about the analyzer.
+      description: The response to the request.
+    ArchiveRuleSummary:
+      type: object
+      required:
+      - ruleName
+      - filter
+      - createdAt
+      - updatedAt
+      properties:
+        ruleName:
+          allOf:
+          - $ref: '#/components/schemas/Name'
+          - description: The name of the archive rule.
+        filter:
+          allOf:
+          - $ref: '#/components/schemas/FilterCriteriaMap'
+          - description: A filter used to define the archive rule.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the archive rule was created.
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the archive rule was last updated.
+      description: Contains information about an archive rule.
+    Type:
+      type: string
+      enum:
+      - ACCOUNT
+      - ORGANIZATION
     InlineArchiveRule:
       type: object
       required:
@@ -836,13 +901,6 @@ components:
           - $ref: '#/components/schemas/FilterCriteriaMap'
           - description: The condition and values for a criterion.
       description: An criterion statement in an archive rule. Each archive rule may have multiple criteria.
-    InternalServerException: {}
-    AnalyzersList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AnalyzerSummary'
-    Token:
-      type: string
     Criterion:
       type: object
       properties:
@@ -863,7 +921,70 @@ components:
           - $ref: '#/components/schemas/Boolean'
           - description: 'An "exists" operator to match for the filter used to create the rule. '
       description: The criteria to use in the filter that defines the archive rule. For more information on available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a>.
-    ThrottlingException: {}
+    ResourceNotFoundException: {}
+    ReasonCode:
+      type: string
+      enum:
+      - AWS_SERVICE_ACCESS_DISABLED
+      - DELEGATED_ADMINISTRATOR_DEREGISTERED
+      - ORGANIZATION_DELETED
+      - SERVICE_LINKED_ROLE_CREATION_FAILED
+    Token:
+      type: string
+    String:
+      type: string
+    Name:
+      type: string
+      pattern: '[A-Za-z][A-Za-z0-9_.-]*'
+      minLength: 1
+      maxLength: 255
+    CreateAnalyzerResponse:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzerArn'
+          - description: The ARN of the analyzer that was created by the request.
+      description: The response to the request to create an analyzer.
+    Boolean:
+      type: boolean
+    InternalServerException: {}
+    ListAnalyzersResponse:
+      type: object
+      required:
+      - analyzers
+      properties:
+        analyzers:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzersList'
+          - description: The analyzers retrieved.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+      description: The response to the request.
+    ListArchiveRulesResponse:
+      type: object
+      required:
+      - archiveRules
+      properties:
+        archiveRules:
+          allOf:
+          - $ref: '#/components/schemas/ArchiveRulesList'
+          - description: A list of archive rules created for the specified analyzer.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+      description: The response to the request.
+    ArchiveRulesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ArchiveRuleSummary'
+    Timestamp:
+      type: string
+      format: date-time
+    AccessDeniedException: {}
     AnalyzerSummary:
       type: object
       required:
@@ -910,140 +1031,6 @@ components:
           - $ref: '#/components/schemas/StatusReason'
           - description: The <code>statusReason</code> provides more details about the current status of the analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status is returned. For an analyzer with organization as the type, this failure can be due to an issue with creating the service-linked roles required in the member accounts of the Amazon Web Services organization.
       description: Contains information about the analyzer.
-    CreateAnalyzerResponse:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/AnalyzerArn'
-          - description: The ARN of the analyzer that was created by the request.
-      description: The response to the request to create an analyzer.
-    Boolean:
-      type: boolean
-    ReasonCode:
-      type: string
-      enum:
-      - AWS_SERVICE_ACCESS_DISABLED
-      - DELEGATED_ADMINISTRATOR_DEREGISTERED
-      - ORGANIZATION_DELETED
-      - SERVICE_LINKED_ROLE_CREATION_FAILED
-    ConflictException: {}
-    AnalyzerStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - CREATING
-      - DISABLED
-      - FAILED
-    ServiceQuotaExceededException: {}
-    FilterCriteriaMap:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/Criterion'
-    GetAnalyzerResponse:
-      type: object
-      required:
-      - analyzer
-      properties:
-        analyzer:
-          allOf:
-          - $ref: '#/components/schemas/AnalyzerSummary'
-          - description: An <code>AnalyzerSummary</code> object that contains information about the analyzer.
-      description: The response to the request.
-    AnalyzerArn:
-      type: string
-      pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
-    GetArchiveRuleResponse:
-      type: object
-      required:
-      - archiveRule
-      properties:
-        archiveRule:
-          $ref: '#/components/schemas/ArchiveRuleSummary'
-      description: The response to the request.
-    ListArchiveRulesResponse:
-      type: object
-      required:
-      - archiveRules
-      properties:
-        archiveRules:
-          allOf:
-          - $ref: '#/components/schemas/ArchiveRulesList'
-          - description: A list of archive rules created for the specified analyzer.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/Token'
-          - description: A token used for pagination of results returned.
-      description: The response to the request.
-    ResourceNotFoundException: {}
-    AccessDeniedException: {}
-    ListAnalyzersResponse:
-      type: object
-      required:
-      - analyzers
-      properties:
-        analyzers:
-          allOf:
-          - $ref: '#/components/schemas/AnalyzersList'
-          - description: The analyzers retrieved.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/Token'
-          - description: A token used for pagination of results returned.
-      description: The response to the request.
-    ArchiveRulesList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ArchiveRuleSummary'
-    ArchiveRuleSummary:
-      type: object
-      required:
-      - ruleName
-      - filter
-      - createdAt
-      - updatedAt
-      properties:
-        ruleName:
-          allOf:
-          - $ref: '#/components/schemas/Name'
-          - description: The name of the archive rule.
-        filter:
-          allOf:
-          - $ref: '#/components/schemas/FilterCriteriaMap'
-          - description: A filter used to define the archive rule.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time at which the archive rule was created.
-        updatedAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time at which the archive rule was last updated.
-      description: Contains information about an archive rule.
-    Type:
-      type: string
-      enum:
-      - ACCOUNT
-      - ORGANIZATION
-    Timestamp:
-      type: string
-      format: date-time
-    Name:
-      type: string
-      pattern: '[A-Za-z][A-Za-z0-9_.-]*'
-      minLength: 1
-      maxLength: 255
-    ValidationException: {}
-    TagsMap:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/String'
-    ValueList:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-      minItems: 1
-      maxItems: 20
     StatusReason:
       type: object
       required:
@@ -1054,6 +1041,19 @@ components:
           - $ref: '#/components/schemas/ReasonCode'
           - description: The reason code for the current status of the analyzer.
       description: Provides more details about the current status of the analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status is returned. For an analyzer with organization as the type, this failure can be due to an issue with creating the service-linked roles required in the member accounts of the Amazon Web Services organization.
+    ValidationException: {}
+    GetArchiveRuleResponse:
+      type: object
+      required:
+      - archiveRule
+      properties:
+        archiveRule:
+          $ref: '#/components/schemas/ArchiveRuleSummary'
+      description: The response to the request.
+    FilterCriteriaMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Criterion'
   securitySchemes:
     hmac:
       type: apiKey
