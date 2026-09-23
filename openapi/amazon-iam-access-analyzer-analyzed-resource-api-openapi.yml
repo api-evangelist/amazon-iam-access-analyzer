@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2019-11-01
   x-release: v4
-  title: Access Analyzer Access Preview#analyzerArn Analyzed Resource API
-  description: <p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview and validate public and cross-account access to your resources before deploying permissions changes. This guide describes the Identity and Access Management Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using IAM Access Analyzer, you first need to create an analyzer.</p>
+  title: Access Analyzer Analyzed Resource API
+  description: Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/accessanalyzer-2019-11-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -226,6 +227,12 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -238,14 +245,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -256,16 +257,41 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
   schemas:
+    ThrottlingException: {}
+    AnalyzedResourcesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AnalyzedResourceSummary'
     ResourceArn:
       type: string
       pattern: arn:[^:]*:[^:]*:[^:]*:[^:]*:.*
+    ValidationException: {}
+    String:
+      type: string
+    ResourceNotFoundException: {}
+    InternalServerException: {}
+    ListAnalyzedResourcesResponse:
+      type: object
+      required:
+      - analyzedResources
+      properties:
+        analyzedResources:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzedResourcesList'
+          - description: A list of resources that were analyzed.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+      description: The response to the request.
+    AccessDeniedException: {}
     ResourceType:
       type: string
       enum:
@@ -282,16 +308,6 @@ components:
       - AWS::RDS::DBSnapshot
       - AWS::RDS::DBClusterSnapshot
       - AWS::SNS::Topic
-    ThrottlingException: {}
-    ResourceNotFoundException: {}
-    Token:
-      type: string
-    String:
-      type: string
-    AnalyzedResourcesList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AnalyzedResourceSummary'
     AnalyzedResourceSummary:
       type: object
       required:
@@ -312,23 +328,8 @@ components:
           - $ref: '#/components/schemas/ResourceType'
           - description: The type of resource that was analyzed.
       description: Contains the ARN of the analyzed resource.
-    AccessDeniedException: {}
-    ValidationException: {}
-    ListAnalyzedResourcesResponse:
-      type: object
-      required:
-      - analyzedResources
-      properties:
-        analyzedResources:
-          allOf:
-          - $ref: '#/components/schemas/AnalyzedResourcesList'
-          - description: A list of resources that were analyzed.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/Token'
-          - description: A token used for pagination of results returned.
-      description: The response to the request.
-    InternalServerException: {}
+    Token:
+      type: string
   securitySchemes:
     hmac:
       type: apiKey
