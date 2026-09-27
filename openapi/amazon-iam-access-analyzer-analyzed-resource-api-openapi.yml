@@ -115,6 +115,76 @@ security:
 tags:
 - name: Analyzed Resource
 paths:
+  /analyzed-resource#analyzerArn&resourceArn:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetAnalyzedResource
+      description: Retrieves information about a resource that was analyzed.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAnalyzedResourceResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters:
+      - name: analyzerArn
+        in: query
+        required: true
+        description: The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of the analyzer</a> to retrieve information from.
+        schema:
+          type: string
+          pattern: '[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:analyzer/.{1,255}'
+      - name: resourceArn
+        in: query
+        required: true
+        description: The ARN of the resource to retrieve information about.
+        schema:
+          type: string
+          pattern: arn:[^:]*:[^:]*:[^:]*:[^:]*:.*
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon IAM Access Analyzer Get Analyzed Resource
+      tags:
+      - Analyzed Resource
   /analyzed-resource:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
@@ -220,78 +290,13 @@ paths:
       tags:
       - Analyzed Resource
 components:
-  parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ThrottlingException: {}
     AnalyzedResourcesList:
       type: array
       items:
         $ref: '#/components/schemas/AnalyzedResourceSummary'
-    ResourceArn:
-      type: string
-      pattern: arn:[^:]*:[^:]*:[^:]*:[^:]*:.*
-    ValidationException: {}
-    String:
-      type: string
-    ResourceNotFoundException: {}
-    InternalServerException: {}
-    ListAnalyzedResourcesResponse:
-      type: object
-      required:
-      - analyzedResources
-      properties:
-        analyzedResources:
-          allOf:
-          - $ref: '#/components/schemas/AnalyzedResourcesList'
-          - description: A list of resources that were analyzed.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/Token'
-          - description: A token used for pagination of results returned.
-      description: The response to the request.
-    AccessDeniedException: {}
+    Boolean:
+      type: boolean
     ResourceType:
       type: string
       enum:
@@ -308,6 +313,113 @@ components:
       - AWS::RDS::DBSnapshot
       - AWS::RDS::DBClusterSnapshot
       - AWS::SNS::Topic
+    ResourceArn:
+      type: string
+      pattern: arn:[^:]*:[^:]*:[^:]*:[^:]*:.*
+    SharedViaList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    ThrottlingException: {}
+    GetAnalyzedResourceResponse:
+      type: object
+      properties:
+        resource:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzedResource'
+          - description: An <code>AnalyzedResource</code> object that contains information that IAM Access Analyzer found when it analyzed the resource.
+      description: The response to the request.
+    ResourceNotFoundException: {}
+    FindingStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - ARCHIVED
+      - RESOLVED
+    ListAnalyzedResourcesResponse:
+      type: object
+      required:
+      - analyzedResources
+      properties:
+        analyzedResources:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzedResourcesList'
+          - description: A list of resources that were analyzed.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+      description: The response to the request.
+    AnalyzedResource:
+      type: object
+      required:
+      - resourceArn
+      - resourceType
+      - createdAt
+      - analyzedAt
+      - updatedAt
+      - isPublic
+      - resourceOwnerAccount
+      properties:
+        resourceArn:
+          allOf:
+          - $ref: '#/components/schemas/ResourceArn'
+          - description: The ARN of the resource that was analyzed.
+        resourceType:
+          allOf:
+          - $ref: '#/components/schemas/ResourceType'
+          - description: The type of the resource that was analyzed.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the finding was created.
+        analyzedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the resource was analyzed.
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the finding was updated.
+        isPublic:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Indicates whether the policy that generated the finding grants public access to the resource.
+        actions:
+          allOf:
+          - $ref: '#/components/schemas/ActionList'
+          - description: The actions that an external principal is granted permission to use by the policy that generated the finding.
+        sharedVia:
+          allOf:
+          - $ref: '#/components/schemas/SharedViaList'
+          - description: Indicates how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/FindingStatus'
+          - description: The current status of the finding generated from the analyzed resource.
+        resourceOwnerAccount:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The Amazon Web Services account ID that owns the resource.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: An error message.
+      description: Contains details about the analyzed resource.
+    Timestamp:
+      type: string
+      format: date-time
+    Token:
+      type: string
+    ValidationException: {}
+    AccessDeniedException: {}
+    String:
+      type: string
+    InternalServerException: {}
+    ActionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
     AnalyzedResourceSummary:
       type: object
       required:
@@ -328,8 +440,49 @@ components:
           - $ref: '#/components/schemas/ResourceType'
           - description: The type of resource that was analyzed.
       description: Contains the ARN of the analyzed resource.
-    Token:
-      type: string
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

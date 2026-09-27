@@ -367,234 +367,17 @@ paths:
       tags:
       - Finding
 components:
-  parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ThrottlingException: {}
-    FindingId:
-      type: string
-    OrderBy:
-      type: string
-      enum:
-      - ASC
-      - DESC
-    FindingSource:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          allOf:
-          - $ref: '#/components/schemas/FindingSourceType'
-          - description: Indicates the type of access that generated the finding.
-        detail:
-          allOf:
-          - $ref: '#/components/schemas/FindingSourceDetail'
-          - description: Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.
-      description: The source of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.
-    GetFindingResponse:
-      type: object
-      properties:
-        finding:
-          allOf:
-          - $ref: '#/components/schemas/Finding'
-          - description: A <code>finding</code> object that contains finding details.
-      description: The response to the request.
-    ValueList:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-      minItems: 1
-      maxItems: 20
-    FindingSummary:
-      type: object
-      required:
-      - id
-      - resourceType
-      - condition
-      - createdAt
-      - analyzedAt
-      - updatedAt
-      - status
-      - resourceOwnerAccount
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/FindingId'
-          - description: The ID of the finding.
-        principal:
-          allOf:
-          - $ref: '#/components/schemas/PrincipalMap'
-          - description: The external principal that has access to a resource within the zone of trust.
-        action:
-          allOf:
-          - $ref: '#/components/schemas/ActionList'
-          - description: The action in the analyzed policy statement that an external principal has permission to use.
-        resource:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The resource that the external principal has access to.
-        isPublic:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: Indicates whether the finding reports a resource that has a policy that allows public access.
-        resourceType:
-          allOf:
-          - $ref: '#/components/schemas/ResourceType'
-          - description: The type of the resource that the external principal has access to.
-        condition:
-          allOf:
-          - $ref: '#/components/schemas/ConditionKeyMap'
-          - description: The condition in the analyzed policy statement that resulted in a finding.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time at which the finding was created.
-        analyzedAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time at which the resource-based policy that generated the finding was analyzed.
-        updatedAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time at which the finding was most recently updated.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/FindingStatus'
-          - description: The status of the finding.
-        resourceOwnerAccount:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The Amazon Web Services account ID that owns the resource.
-        error:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The error that resulted in an Error finding.
-        sources:
-          allOf:
-          - $ref: '#/components/schemas/FindingSourceList'
-          - description: The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.
-      description: Contains information about a finding.
-    ValidationException: {}
-    Boolean:
-      type: boolean
-    PrincipalMap:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/String'
-    ListFindingsResponse:
-      type: object
-      required:
-      - findings
-      properties:
-        findings:
-          allOf:
-          - $ref: '#/components/schemas/FindingsList'
-          - description: A list of findings retrieved from the analyzer that match the filter criteria specified, if any.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/Token'
-          - description: A token used for pagination of results returned.
-      description: The response to the request.
-    FindingSourceDetail:
-      type: object
-      properties:
-        accessPointArn:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The ARN of the access point that generated the finding. The ARN format depends on whether the ARN represents an access point or a multi-region access point.
-        accessPointAccount:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The account of the cross-account access point that generated the finding.
-      description: Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.
-    ActionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-    String:
-      type: string
-    ResourceNotFoundException: {}
-    FindingsList:
-      type: array
-      items:
-        $ref: '#/components/schemas/FindingSummary'
     FindingSourceList:
       type: array
       items:
         $ref: '#/components/schemas/FindingSource'
-    FindingStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - ARCHIVED
-      - RESOLVED
     ConditionKeyMap:
       type: object
       additionalProperties:
         $ref: '#/components/schemas/String'
-    InternalServerException: {}
-    Criterion:
-      type: object
-      properties:
-        eq:
-          allOf:
-          - $ref: '#/components/schemas/ValueList'
-          - description: An "equals" operator to match for the filter used to create the rule.
-        neq:
-          allOf:
-          - $ref: '#/components/schemas/ValueList'
-          - description: A "not equals" operator to match for the filter used to create the rule.
-        contains:
-          allOf:
-          - $ref: '#/components/schemas/ValueList'
-          - description: A "contains" operator to match for the filter used to create the rule.
-        exists:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: 'An "exists" operator to match for the filter used to create the rule. '
-      description: The criteria to use in the filter that defines the archive rule. For more information on available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a>.
+    Boolean:
+      type: boolean
     Finding:
       type: object
       required:
@@ -664,7 +447,18 @@ components:
           - $ref: '#/components/schemas/FindingSourceList'
           - description: The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.
       description: Contains information about a finding.
-    AccessDeniedException: {}
+    FindingSourceDetail:
+      type: object
+      properties:
+        accessPointArn:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The ARN of the access point that generated the finding. The ARN format depends on whether the ARN represents an access point or a multi-region access point.
+        accessPointAccount:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The account of the cross-account access point that generated the finding.
+      description: Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.
     ResourceType:
       type: string
       enum:
@@ -681,9 +475,75 @@ components:
       - AWS::RDS::DBSnapshot
       - AWS::RDS::DBClusterSnapshot
       - AWS::SNS::Topic
-    Timestamp:
-      type: string
-      format: date-time
+    FindingSummary:
+      type: object
+      required:
+      - id
+      - resourceType
+      - condition
+      - createdAt
+      - analyzedAt
+      - updatedAt
+      - status
+      - resourceOwnerAccount
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/FindingId'
+          - description: The ID of the finding.
+        principal:
+          allOf:
+          - $ref: '#/components/schemas/PrincipalMap'
+          - description: The external principal that has access to a resource within the zone of trust.
+        action:
+          allOf:
+          - $ref: '#/components/schemas/ActionList'
+          - description: The action in the analyzed policy statement that an external principal has permission to use.
+        resource:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The resource that the external principal has access to.
+        isPublic:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Indicates whether the finding reports a resource that has a policy that allows public access.
+        resourceType:
+          allOf:
+          - $ref: '#/components/schemas/ResourceType'
+          - description: The type of the resource that the external principal has access to.
+        condition:
+          allOf:
+          - $ref: '#/components/schemas/ConditionKeyMap'
+          - description: The condition in the analyzed policy statement that resulted in a finding.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the finding was created.
+        analyzedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the resource-based policy that generated the finding was analyzed.
+        updatedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the finding was most recently updated.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/FindingStatus'
+          - description: The status of the finding.
+        resourceOwnerAccount:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The Amazon Web Services account ID that owns the resource.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The error that resulted in an Error finding.
+        sources:
+          allOf:
+          - $ref: '#/components/schemas/FindingSourceList'
+          - description: The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.
+      description: Contains information about a finding.
     FindingSourceType:
       type: string
       enum:
@@ -691,8 +551,148 @@ components:
       - BUCKET_ACL
       - S3_ACCESS_POINT
       - S3_ACCESS_POINT_ACCOUNT
+    ThrottlingException: {}
+    FindingId:
+      type: string
+    ResourceNotFoundException: {}
+    GetFindingResponse:
+      type: object
+      properties:
+        finding:
+          allOf:
+          - $ref: '#/components/schemas/Finding'
+          - description: A <code>finding</code> object that contains finding details.
+      description: The response to the request.
+    ListFindingsResponse:
+      type: object
+      required:
+      - findings
+      properties:
+        findings:
+          allOf:
+          - $ref: '#/components/schemas/FindingsList'
+          - description: A list of findings retrieved from the analyzer that match the filter criteria specified, if any.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+      description: The response to the request.
+    FindingStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - ARCHIVED
+      - RESOLVED
+    ValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+      minItems: 1
+      maxItems: 20
+    Timestamp:
+      type: string
+      format: date-time
+    PrincipalMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
     Token:
       type: string
+    OrderBy:
+      type: string
+      enum:
+      - ASC
+      - DESC
+    FindingSource:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          allOf:
+          - $ref: '#/components/schemas/FindingSourceType'
+          - description: Indicates the type of access that generated the finding.
+        detail:
+          allOf:
+          - $ref: '#/components/schemas/FindingSourceDetail'
+          - description: Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.
+      description: The source of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.
+    ValidationException: {}
+    Criterion:
+      type: object
+      properties:
+        eq:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: An "equals" operator to match for the filter used to create the rule.
+        neq:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: A "not equals" operator to match for the filter used to create the rule.
+        contains:
+          allOf:
+          - $ref: '#/components/schemas/ValueList'
+          - description: A "contains" operator to match for the filter used to create the rule.
+        exists:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: 'An "exists" operator to match for the filter used to create the rule. '
+      description: The criteria to use in the filter that defines the archive rule. For more information on available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a>.
+    AccessDeniedException: {}
+    FindingsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/FindingSummary'
+    String:
+      type: string
+    InternalServerException: {}
+    ActionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

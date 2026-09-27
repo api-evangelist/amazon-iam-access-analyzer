@@ -52,28 +52,10 @@ created: '2026-03-16'
 modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
-- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-access-preview-analyzerarn-api
-  name: Amazon IAM Access Analyzer Access Preview#analyzerArn API
-  description: The Access Preview#analyzerArn API from Amazon IAM Access Analyzer — 1 operation(s) for
-    access preview#analyzerarn.
-  humanURL: https://aws.amazon.com/iam/features/analyze-access/
-  baseURL: https://access-analyzer.amazonaws.com
-  tags:
-  - Access Preview#analyzerArn
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-iam-access-analyzer-access-preview-analyzerarn-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
-  - type: GettingStarted
-    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
-  - type: Pricing
-    url: https://aws.amazon.com/iam/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/iam/faqs/
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-access-preview-api
   name: Amazon IAM Access Analyzer Access Preview API
-  description: The Access Preview API from Amazon IAM Access Analyzer — 3 operation(s) for access preview.
+  description: >-
+    The Access Preview API from Amazon IAM Access Analyzer — 3 operation(s) for access preview.
   humanURL: https://aws.amazon.com/iam/features/analyze-access/
   baseURL: https://access-analyzer.amazonaws.com
   tags:
@@ -89,29 +71,10 @@ apis:
     url: https://aws.amazon.com/iam/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
-- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api
-  name: Amazon IAM Access Analyzer Analyzed Resource#analyzerArn&resourceArn API
-  description: The Analyzed Resource#analyzerArn&resourceArn API from Amazon IAM Access Analyzer — 1 operation(s)
-    for analyzed resource#analyzerarn&resourcearn.
-  humanURL: https://aws.amazon.com/iam/features/analyze-access/
-  baseURL: https://access-analyzer.amazonaws.com
-  tags:
-  - Analyzed Resource#analyzerArn&resourceArn
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
-  - type: GettingStarted
-    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
-  - type: Pricing
-    url: https://aws.amazon.com/iam/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/iam/faqs/
 - aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-analyzed-resource-api
   name: Amazon IAM Access Analyzer Analyzed Resource API
-  description: The Analyzed Resource API from Amazon IAM Access Analyzer — 1 operation(s) for analyzed
-    resource.
+  description: >-
+    The Analyzed Resource API from Amazon IAM Access Analyzer — 1 operation(s) for analyzed resource.
   humanURL: https://aws.amazon.com/iam/features/analyze-access/
   baseURL: https://access-analyzer.amazonaws.com
   tags:
@@ -341,5 +304,5 @@ integrations:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product

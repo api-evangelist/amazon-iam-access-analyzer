@@ -5,9 +5,7 @@
   ],
   "outputs": [
     "amazon-iam-access-analyzer-access-preview-api-openapi.yml",
-    "amazon-iam-access-analyzer-access-preview-analyzerarn-api-openapi.yml",
     "amazon-iam-access-analyzer-analyzed-resource-api-openapi.yml",
-    "amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api-openapi.yml",
     "amazon-iam-access-analyzer-analyzer-api-openapi.yml",
     "amazon-iam-access-analyzer-archive-rule-api-openapi.yml",
     "amazon-iam-access-analyzer-finding-api-openapi.yml",
@@ -15,7 +13,9 @@
     "amazon-iam-access-analyzer-resource-api-openapi.yml",
     "amazon-iam-access-analyzer-tags-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 2 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -35,10 +35,10 @@
     "amazon-iam-access-analyzer-openapi-original.yml: tagged paths GET /analyzer/{analyzerName}/archive-rule/{ruleName} -> Analyzer",
     "amazon-iam-access-analyzer-openapi-original.yml: tagged paths PUT /analyzer/{analyzerName}/archive-rule/{ruleName} -> Analyzer",
     "amazon-iam-access-analyzer-openapi-original.yml: tagged paths GET /access-preview/{accessPreviewId}#analyzerArn -> Access Preview",
-    "amazon-iam-access-analyzer-openapi-original.yml: tagged paths GET /analyzed-resource#analyzerArn&resourceArn -> Analyzed Resource#analyzerArn&resourceArn",
+    "amazon-iam-access-analyzer-openapi-original.yml: tagged paths GET /analyzed-resource#analyzerArn&resourceArn -> Analyzed Resource",
     "amazon-iam-access-analyzer-openapi-original.yml: tagged paths GET /finding/{id}#analyzerArn -> Finding",
     "amazon-iam-access-analyzer-openapi-original.yml: tagged paths POST /access-preview/{accessPreviewId} -> Access Preview",
-    "amazon-iam-access-analyzer-openapi-original.yml: tagged paths GET /access-preview#analyzerArn -> Access Preview#analyzerArn",
+    "amazon-iam-access-analyzer-openapi-original.yml: tagged paths GET /access-preview#analyzerArn -> Access Preview",
     "amazon-iam-access-analyzer-openapi-original.yml: tagged paths POST /analyzed-resource -> Analyzed Resource",
     "amazon-iam-access-analyzer-openapi-original.yml: tagged paths POST /finding -> Finding",
     "amazon-iam-access-analyzer-openapi-original.yml: tagged paths PUT /finding -> Finding",
@@ -50,16 +50,15 @@
     "amazon-iam-access-analyzer-openapi-original.yml: tagged paths DELETE /tags/{resourceArn}#tagKeys -> Tags",
     "amazon-iam-access-analyzer-openapi-original.yml: tagged paths POST /policy/validation -> Policy",
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Access Preview",
-    "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Access Preview#analyzerArn",
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Analyzed Resource",
-    "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Analyzed Resource#analyzerArn&resourceArn",
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Analyzer",
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Archive Rule",
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Finding",
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Policy",
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Resource",
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Tags",
-    "apis.yml register: already-registered"
+    "superseded outputs removed: amazon-iam-access-analyzer-access-preview-analyzerarn-api-openapi.yml, amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api-openapi.yml",
+    "apis.yml register: written (+0 apis, 8 total)"
   ],
   "skipped": [
     "amazon-iam-access-analyzer-access-preview-analyzerarn-api-openapi.yml: previously refined output, superseded by openapi/_original/",
