@@ -291,51 +291,14 @@ paths:
       - Analyzed Resource
 components:
   schemas:
-    AnalyzedResourcesList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AnalyzedResourceSummary'
+    Timestamp:
+      type: string
+      format: date-time
+    ResourceNotFoundException: {}
     Boolean:
       type: boolean
-    ResourceType:
+    Token:
       type: string
-      enum:
-      - AWS::S3::Bucket
-      - AWS::IAM::Role
-      - AWS::SQS::Queue
-      - AWS::Lambda::Function
-      - AWS::Lambda::LayerVersion
-      - AWS::KMS::Key
-      - AWS::SecretsManager::Secret
-      - AWS::EFS::FileSystem
-      - AWS::EC2::Snapshot
-      - AWS::ECR::Repository
-      - AWS::RDS::DBSnapshot
-      - AWS::RDS::DBClusterSnapshot
-      - AWS::SNS::Topic
-    ResourceArn:
-      type: string
-      pattern: arn:[^:]*:[^:]*:[^:]*:[^:]*:.*
-    SharedViaList:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-    ThrottlingException: {}
-    GetAnalyzedResourceResponse:
-      type: object
-      properties:
-        resource:
-          allOf:
-          - $ref: '#/components/schemas/AnalyzedResource'
-          - description: An <code>AnalyzedResource</code> object that contains information that IAM Access Analyzer found when it analyzed the resource.
-      description: The response to the request.
-    ResourceNotFoundException: {}
-    FindingStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - ARCHIVED
-      - RESOLVED
     ListAnalyzedResourcesResponse:
       type: object
       required:
@@ -350,6 +313,9 @@ components:
           - $ref: '#/components/schemas/Token'
           - description: A token used for pagination of results returned.
       description: The response to the request.
+    ThrottlingException: {}
+    String:
+      type: string
     AnalyzedResource:
       type: object
       required:
@@ -406,20 +372,35 @@ components:
           - $ref: '#/components/schemas/String'
           - description: An error message.
       description: Contains details about the analyzed resource.
-    Timestamp:
-      type: string
-      format: date-time
-    Token:
-      type: string
-    ValidationException: {}
-    AccessDeniedException: {}
-    String:
-      type: string
     InternalServerException: {}
+    ResourceType:
+      type: string
+      enum:
+      - AWS::S3::Bucket
+      - AWS::IAM::Role
+      - AWS::SQS::Queue
+      - AWS::Lambda::Function
+      - AWS::Lambda::LayerVersion
+      - AWS::KMS::Key
+      - AWS::SecretsManager::Secret
+      - AWS::EFS::FileSystem
+      - AWS::EC2::Snapshot
+      - AWS::ECR::Repository
+      - AWS::RDS::DBSnapshot
+      - AWS::RDS::DBClusterSnapshot
+      - AWS::SNS::Topic
     ActionList:
       type: array
       items:
         $ref: '#/components/schemas/String'
+    SharedViaList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    ResourceArn:
+      type: string
+      pattern: arn:[^:]*:[^:]*:[^:]*:[^:]*:.*
+    ValidationException: {}
     AnalyzedResourceSummary:
       type: object
       required:
@@ -440,31 +421,26 @@ components:
           - $ref: '#/components/schemas/ResourceType'
           - description: The type of resource that was analyzed.
       description: Contains the ARN of the analyzed resource.
+    AccessDeniedException: {}
+    FindingStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - ARCHIVED
+      - RESOLVED
+    AnalyzedResourcesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AnalyzedResourceSummary'
+    GetAnalyzedResourceResponse:
+      type: object
+      properties:
+        resource:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzedResource'
+          - description: An <code>AnalyzedResource</code> object that contains information that IAM Access Analyzer found when it analyzed the resource.
+      description: The response to the request.
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -477,8 +453,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

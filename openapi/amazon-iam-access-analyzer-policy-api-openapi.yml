@@ -500,123 +500,30 @@ paths:
       - Policy
 components:
   schemas:
-    PathElement:
-      type: object
-      properties:
-        index:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: Refers to an index in a JSON array.
-        key:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: Refers to a key in a JSON object.
-        substring:
-          allOf:
-          - $ref: '#/components/schemas/Substring'
-          - description: Refers to a substring of a literal string in a JSON object.
-        value:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: Refers to the value associated with a given key in a JSON object.
-      description: A single element in a path through the JSON representation of a policy.
-    GeneratedPolicyResult:
-      type: object
-      required:
-      - properties
-      properties:
-        properties:
-          description: A <code>GeneratedPolicyProperties</code> object that contains properties of the generated policy.
-        generatedPolicies:
-          allOf:
-          - $ref: '#/components/schemas/GeneratedPolicyList'
-          - description: The text to use as the content for the new policy. The policy is created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.
-      description: Contains the text for the generated policy and its details.
-    JobError:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          allOf:
-          - $ref: '#/components/schemas/JobErrorCode'
-          - description: The job error code.
-        message:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: Specific information about the error. For example, which service quota was exceeded or which resource was not found.
-      description: Contains the details about the policy generation error.
-    CancelPolicyGenerationResponse:
-      type: object
-      properties: {}
-    ListPolicyGenerationsResponse:
-      type: object
-      required:
-      - policyGenerations
-      properties:
-        policyGenerations:
-          allOf:
-          - $ref: '#/components/schemas/PolicyGenerationList'
-          - description: A <code>PolicyGeneration</code> object that contains details about the generated policy.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/Token'
-          - description: A token used for pagination of results returned.
-    CloudTrailArn:
+    Timestamp:
       type: string
-      pattern: arn:[^:]*:cloudtrail:[^:]*:[^:]*:trail/.{1,576}
+      format: date-time
     Boolean:
       type: boolean
-    PolicyGeneration:
-      type: object
-      required:
-      - jobId
-      - principalArn
-      - status
-      - startedOn
-      properties:
-        jobId:
-          allOf:
-          - $ref: '#/components/schemas/JobId'
-          - description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.
-        principalArn:
-          allOf:
-          - $ref: '#/components/schemas/PrincipalArn'
-          - description: The ARN of the IAM entity (user or role) for which you are generating a policy.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/JobStatus'
-          - description: The status of the policy generation request.
-        startedOn:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: A timestamp of when the policy generation started.
-        completedOn:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: A timestamp of when the policy generation was completed.
-      description: Contains details about the policy generation status and properties.
-    Integer:
-      type: integer
-    LearnMoreLink:
+    Token:
       type: string
-    ConflictException: {}
-    Span:
-      type: object
-      required:
-      - start
-      - end
-      properties:
-        start:
-          allOf:
-          - $ref: '#/components/schemas/Position'
-          - description: The start position of the span (inclusive).
-        end:
-          allOf:
-          - $ref: '#/components/schemas/Position'
-          - description: The end position of the span (exclusive).
-      description: A span in a policy. The span consists of a start position (inclusive) and end position (exclusive).
+    PolicyGenerationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PolicyGeneration'
+    RegionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    IssueCode:
+      type: string
+    ThrottlingException: {}
+    String:
+      type: string
+    ValidatePolicyFindingList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ValidatePolicyFinding'
     StartPolicyGenerationResponse:
       type: object
       required:
@@ -626,6 +533,26 @@ components:
           allOf:
           - $ref: '#/components/schemas/JobId'
           - description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.
+    CloudTrailArn:
+      type: string
+      pattern: arn:[^:]*:cloudtrail:[^:]*:[^:]*:trail/.{1,576}
+    TrailList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Trail'
+    ValidatePolicyResponse:
+      type: object
+      required:
+      - findings
+      properties:
+        findings:
+          allOf:
+          - $ref: '#/components/schemas/ValidatePolicyFindingList'
+          - description: The list of findings in a policy returned by IAM Access Analyzer based on its suite of policy checks.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
     Substring:
       type: object
       required:
@@ -641,156 +568,7 @@ components:
           - $ref: '#/components/schemas/Integer'
           - description: The length of the substring.
       description: A reference to a substring of a literal string in a JSON document.
-    PrincipalArn:
-      type: string
-      pattern: arn:[^:]*:iam::[^:]*:(role|user)/.{1,576}
-    RegionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-    PolicyGenerationList:
-      type: array
-      items:
-        $ref: '#/components/schemas/PolicyGeneration'
-    Trail:
-      type: object
-      required:
-      - cloudTrailArn
-      properties:
-        cloudTrailArn:
-          allOf:
-          - $ref: '#/components/schemas/CloudTrailArn'
-          - description: Specifies the ARN of the trail. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>.
-        regions:
-          allOf:
-          - $ref: '#/components/schemas/RegionList'
-          - description: A list of regions to get CloudTrail data from and analyze to generate a policy.
-        allRegions:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: Possible values are <code>true</code> or <code>false</code>. If set to <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and generate a policy.
-      description: Contains details about the CloudTrail trail being analyzed to generate a policy.
-    JobDetails:
-      type: object
-      required:
-      - jobId
-      - status
-      - startedOn
-      properties:
-        jobId:
-          allOf:
-          - $ref: '#/components/schemas/JobId'
-          - description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/JobStatus'
-          - description: The status of the job request.
-        startedOn:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: A timestamp of when the job was started.
-        completedOn:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: A timestamp of when the job was completed.
-        jobError:
-          allOf:
-          - $ref: '#/components/schemas/JobError'
-          - description: The job error for the policy generation request.
-      description: Contains details about the policy generation request.
-    ThrottlingException: {}
-    JobStatus:
-      type: string
-      enum:
-      - IN_PROGRESS
-      - SUCCEEDED
-      - FAILED
-      - CANCELED
-    ValidatePolicyFindingList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ValidatePolicyFinding'
-    ValidatePolicyResponse:
-      type: object
-      required:
-      - findings
-      properties:
-        findings:
-          allOf:
-          - $ref: '#/components/schemas/ValidatePolicyFindingList'
-          - description: The list of findings in a policy returned by IAM Access Analyzer based on its suite of policy checks.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/Token'
-          - description: A token used for pagination of results returned.
-    Location:
-      type: object
-      required:
-      - path
-      - span
-      properties:
-        path:
-          allOf:
-          - $ref: '#/components/schemas/PathElementList'
-          - description: A path in a policy, represented as a sequence of path elements.
-        span:
-          allOf:
-          - $ref: '#/components/schemas/Span'
-          - description: A span in a policy.
-      description: A location in a policy that is represented as a path through the JSON representation and a corresponding span.
-    GeneratedPolicy:
-      type: object
-      required:
-      - policy
-      properties:
-        policy:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The text to use as the content for the new policy. The policy is created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.
-      description: Contains the text for the generated policy.
-    RoleArn:
-      type: string
-      pattern: arn:[^:]*:iam::[^:]*:role/.{1,576}
-    ServiceQuotaExceededException: {}
-    ValidatePolicyFindingType:
-      type: string
-      enum:
-      - ERROR
-      - SECURITY_WARNING
-      - SUGGESTION
-      - WARNING
-    GetGeneratedPolicyResponse:
-      type: object
-      required:
-      - jobDetails
-      - generatedPolicyResult
-      properties:
-        jobDetails:
-          allOf:
-          - $ref: '#/components/schemas/JobDetails'
-          - description: A <code>GeneratedPolicyDetails</code> object that contains details about the generated policy.
-        generatedPolicyResult:
-          allOf:
-          - $ref: '#/components/schemas/GeneratedPolicyResult'
-          - description: A <code>GeneratedPolicyResult</code> object that contains the generated policies and associated details.
-    Timestamp:
-      type: string
-      format: date-time
-    JobErrorCode:
-      type: string
-      enum:
-      - AUTHORIZATION_ERROR
-      - RESOURCE_NOT_FOUND_ERROR
-      - SERVICE_QUOTA_EXCEEDED_ERROR
-      - SERVICE_ERROR
-    LocationList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Location'
-    TrailList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Trail'
+    InternalServerException: {}
     ValidatePolicyFinding:
       type: object
       required:
@@ -821,6 +599,86 @@ components:
           - $ref: '#/components/schemas/LocationList'
           - description: The list of locations in the policy document that are related to the finding. The issue code provides a summary of an issue identified by the finding.
       description: A finding in a policy. Each finding is an actionable recommendation that can be used to improve the policy.
+    RoleArn:
+      type: string
+      pattern: arn:[^:]*:iam::[^:]*:role/.{1,576}
+    Integer:
+      type: integer
+    JobStatus:
+      type: string
+      enum:
+      - IN_PROGRESS
+      - SUCCEEDED
+      - FAILED
+      - CANCELED
+    ValidatePolicyFindingType:
+      type: string
+      enum:
+      - ERROR
+      - SECURITY_WARNING
+      - SUGGESTION
+      - WARNING
+    PrincipalArn:
+      type: string
+      pattern: arn:[^:]*:iam::[^:]*:(role|user)/.{1,576}
+    JobId:
+      type: string
+    PathElement:
+      type: object
+      properties:
+        index:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: Refers to an index in a JSON array.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: Refers to a key in a JSON object.
+        substring:
+          allOf:
+          - $ref: '#/components/schemas/Substring'
+          - description: Refers to a substring of a literal string in a JSON object.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: Refers to the value associated with a given key in a JSON object.
+      description: A single element in a path through the JSON representation of a policy.
+    Span:
+      type: object
+      required:
+      - start
+      - end
+      properties:
+        start:
+          allOf:
+          - $ref: '#/components/schemas/Position'
+          - description: The start position of the span (inclusive).
+        end:
+          allOf:
+          - $ref: '#/components/schemas/Position'
+          - description: The end position of the span (exclusive).
+      description: A span in a policy. The span consists of a start position (inclusive) and end position (exclusive).
+    PathElementList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PathElement'
+    Location:
+      type: object
+      required:
+      - path
+      - span
+      properties:
+        path:
+          allOf:
+          - $ref: '#/components/schemas/PathElementList'
+          - description: A path in a policy, represented as a sequence of path elements.
+        span:
+          allOf:
+          - $ref: '#/components/schemas/Span'
+          - description: A span in a policy.
+      description: A location in a policy that is represented as a path through the JSON representation and a corresponding span.
+    ValidationException: {}
+    ServiceQuotaExceededException: {}
     Position:
       type: object
       required:
@@ -841,50 +699,168 @@ components:
           - $ref: '#/components/schemas/Integer'
           - description: The offset within the policy that corresponds to the position, starting from 0.
       description: A position in a policy.
-    IssueCode:
-      type: string
-    Token:
-      type: string
-    ValidationException: {}
+    ListPolicyGenerationsResponse:
+      type: object
+      required:
+      - policyGenerations
+      properties:
+        policyGenerations:
+          allOf:
+          - $ref: '#/components/schemas/PolicyGenerationList'
+          - description: A <code>PolicyGeneration</code> object that contains details about the generated policy.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+    JobError:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/JobErrorCode'
+          - description: The job error code.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: Specific information about the error. For example, which service quota was exceeded or which resource was not found.
+      description: Contains the details about the policy generation error.
     AccessDeniedException: {}
-    JobId:
+    LearnMoreLink:
       type: string
+    JobDetails:
+      type: object
+      required:
+      - jobId
+      - status
+      - startedOn
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/JobStatus'
+          - description: The status of the job request.
+        startedOn:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: A timestamp of when the job was started.
+        completedOn:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: A timestamp of when the job was completed.
+        jobError:
+          allOf:
+          - $ref: '#/components/schemas/JobError'
+          - description: The job error for the policy generation request.
+      description: Contains details about the policy generation request.
+    CancelPolicyGenerationResponse:
+      type: object
+      properties: {}
+    Trail:
+      type: object
+      required:
+      - cloudTrailArn
+      properties:
+        cloudTrailArn:
+          allOf:
+          - $ref: '#/components/schemas/CloudTrailArn'
+          - description: Specifies the ARN of the trail. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>.
+        regions:
+          allOf:
+          - $ref: '#/components/schemas/RegionList'
+          - description: A list of regions to get CloudTrail data from and analyze to generate a policy.
+        allRegions:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Possible values are <code>true</code> or <code>false</code>. If set to <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and generate a policy.
+      description: Contains details about the CloudTrail trail being analyzed to generate a policy.
+    GetGeneratedPolicyResponse:
+      type: object
+      required:
+      - jobDetails
+      - generatedPolicyResult
+      properties:
+        jobDetails:
+          allOf:
+          - $ref: '#/components/schemas/JobDetails'
+          - description: A <code>GeneratedPolicyDetails</code> object that contains details about the generated policy.
+        generatedPolicyResult:
+          allOf:
+          - $ref: '#/components/schemas/GeneratedPolicyResult'
+          - description: A <code>GeneratedPolicyResult</code> object that contains the generated policies and associated details.
+    JobErrorCode:
+      type: string
+      enum:
+      - AUTHORIZATION_ERROR
+      - RESOURCE_NOT_FOUND_ERROR
+      - SERVICE_QUOTA_EXCEEDED_ERROR
+      - SERVICE_ERROR
+    GeneratedPolicyResult:
+      type: object
+      required:
+      - properties
+      properties:
+        properties:
+          description: A <code>GeneratedPolicyProperties</code> object that contains properties of the generated policy.
+        generatedPolicies:
+          allOf:
+          - $ref: '#/components/schemas/GeneratedPolicyList'
+          - description: The text to use as the content for the new policy. The policy is created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.
+      description: Contains the text for the generated policy and its details.
     GeneratedPolicyList:
       type: array
       items:
         $ref: '#/components/schemas/GeneratedPolicy'
-    PathElementList:
+    GeneratedPolicy:
+      type: object
+      required:
+      - policy
+      properties:
+        policy:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The text to use as the content for the new policy. The policy is created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.
+      description: Contains the text for the generated policy.
+    LocationList:
       type: array
       items:
-        $ref: '#/components/schemas/PathElement'
-    String:
-      type: string
-    InternalServerException: {}
+        $ref: '#/components/schemas/Location'
+    PolicyGeneration:
+      type: object
+      required:
+      - jobId
+      - principalArn
+      - status
+      - startedOn
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.
+        principalArn:
+          allOf:
+          - $ref: '#/components/schemas/PrincipalArn'
+          - description: The ARN of the IAM entity (user or role) for which you are generating a policy.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/JobStatus'
+          - description: The status of the policy generation request.
+        startedOn:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: A timestamp of when the policy generation started.
+        completedOn:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: A timestamp of when the policy generation was completed.
+      description: Contains details about the policy generation status and properties.
+    ConflictException: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -897,8 +873,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

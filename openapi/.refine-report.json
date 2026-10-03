@@ -13,9 +13,7 @@
     "amazon-iam-access-analyzer-resource-api-openapi.yml",
     "amazon-iam-access-analyzer-tags-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 2 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -57,13 +55,10 @@
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Policy",
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Resource",
     "amazon-iam-access-analyzer-openapi-original.yml: declared missing tag: Tags",
-    "superseded outputs removed: amazon-iam-access-analyzer-access-preview-analyzerarn-api-openapi.yml, amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api-openapi.yml",
-    "apis.yml register: written (+0 apis, 8 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
-    "amazon-iam-access-analyzer-access-preview-analyzerarn-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-iam-access-analyzer-access-preview-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-iam-access-analyzer-analyzed-resource-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-iam-access-analyzer-analyzer-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-iam-access-analyzer-archive-rule-api-openapi.yml: previously refined output, superseded by openapi/_original/",
