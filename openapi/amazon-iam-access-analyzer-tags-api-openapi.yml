@@ -316,7 +316,19 @@ paths:
       - Tags
 components:
   schemas:
-    ResourceNotFoundException: {}
+    String:
+      type: string
+    AccessDeniedException: {}
+    ValidationException: {}
+    TagsMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
+    TagResourceResponse:
+      type: object
+      properties: {}
+      description: The response to the request.
+    ThrottlingException: {}
     ListTagsForResourceResponse:
       type: object
       properties:
@@ -325,25 +337,31 @@ components:
           - $ref: '#/components/schemas/TagsMap'
           - description: The tags that are applied to the specified resource.
       description: The response to the request.
-    TagResourceResponse:
-      type: object
-      properties: {}
-      description: The response to the request.
     InternalServerException: {}
-    String:
-      type: string
-    ValidationException: {}
-    ThrottlingException: {}
+    ResourceNotFoundException: {}
     UntagResourceResponse:
       type: object
       properties: {}
       description: The response to the request.
-    AccessDeniedException: {}
-    TagsMap:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/String'
   parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -356,32 +374,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

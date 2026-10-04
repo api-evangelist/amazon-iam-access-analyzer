@@ -291,31 +291,30 @@ paths:
       - Analyzed Resource
 components:
   schemas:
-    Timestamp:
-      type: string
-      format: date-time
-    ResourceNotFoundException: {}
-    Boolean:
-      type: boolean
+    AnalyzedResourcesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AnalyzedResourceSummary'
+    InternalServerException: {}
     Token:
       type: string
-    ListAnalyzedResourcesResponse:
-      type: object
-      required:
-      - analyzedResources
-      properties:
-        analyzedResources:
-          allOf:
-          - $ref: '#/components/schemas/AnalyzedResourcesList'
-          - description: A list of resources that were analyzed.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/Token'
-          - description: A token used for pagination of results returned.
-      description: The response to the request.
-    ThrottlingException: {}
-    String:
+    ResourceNotFoundException: {}
+    ResourceType:
       type: string
+      enum:
+      - AWS::S3::Bucket
+      - AWS::IAM::Role
+      - AWS::SQS::Queue
+      - AWS::Lambda::Function
+      - AWS::Lambda::LayerVersion
+      - AWS::KMS::Key
+      - AWS::SecretsManager::Secret
+      - AWS::EFS::FileSystem
+      - AWS::EC2::Snapshot
+      - AWS::ECR::Repository
+      - AWS::RDS::DBSnapshot
+      - AWS::RDS::DBClusterSnapshot
+      - AWS::SNS::Topic
     AnalyzedResource:
       type: object
       required:
@@ -372,35 +371,41 @@ components:
           - $ref: '#/components/schemas/String'
           - description: An error message.
       description: Contains details about the analyzed resource.
-    InternalServerException: {}
-    ResourceType:
-      type: string
-      enum:
-      - AWS::S3::Bucket
-      - AWS::IAM::Role
-      - AWS::SQS::Queue
-      - AWS::Lambda::Function
-      - AWS::Lambda::LayerVersion
-      - AWS::KMS::Key
-      - AWS::SecretsManager::Secret
-      - AWS::EFS::FileSystem
-      - AWS::EC2::Snapshot
-      - AWS::ECR::Repository
-      - AWS::RDS::DBSnapshot
-      - AWS::RDS::DBClusterSnapshot
-      - AWS::SNS::Topic
-    ActionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-    SharedViaList:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
+    ListAnalyzedResourcesResponse:
+      type: object
+      required:
+      - analyzedResources
+      properties:
+        analyzedResources:
+          allOf:
+          - $ref: '#/components/schemas/AnalyzedResourcesList'
+          - description: A list of resources that were analyzed.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A token used for pagination of results returned.
+      description: The response to the request.
     ResourceArn:
       type: string
       pattern: arn:[^:]*:[^:]*:[^:]*:[^:]*:.*
     ValidationException: {}
+    FindingStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - ARCHIVED
+      - RESOLVED
+    ThrottlingException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    ActionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    String:
+      type: string
+    AccessDeniedException: {}
     AnalyzedResourceSummary:
       type: object
       required:
@@ -421,17 +426,12 @@ components:
           - $ref: '#/components/schemas/ResourceType'
           - description: The type of resource that was analyzed.
       description: Contains the ARN of the analyzed resource.
-    AccessDeniedException: {}
-    FindingStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - ARCHIVED
-      - RESOLVED
-    AnalyzedResourcesList:
+    SharedViaList:
       type: array
       items:
-        $ref: '#/components/schemas/AnalyzedResourceSummary'
+        $ref: '#/components/schemas/String'
+    Boolean:
+      type: boolean
     GetAnalyzedResourceResponse:
       type: object
       properties:
@@ -441,24 +441,6 @@ components:
           - description: An <code>AnalyzedResource</code> object that contains information that IAM Access Analyzer found when it analyzed the resource.
       description: The response to the request.
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
@@ -473,6 +455,24 @@ components:
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
