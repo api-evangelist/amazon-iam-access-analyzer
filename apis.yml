@@ -199,6 +199,9 @@ apis:
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-iam-access-analyzer-capability-edges.yml
+  name: Amazon IAM Access Analyzer Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-iam-access-analyzer/overview
 - type: AgenticAccess

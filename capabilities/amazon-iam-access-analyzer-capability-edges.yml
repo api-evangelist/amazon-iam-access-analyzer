@@ -1,0 +1,66 @@
+slug: amazon-iam-access-analyzer
+provider: Amazon IAM Access Analyzer
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Access Preview
+  spec_file: amazon-iam-access-analyzer-access-preview-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.82
+  evidence: PUT /access-preview  CreateAccessPreview; ListAccessPreviewFindings; "helps identify potential
+    resource-access risks by enabling you to identify any policies that grant access to an external principal"
+  reason: Previewing the access that proposed resource policies would grant (S3BucketConfiguration, KmsKeyPolicy,
+    SqsQueueConfiguration) is access-policy validation — Identity & Access Management.
+- tag: Policy
+  spec_file: amazon-iam-access-analyzer-policy-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: ValidatePolicy / StartPolicyGeneration — "helps identify potential resource-access risks by
+    enabling you to identify any policies that grant access to an external principal"
+  reason: Operations generate and validate IAM access policies, i.e. authoring and verifying access-control
+    permissions — identity & access management tooling, not a business policy-lifecycle capability.
+- tag: Analyzed Resource
+  spec_file: amazon-iam-access-analyzer-analyzed-resource-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: GET /analyzed-resource  GetAnalyzedResource; schemas AnalyzedResource, SharedViaList, ActionList
+  reason: Lists resources analysed for external sharing and the actions/principals granted, i.e. access
+    review over IAM resource policies. Identity & Access Management is the fitting capability.
+- tag: Analyzer
+  spec_file: amazon-iam-access-analyzer-analyzer-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: PUT /analyzer  CreateAnalyzer; PUT /analyzer/{analyzerName}/archive-rule  CreateArchiveRule;
+    "identify any policies that grant access to an external principal"
+  reason: Configures the IAM policy analyzers and their archive rules that govern external-access review.
+    This is tooling for access governance under Identity & Access Management, though it is partly service
+    configuration, so confidence is tempered.
+- tag: Finding
+  spec_file: amazon-iam-access-analyzer-finding-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: POST /finding  ListFindings; PUT /finding  UpdateFindings; schemas PrincipalMap, ActionList,
+    FindingSource
+  reason: Findings here describe resources whose policies grant access to external principals, so triaging
+    them is access-risk review within Identity & Access Management rather than SOC threat response; the
+    overlap with threat detection keeps confidence moderate.
