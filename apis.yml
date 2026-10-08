@@ -199,6 +199,12 @@ apis:
   - type: FAQ
     url: https://aws.amazon.com/iam/faqs/
 common:
+- type: Plans
+  url: plans/amazon-iam-access-analyzer-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/amazon-iam-access-analyzer-rate-limits.yml
+- type: FinOps
+  url: finops/amazon-iam-access-analyzer-finops.yml
 - type: CapabilityMap
   url: capabilities/amazon-iam-access-analyzer-capability-edges.yml
   name: Amazon IAM Access Analyzer Business Capability Map
