@@ -1,4 +1,4 @@
-# Amazon IAM Access Analyzer (amazon-iam-access-analyzer)
+# Amazon IAM Access Analyzer
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,137 +66,260 @@
 
 AWS IAM Access Analyzer helps you set, verify, and refine your IAM policies by providing a suite of capabilities including findings for external, internal, and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. It uses automated reasoning to identify resources shared with external entities and helps implement least privilege access across your AWS environment.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/apis.yml)
+**Areas:** Access Control · AWS · Compliance · Identity and Access Management · Policy Management · Security
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon IAM Access Analyzer on APIs.io
 
-## Tags:
+Everything profiled for Amazon IAM Access Analyzer is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-iam-access-analyzer/](https://apis.io/providers/amazon-iam-access-analyzer/)** — or go straight to one of the APIs or properties below.
 
- - Access Control, AWS, Compliance, IAM, Policy Management, Security
+### APIs (9)
 
-## Timestamps
+- [Amazon IAM Access Analyzer Access Preview API](https://apis.io/apis/amazon-iam-access-analyzer/amazon-iam-access-analyzer-access-preview-api/) — The Access Preview API from Amazon IAM Access Analyzer — 3 operation(s) for access preview.
+- [Amazon IAM Access Analyzer Analyzed Resource API](https://apis.io/apis/amazon-iam-access-analyzer/amazon-iam-access-analyzer-analyzed-resource-api/) — The Analyzed Resource API from Amazon IAM Access Analyzer — 1 operation(s) for analyzed resource.
+- [Amazon IAM Access Analyzer API](https://apis.io/apis/amazon-iam-access-analyzer/amazon-iam-access-analyzer-analyzer-api/) — The Analyzer API from Amazon IAM Access Analyzer — 4 operation(s) for analyzer.
+- [Amazon IAM Access Analyzer Archive Rule API](https://apis.io/apis/amazon-iam-access-analyzer/amazon-iam-access-analyzer-archive-rule-api/) — The Archive Rule API from Amazon IAM Access Analyzer — 1 operation(s) for archive rule.
+- [Amazon IAM Access Analyzer Finding API](https://apis.io/apis/amazon-iam-access-analyzer/amazon-iam-access-analyzer-finding-api/) — The Finding API from Amazon IAM Access Analyzer — 2 operation(s) for finding.
+- [Amazon IAM Access Analyzer Policy API](https://apis.io/apis/amazon-iam-access-analyzer/amazon-iam-access-analyzer-policy-api/) — The Policy API from Amazon IAM Access Analyzer — 3 operation(s) for policy.
+- [Amazon IAM Access Analyzer Resource API](https://apis.io/apis/amazon-iam-access-analyzer/amazon-iam-access-analyzer-resource-api/) — The Resource API from Amazon IAM Access Analyzer — 1 operation(s) for resource.
+- [Amazon IAM Access Analyzer Tags API](https://apis.io/apis/amazon-iam-access-analyzer/amazon-iam-access-analyzer-tags-api/) — The Tags API from Amazon IAM Access Analyzer — 2 operation(s) for tags.
+- [Amazon IAM Access Analyzer Iam Access Analyzer Operations API](https://apis.io/apis/amazon-iam-access-analyzer/amazon-iam-access-analyzer-operations-api/) — The Iam Access Analyzer Operations API from Amazon IAM Access Analyzer — 5 operation(s) for iam access analyzer operations.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### AWS IAM Access Analyzer API
-The AWS IAM Access Analyzer API provides programmatic access to create and manage analyzers, findings, archive rules, and policy validations to identify and remediate unintended resource access across AWS accounts and organizations.
+#### Agentic access (1)
 
-**Human URL:** [https://aws.amazon.com/iam/features/analyze-access/](https://aws.amazon.com/iam/features/analyze-access/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Amazon Iam Access Analyzer Agentic Access](https://apis.io/agentic-access/amazon-iam-access-analyzer/amazon-iam-access-analyzer-agentic-access/)
 
- - Access Control, IAM, Policy Management, Security
+#### JSON Schema (162)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html)
-- [OpenAPI](openapi/amazon-iam-access-analyzer-openapi-original.yml)
-- [GettingStarted](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html)
-- [Pricing](https://aws.amazon.com/iam/pricing/)
-- [FAQ](https://aws.amazon.com/iam/faqs/)
-- [JSONSchema](json-schema/iam-access-analyzer-analyzer-schema.json)
-- [JSONStructure](json-structure/iam-access-analyzer-analyzer-structure.json)
-- [Example](examples/iam-access-analyzer-analyzer-example.json)
+- [AccessPreview](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-access-preview/)
+- [AccessPreviewFinding](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-finding/)
+- [AccessPreviewFindingsList](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-findings-list/)
+- [AccessPreviewStatus](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-status/)
+- [AccessPreviewStatusReason](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-status-reason/)
+- [AccessPreviewStatusReasonCode](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-status-reason-code/)
+- [AccessPreviewSummary](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-summary/)
+- [AccessPreviewsList](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-access-previews-list/)
+- [AclGrantee](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-acl-grantee/)
+- [AclPermission](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-acl-permission/)
+- [ActionList](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-action-list/)
+- [AnalyzedResource](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-analyzed-resource/)
+- [AnalyzedResourceSummary](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-analyzed-resource-summary/)
+- [AnalyzedResourcesList](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-analyzed-resources-list/)
+- [AnalyzerStatus](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-analyzer-status/)
+- [AnalyzerSummary](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-analyzer-summary/)
+- [AnalyzersList](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-analyzers-list/)
+- [ApplyArchiveRuleRequest](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-apply-archive-rule-request/)
+- [ArchiveRuleSummary](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-archive-rule-summary/)
+- [ArchiveRulesList](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-archive-rules-list/)
+- [CancelPolicyGenerationRequest](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-cancel-policy-generation-request/)
+- [CancelPolicyGenerationResponse](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-cancel-policy-generation-response/)
+- [CloudTrailDetails](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-cloud-trail-details/)
+- [CloudTrailProperties](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-cloud-trail-properties/)
+- [ConditionKeyMap](https://apis.io/schemas/amazon-iam-access-analyzer/iam-access-analyzer-condition-key-map/)
+- …and 137 more published on APIs.io
 
-## Common Properties
+#### JSON Structure (162)
 
-- [Portal](https://aws.amazon.com/iam/features/analyze-access/)
+Data models expressed in JSON Structure.
+
+- [Iam Access Analyzer Access Preview Finding Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-finding-structure/)
+- [Iam Access Analyzer Access Preview Findings List Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-findings-list-structure/)
+- [Iam Access Analyzer Access Preview Status Reason Code Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-status-reason-code-structure/)
+- [Iam Access Analyzer Access Preview Status Reason Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-status-reason-structure/)
+- [Iam Access Analyzer Access Preview Status Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-status-structure/)
+- [Iam Access Analyzer Access Preview Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-structure/)
+- [Iam Access Analyzer Access Preview Summary Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-summary-structure/)
+- [Iam Access Analyzer Access Previews List Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-access-previews-list-structure/)
+- [Iam Access Analyzer Acl Grantee Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-acl-grantee-structure/)
+- [Iam Access Analyzer Acl Permission Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-acl-permission-structure/)
+- [Iam Access Analyzer Action List Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-action-list-structure/)
+- [Iam Access Analyzer Analyzed Resource Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-analyzed-resource-structure/)
+- [Iam Access Analyzer Analyzed Resource Summary Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-analyzed-resource-summary-structure/)
+- [Iam Access Analyzer Analyzed Resources List Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-analyzed-resources-list-structure/)
+- [Iam Access Analyzer Analyzer Status Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-analyzer-status-structure/)
+- [Iam Access Analyzer Analyzer Summary Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-analyzer-summary-structure/)
+- [Iam Access Analyzer Analyzers List Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-analyzers-list-structure/)
+- [Iam Access Analyzer Apply Archive Rule Request Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-apply-archive-rule-request-structure/)
+- [Iam Access Analyzer Archive Rule Summary Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-archive-rule-summary-structure/)
+- [Iam Access Analyzer Archive Rules List Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-archive-rules-list-structure/)
+- [Iam Access Analyzer Cancel Policy Generation Request Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-cancel-policy-generation-request-structure/)
+- [Iam Access Analyzer Cancel Policy Generation Response Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-cancel-policy-generation-response-structure/)
+- [Iam Access Analyzer Cloud Trail Details Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-cloud-trail-details-structure/)
+- [Iam Access Analyzer Cloud Trail Properties Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-cloud-trail-properties-structure/)
+- [Iam Access Analyzer Condition Key Map Structure](https://apis.io/json-structure/amazon-iam-access-analyzer/iam-access-analyzer-condition-key-map-structure/)
+- …and 137 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Iam Access Analyzer Context](https://apis.io/jsonld/amazon-iam-access-analyzer/amazon-iam-access-analyzer-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Iam Access Analyzer Vocabulary](https://apis.io/vocabularies/amazon-iam-access-analyzer/amazon-iam-access-analyzer-vocabulary/)
+
+#### Examples (115)
+
+Example requests and responses.
+
+- [Iam Access Analyzer Access Preview Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-example/)
+- [Iam Access Analyzer Access Preview Finding Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-finding-example/)
+- [Iam Access Analyzer Access Preview Status Reason Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-status-reason-example/)
+- [Iam Access Analyzer Access Preview Summary Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-access-preview-summary-example/)
+- [Iam Access Analyzer Acl Grantee Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-acl-grantee-example/)
+- [Iam Access Analyzer Analyzed Resource Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-analyzed-resource-example/)
+- [Iam Access Analyzer Analyzed Resource Summary Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-analyzed-resource-summary-example/)
+- [Iam Access Analyzer Analyzer Summary Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-analyzer-summary-example/)
+- [Iam Access Analyzer Apply Archive Rule Request Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-apply-archive-rule-request-example/)
+- [Iam Access Analyzer Archive Rule Summary Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-archive-rule-summary-example/)
+- [Iam Access Analyzer Cancel Policy Generation Request Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-cancel-policy-generation-request-example/)
+- [Iam Access Analyzer Cancel Policy Generation Response Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-cancel-policy-generation-response-example/)
+- [Iam Access Analyzer Cloud Trail Details Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-cloud-trail-details-example/)
+- [Iam Access Analyzer Cloud Trail Properties Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-cloud-trail-properties-example/)
+- [Iam Access Analyzer Condition Key Map Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-condition-key-map-example/)
+- [Iam Access Analyzer Configuration Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-configuration-example/)
+- [Iam Access Analyzer Configurations Map Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-configurations-map-example/)
+- [Iam Access Analyzer Create Access Preview Request Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-create-access-preview-request-example/)
+- [Iam Access Analyzer Create Access Preview Response Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-create-access-preview-response-example/)
+- [Iam Access Analyzer Create Analyzer Request Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-create-analyzer-request-example/)
+- [Iam Access Analyzer Create Analyzer Response Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-create-analyzer-response-example/)
+- [Iam Access Analyzer Create Archive Rule Request Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-create-archive-rule-request-example/)
+- [Iam Access Analyzer Criterion Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-criterion-example/)
+- [Iam Access Analyzer Delete Analyzer Request Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-delete-analyzer-request-example/)
+- [Iam Access Analyzer Delete Archive Rule Request Example](https://apis.io/examples/amazon-iam-access-analyzer/iam-access-analyzer-delete-archive-rule-request-example/)
+- …and 90 more published on APIs.io
+
+#### Collections (18)
+
+Postman and Open Collection request collections.
+
+- [Access Analyzer Access Preview#analyzerArn Analyzed Resource#analyzerArn&resourceArn API](https://apis.io/collections/amazon-iam-access-analyzer/open-amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api/)
+- [Access Analyzer Access Preview#analyzerArn Analyzed Resource API](https://apis.io/collections/amazon-iam-access-analyzer/open-amazon-iam-access-analyzer-analyzed-resource-api/)
+- [Access Access Preview#analyzerArn Analyzer API](https://apis.io/collections/amazon-iam-access-analyzer/open-amazon-iam-access-analyzer-analyzer-api/)
+- [Access Analyzer Access Preview#analyzerArn Archive Rule API](https://apis.io/collections/amazon-iam-access-analyzer/open-amazon-iam-access-analyzer-archive-rule-api/)
+- [Access Analyzer Access Preview#analyzerArn Finding API](https://apis.io/collections/amazon-iam-access-analyzer/open-amazon-iam-access-analyzer-finding-api/)
+- [Access Analyzer Access Preview#analyzerArn Policy API](https://apis.io/collections/amazon-iam-access-analyzer/open-amazon-iam-access-analyzer-policy-api/)
+- [Access Analyzer Access Preview#analyzerArn Resource API](https://apis.io/collections/amazon-iam-access-analyzer/open-amazon-iam-access-analyzer-resource-api/)
+- [Access Analyzer Access Preview#analyzerArn Tags API](https://apis.io/collections/amazon-iam-access-analyzer/open-amazon-iam-access-analyzer-tags-api/)
+- [Access Analyzer Access Preview#analyzerArn API](https://apis.io/collections/amazon-iam-access-analyzer/postman-amazon-iam-access-analyzer-access-preview-analyzerarn-api/)
+- [Access Analyzer #analyzerArn Access Preview API](https://apis.io/collections/amazon-iam-access-analyzer/postman-amazon-iam-access-analyzer-access-preview-api/)
+- [Access Analyzer Access Preview#analyzerArn Analyzed Resource#analyzerArn&resourceArn API](https://apis.io/collections/amazon-iam-access-analyzer/postman-amazon-iam-access-analyzer-analyzed-resource-analyzerarn-resourcearn-api/)
+- [Access Analyzer Access Preview#analyzerArn Analyzed Resource API](https://apis.io/collections/amazon-iam-access-analyzer/postman-amazon-iam-access-analyzer-analyzed-resource-api/)
+- [Access Access Preview#analyzerArn Analyzer API](https://apis.io/collections/amazon-iam-access-analyzer/postman-amazon-iam-access-analyzer-analyzer-api/)
+- [Access Analyzer Access Preview#analyzerArn Archive Rule API](https://apis.io/collections/amazon-iam-access-analyzer/postman-amazon-iam-access-analyzer-archive-rule-api/)
+- [Access Analyzer Access Preview#analyzerArn Finding API](https://apis.io/collections/amazon-iam-access-analyzer/postman-amazon-iam-access-analyzer-finding-api/)
+- [Access Analyzer Access Preview#analyzerArn Policy API](https://apis.io/collections/amazon-iam-access-analyzer/postman-amazon-iam-access-analyzer-policy-api/)
+- [Access Analyzer Access Preview#analyzerArn Resource API](https://apis.io/collections/amazon-iam-access-analyzer/postman-amazon-iam-access-analyzer-resource-api/)
+- [Access Analyzer Access Preview#analyzerArn Tags API](https://apis.io/collections/amazon-iam-access-analyzer/postman-amazon-iam-access-analyzer-tags-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon IAM Access Analyzer — jsonschema rules](https://apis.io/rules/amazon-iam-access-analyzer/amazon-iam-access-analyzer-jsonschema-spectral-rules/)
+- [Amazon IAM Access Analyzer API Rules](https://apis.io/rules/amazon-iam-access-analyzer/amazon-iam-access-analyzer-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Iam Access Analyzer Authentication](https://apis.io/security/amazon-iam-access-analyzer/amazon-iam-access-analyzer-authentication/)
+- [Amazon Iam Access Analyzer Domain Security](https://apis.io/security/amazon-iam-access-analyzer/amazon-iam-access-analyzer-domain-security/)
+- [Amazon Iam Access Analyzer Trust Center](https://apis.io/security/amazon-iam-access-analyzer/amazon-iam-access-analyzer-trust-center/)
+- [Amazon Iam Access Analyzer Vulnerability Disclosure](https://apis.io/security/amazon-iam-access-analyzer/amazon-iam-access-analyzer-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Iam Access Analyzer Plans Pricing](https://apis.io/plans/amazon-iam-access-analyzer/amazon-iam-access-analyzer-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Iam Access Analyzer Rate Limits](https://apis.io/rate-limits/amazon-iam-access-analyzer/amazon-iam-access-analyzer-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Iam Access Analyzer Finops](https://apis.io/finops/amazon-iam-access-analyzer/amazon-iam-access-analyzer-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://aws.amazon.com/iam/)
 - [Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html)
-- [TermsOfService](https://aws.amazon.com/service-terms/)
-- [PrivacyPolicy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/security/tag/iam-access-analyzer/)
-- [GitHubOrganization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/access-analyzer/)
-- [SignUp](https://portal.aws.amazon.com/billing/signup)
-- [Login](https://signin.aws.amazon.com/)
-- [StatusPage](https://health.aws.amazon.com/health/status)
-- [Contact](https://aws.amazon.com/contact-us/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| External Access Analysis | Identifies resources shared with external entities outside your AWS organization using automated reasoning. |
-| Internal Access Analysis | Identifies which principals within your organization have access to selected resources. |
-| Unused Access Analysis | Identifies unused IAM roles, access keys, console passwords, and unused service permissions. |
-| Policy Validation | Validates IAM policies against best practices and custom security standards before deployment. |
-| Policy Generation | Generates fine-grained IAM policies based on actual access activity logged in AWS CloudTrail. |
-| Access Preview | Preview public and cross-account access to resources before deploying permission changes. |
-| Archive Rules | Automatically archive findings that match specified criteria to reduce noise. |
+**Kin Score 54.3** — strong · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 59.6 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 58.3 |
+| Access clarity | 53.9 |
 
-| Name | Description |
-|------|-------------|
-| Least Privilege Enforcement | Analyze actual API activity to generate minimal permission policies that implement least privilege access. |
-| Security Compliance Auditing | Continuously monitor for unintended external access to sensitive resources like S3 buckets and IAM roles. |
-| CI/CD Policy Validation | Integrate policy checks into deployment pipelines to catch overpermissive policies before they reach production. |
-| Access Governance | Identify and remediate unused access across IAM users, roles, and service accounts organization-wide. |
-| Cross-Account Access Review | Identify all resources shared across AWS accounts and validate the intent of each cross-account permission. |
+**Agent readiness 35.8** — agent-ready
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | verified |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| AWS CloudTrail | Uses CloudTrail activity logs to generate least-privilege IAM policies based on actual usage. |
-| AWS Security Hub | Publishes Access Analyzer findings to Security Hub for centralized security monitoring. |
-| AWS Organizations | Analyzes access across all accounts in an AWS Organization for comprehensive governance. |
-| AWS Config | Triggers re-scanning of resources when configuration changes are detected. |
-| Amazon EventBridge | Publishes finding events to EventBridge for automated security workflow responses. |
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-iam-access-analyzer/](https://apis.io/providers/amazon-iam-access-analyzer/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [AWS IAM Access Analyzer API](openapi/amazon-iam-access-analyzer-openapi-original.yml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon IAM Access Analyzer: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-162 schema files covering analyzers, findings, archive rules, policies, and access previews.
-
-### JSON Structure
-
-162 JSON Structure files converted from JSON Schema.
-
-### JSON-LD
-
-- [Amazon IAM Access Analyzer Context](json-ld/amazon-iam-access-analyzer-context.jsonld)
-
-### Examples
-
-162 example JSON files generated from schemas.
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [AWS IAM Access Analyzer API](capabilities/shared/iam-access-analyzer.yaml) — 28 operations for access analysis and policy management
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Access Security Management](capabilities/access-security-management.yaml) | IAM Access Analyzer | 9 | Security Engineer, IAM Administrator |
-
-## Vocabulary
-
-- [Amazon IAM Access Analyzer Vocabulary](vocabulary/amazon-iam-access-analyzer-vocabulary.yaml) — Unified taxonomy mapping 7 resources, 11 actions, 1 workflow, and 2 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Amazon IAM Access Analyzer Spectral Rules](rules/amazon-iam-access-analyzer-spectral-rules.yml) — 22 rules across 8 categories enforcing Amazon IAM Access Analyzer API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-iam-access-analyzer/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
