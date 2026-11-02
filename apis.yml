@@ -1,0 +1,329 @@
+aid: amazon-iam-access-analyzer
+name: Amazon IAM Access Analyzer
+description: AWS IAM Access Analyzer helps you set, verify, and refine your IAM policies by providing
+  a suite of capabilities including findings for external, internal, and unused access, basic and custom
+  policy checks for validating policies, and policy generation to generate fine-grained policies. It uses
+  automated reasoning to identify resources shared with external entities and helps implement least privilege
+  access across your AWS environment.
+type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: medium
+  source:
+  - plans
+  - authentication
+  - security
+  generated: '2026-09-03'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-iam-access-analyzer.png
+tags:
+- Access Control
+- Amazon Web Services
+- Compliance
+- Identity and Access Management
+- Policy Management
+- Security
+tags_raw:
+- Access Control
+- AWS
+- Compliance
+- IAM
+- Policy Management
+- Security
+url: https://raw.githubusercontent.com/api-evangelist/amazon-iam-access-analyzer/refs/heads/main/apis.yml
+created: '2026-03-16'
+modified: '2026-09-16'
+specificationVersion: '0.23'
+apis:
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-access-preview-api
+  name: Amazon IAM Access Analyzer Access Preview API
+  description: >-
+    The Access Preview API from Amazon IAM Access Analyzer — 3 operation(s) for access preview.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Access Preview
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-access-preview-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-analyzed-resource-api
+  name: Amazon IAM Access Analyzer Analyzed Resource API
+  description: >-
+    The Analyzed Resource API from Amazon IAM Access Analyzer — 1 operation(s) for analyzed resource.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Analyzed Resource
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-analyzed-resource-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-analyzer-api
+  name: Amazon IAM Access Analyzer API
+  description: The Analyzer API from Amazon IAM Access Analyzer — 4 operation(s) for analyzer.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Analyzer
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-analyzer-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-archive-rule-api
+  name: Amazon IAM Access Analyzer Archive Rule API
+  description: The Archive Rule API from Amazon IAM Access Analyzer — 1 operation(s) for archive rule.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Archive Rule
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-archive-rule-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-finding-api
+  name: Amazon IAM Access Analyzer Finding API
+  description: The Finding API from Amazon IAM Access Analyzer — 2 operation(s) for finding.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Finding
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-finding-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-policy-api
+  name: Amazon IAM Access Analyzer Policy API
+  description: The Policy API from Amazon IAM Access Analyzer — 3 operation(s) for policy.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-policy-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-resource-api
+  name: Amazon IAM Access Analyzer Resource API
+  description: The Resource API from Amazon IAM Access Analyzer — 1 operation(s) for resource.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Resource
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-resource-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-tags-api
+  name: Amazon IAM Access Analyzer Tags API
+  description: The Tags API from Amazon IAM Access Analyzer — 2 operation(s) for tags.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+- aid: amazon-iam-access-analyzer:amazon-iam-access-analyzer-operations-api
+  name: Amazon IAM Access Analyzer Iam Access Analyzer Operations API
+  description: >-
+    The Iam Access Analyzer Operations API from Amazon IAM Access Analyzer — 5 operation(s) for iam access
+    analyzer operations.
+  humanURL: https://aws.amazon.com/iam/features/analyze-access/
+  baseURL: https://access-analyzer.amazonaws.com
+  tags:
+  - Iam Access Analyzer Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-analyzer-operations-api-openapi.yml
+common:
+- type: Plans
+  url: plans/amazon-iam-access-analyzer-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/amazon-iam-access-analyzer-rate-limits.yml
+- type: FinOps
+  url: finops/amazon-iam-access-analyzer-finops.yml
+- type: CapabilityMap
+  url: capabilities/amazon-iam-access-analyzer-capability-edges.yml
+  name: Amazon IAM Access Analyzer Business Capability Map
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-iam-access-analyzer/overview
+- type: AgenticAccess
+  url: agentic-access/amazon-iam-access-analyzer-agentic-access.yml
+- type: TrustCenter
+  url: security/amazon-iam-access-analyzer-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-iam-access-analyzer-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-iam-access-analyzer-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-iam-access-analyzer-authentication.yml
+- type: Portal
+  url: https://aws.amazon.com/iam/features/analyze-access/
+- type: Website
+  url: https://aws.amazon.com/iam/
+- type: Documentation
+  url: https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
+- type: TermsOfService
+  url: https://aws.amazon.com/service-terms/
+- type: PrivacyPolicy
+  url: https://aws.amazon.com/privacy/
+- type: Support
+  url: https://aws.amazon.com/premiumsupport/
+- type: Blog
+  url: https://aws.amazon.com/blogs/security/tag/iam-access-analyzer/
+- type: GitHubOrganization
+  url: https://github.com/aws
+- type: Console
+  url: https://console.aws.amazon.com/access-analyzer/
+- type: Signup
+  url: https://portal.aws.amazon.com/billing/signup
+- type: Login
+  url: https://signin.aws.amazon.com/
+- type: StatusPage
+  url: https://health.aws.amazon.com/health/status
+- type: Contact
+  url: https://aws.amazon.com/contact-us/
+- type: SpectralRules
+  url: rules/amazon-iam-access-analyzer-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-iam-access-analyzer-vocabulary.yaml
+- type: JSONLD
+  url: json-ld/amazon-iam-access-analyzer-context.jsonld
+- type: Features
+  data:
+  - name: External Access Analysis
+    description: Identifies resources shared with external entities outside your AWS organization using
+      automated reasoning.
+  - name: Internal Access Analysis
+    description: Identifies which principals within your organization have access to selected resources.
+  - name: Unused Access Analysis
+    description: Identifies unused IAM roles, access keys, console passwords, and unused service permissions.
+  - name: Policy Validation
+    description: Validates IAM policies against best practices and custom security standards before deployment.
+  - name: Policy Generation
+    description: Generates fine-grained IAM policies based on actual access activity logged in AWS CloudTrail.
+  - name: Access Preview
+    description: Preview public and cross-account access to resources before deploying permission changes.
+  - name: Archive Rules
+    description: Automatically archive findings that match specified criteria to reduce noise.
+- type: UseCases
+  data:
+  - name: Least Privilege Enforcement
+    description: Analyze actual API activity to generate minimal permission policies that implement least
+      privilege access.
+  - name: Security Compliance Auditing
+    description: Continuously monitor for unintended external access to sensitive resources like S3 buckets
+      and IAM roles.
+  - name: CI/CD Policy Validation
+    description: Integrate policy checks into deployment pipelines to catch overpermissive policies before
+      they reach production.
+  - name: Access Governance
+    description: Identify and remediate unused access across IAM users, roles, and service accounts organization-wide.
+  - name: Cross-Account Access Review
+    description: Identify all resources shared across AWS accounts and validate the intent of each cross-account
+      permission.
+- type: Integrations
+  data:
+  - name: AWS CloudTrail
+    description: Uses CloudTrail activity logs to generate least-privilege IAM policies based on actual
+      usage.
+  - name: AWS Security Hub
+    description: Publishes Access Analyzer findings to Security Hub for centralized security monitoring.
+  - name: AWS Organizations
+    description: Analyzes access across all accounts in an AWS Organization for comprehensive governance.
+  - name: AWS Config
+    description: Triggers re-scanning of resources when configuration changes are detected.
+  - name: Amazon EventBridge
+    description: Publishes finding events to EventBridge for automated security workflow responses.
+- type: Integrations
+  url: https://aws.amazon.com/marketplace
+integrations:
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-parent: amazon-web-services
+x-relationship: product
